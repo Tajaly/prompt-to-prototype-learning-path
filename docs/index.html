@@ -190,8 +190,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <section class="guide-section" id="before-you-begin" aria-labelledby="before-you-begin-title" data-spy>
 <h2 id="before-you-begin-title">Before you begin</h2>
 <ul>
-<li>Accept your organization’s GitHub invitation. Complete any required sign-in or single sign-on (SSO) steps.</li>
-<li>Have the GitHub Copilot app installed and signed in with the invited account, with Copilot access enabled by your organization.</li>
+<li>Have the GitHub Copilot app installed and signed in with your personal GitHub account, the one your organization invited. If you have not accepted the invitation yet, look for the invitation email from GitHub and accept it first. Your organization also needs to enable Copilot access for you.</li>
 <li>Have <strong>Git</strong> installed. For this example, also have an organization-approved <strong>Node.js LTS</strong> installation for running the app locally and running tests. Ask the facilitator for setup help; do not install unfamiliar tools just because an agent suggests them.</li>
 <li>Know your organization name, the required repository visibility, and whether its rules allow the first push to a new repository’s <code>main</code> branch.</li>
 <li>Use fictional learning topics only. Do not paste passwords, API keys, customer information, or confidential documents into the exercise.</li>
@@ -616,9 +615,9 @@ Do not commit, push, or publish yet.</code></pre>
 <p class="step-lead">You are uploading source code and documentation, <strong>not deploying a public website</strong>.</p>
 <h3 id="create-the-empty-github-repository" data-spy>Create the empty GitHub repository</h3>
 <ol>
-<li>In your browser, sign in to GitHub with the invited account.</li>
+<li>In your browser, sign in to GitHub with your personal account, the one invited to the organization.</li>
 <li>Open <a href="https://github.com/new" target="_blank" rel="noopener">Create a new repository<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a>.</li>
-<li>In <strong>Owner</strong>, select <strong><span class="ph">YOUR-ORG</span></strong>, not your personal username. If the organization is missing, stop and ask the facilitator about membership, SSO, or permissions.</li>
+<li>In <strong>Owner</strong>, select <strong><span class="ph">YOUR-ORG</span></strong>, not your personal username. If the organization is missing, you may not have accepted its invitation yet: look for the invitation email from GitHub. If it is still missing, stop and ask the facilitator about your membership or permissions.</li>
 <li>Use a unique repository name, such as <code>learning-tracker-<span class="ph">YOUR-USERNAME</span></code>, and add a short description.</li>
 <li>Choose <strong>Private</strong>, unless the facilitator has explicitly specified another organization-approved visibility. Do not choose Public merely to make sharing easier.</li>
 <li>Because you already have local files, leave <strong>Add a README</strong>, <strong>Add .gitignore</strong>, and <strong>Choose a license</strong> unselected. Do not select a template or ask a cloud agent to populate the repository.</li>

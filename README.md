@@ -15,8 +15,7 @@ This guide is for the **standalone GitHub Copilot desktop app**. It is not a gui
 
 ### Before you begin
 
-- Accept your organization's GitHub invitation. Complete any required sign-in or single sign-on (SSO) steps.
-- Have the GitHub Copilot app installed and signed in with the invited account, with Copilot access enabled by your organization.
+- Have the GitHub Copilot app installed and signed in with your personal GitHub account, the one your organization invited. If you have not accepted the invitation yet, look for the invitation email from GitHub and accept it first. Your organization also needs to enable Copilot access for you.
 - Have **Git** installed. For this example, also have an organization-approved **Node.js LTS** installation for running the app locally and running tests. Ask the facilitator for setup help; do not install unfamiliar tools just because an agent suggests them.
 - Know your organization name, the required repository visibility, and whether its rules allow the first push to a new repository's `main` branch.
 - Use fictional learning topics only. Do not paste passwords, API keys, customer information, or confidential documents into the exercise.
@@ -375,9 +374,9 @@ If there are no findings, still record the review scope, checks, and limitations
 
 ### Create the empty GitHub repository
 
-1. In your browser, sign in to GitHub with the invited account.
+1. In your browser, sign in to GitHub with your personal account, the one invited to the organization.
 2. Open [Create a new repository](https://github.com/new).
-3. In **Owner**, select **YOUR-ORG**, not your personal username. If the organization is missing, stop and ask the facilitator about membership, SSO, or permissions.
+3. In **Owner**, select **YOUR-ORG**, not your personal username. If the organization is missing, you may not have accepted its invitation yet: look for the invitation email from GitHub. If it is still missing, stop and ask the facilitator about your membership or permissions.
 4. Use a unique repository name, such as `learning-tracker-YOUR-USERNAME`, and add a short description.
 5. Choose **Private**, unless the facilitator has explicitly specified another organization-approved visibility. Do not choose Public merely to make sharing easier.
 6. Because you already have local files, leave **Add a README**, **Add .gitignore**, and **Choose a license** unselected. Do not select a template or ask a cloud agent to populate the repository.
