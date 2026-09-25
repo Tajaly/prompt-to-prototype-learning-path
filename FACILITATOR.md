@@ -59,3 +59,9 @@ Explain that the session's working copy can differ from the original clone. Keep
 The screenshots are GitHub-published examples, not captures of a learner's machine. Some product-page images retain older labels. The guide's steps follow the current official documentation checked on 23 September 2026.
 
 Before delivering a future workshop, check the **Projects +**, **Local folder or repository**, mode picker, **Changes**, and **Create PR** labels against the app version in use. Keep screenshot credits with the materials. If making your own replacement screenshots, use a clean demonstration account and remove personal, customer, and private-repository information.
+
+## Web version of the guide
+
+The `docs` folder holds a static web version of `README.md` that you can publish with GitHub Pages. It adds copy buttons to the prompts and checkpoints that learners can tick. The ticks are saved only in each learner's browser. The site is not published yet; see [`docs/README.md`](docs/README.md) for how to preview and publish it.
+
+When you change `README.md`, `SOURCES.md`, or a screenshot, update `docs/index.html` and `docs/assets` in the same change so the two versions never disagree.
