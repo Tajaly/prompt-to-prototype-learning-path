@@ -1,0 +1,520 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T15:29:28.730+02:00",
+  "title": "Design System: From idea to your first GitHub project",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Page White",
+        "canonical": "#ffffff",
+        "dark": "#101317",
+        "tonalRamp": [
+          "oklch(15% 0.01 250)",
+          "oklch(25% 0.01 250)",
+          "oklch(35% 0.01 250)",
+          "oklch(48% 0.008 250)",
+          "oklch(62% 0.006 250)",
+          "oklch(76% 0.004 250)",
+          "oklch(88% 0.003 250)",
+          "oklch(100% 0 0)"
+        ]
+      },
+      "bg-subtle": {
+        "role": "neutral",
+        "displayName": "Subtle Canvas",
+        "canonical": "#f7f8fa",
+        "dark": "#14181d",
+        "tonalRamp": [
+          "oklch(18% 0.012 250)",
+          "oklch(28% 0.012 250)",
+          "oklch(39% 0.01 250)",
+          "oklch(52% 0.008 250)",
+          "oklch(65% 0.006 250)",
+          "oklch(78% 0.005 250)",
+          "oklch(90% 0.004 250)",
+          "oklch(98% 0.003 250)"
+        ]
+      },
+      "bg-inset": {
+        "role": "neutral",
+        "displayName": "Inset Canvas",
+        "canonical": "#f1f3f6",
+        "dark": "#1a1f26",
+        "tonalRamp": [
+          "oklch(20% 0.014 250)",
+          "oklch(30% 0.014 250)",
+          "oklch(42% 0.012 250)",
+          "oklch(55% 0.01 250)",
+          "oklch(68% 0.008 250)",
+          "oklch(80% 0.006 250)",
+          "oklch(90% 0.005 250)",
+          "oklch(96% 0.004 250)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Near-Black Ink",
+        "canonical": "#1a1d21",
+        "dark": "#e7e9ec",
+        "tonalRamp": [
+          "oklch(16% 0.018 250)",
+          "oklch(24% 0.016 250)",
+          "oklch(34% 0.014 250)",
+          "oklch(46% 0.012 250)",
+          "oklch(58% 0.01 250)",
+          "oklch(70% 0.008 250)",
+          "oklch(82% 0.006 250)",
+          "oklch(94% 0.004 250)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#454d57",
+        "dark": "#b6bdc7",
+        "tonalRamp": [
+          "oklch(20% 0.02 250)",
+          "oklch(30% 0.018 250)",
+          "oklch(41% 0.016 250)",
+          "oklch(52% 0.014 250)",
+          "oklch(64% 0.012 250)",
+          "oklch(75% 0.01 250)",
+          "oklch(85% 0.008 250)",
+          "oklch(94% 0.005 250)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Tertiary Ink",
+        "canonical": "#5f6874",
+        "dark": "#969ea9",
+        "tonalRamp": [
+          "oklch(22% 0.02 250)",
+          "oklch(32% 0.018 250)",
+          "oklch(44% 0.016 250)",
+          "oklch(56% 0.014 250)",
+          "oklch(67% 0.012 250)",
+          "oklch(78% 0.01 250)",
+          "oklch(87% 0.008 250)",
+          "oklch(95% 0.005 250)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e3e6ea",
+        "dark": "#262c34",
+        "tonalRamp": [
+          "oklch(18% 0.012 250)",
+          "oklch(29% 0.012 250)",
+          "oklch(42% 0.01 250)",
+          "oklch(56% 0.008 250)",
+          "oklch(70% 0.006 250)",
+          "oklch(82% 0.005 250)",
+          "oklch(90% 0.004 250)",
+          "oklch(95% 0.003 250)"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#cdd3da",
+        "dark": "#363d47",
+        "tonalRamp": [
+          "oklch(20% 0.014 250)",
+          "oklch(32% 0.014 250)",
+          "oklch(45% 0.012 250)",
+          "oklch(58% 0.01 250)",
+          "oklch(71% 0.008 250)",
+          "oklch(81% 0.006 250)",
+          "oklch(88% 0.005 250)",
+          "oklch(94% 0.004 250)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Documentation Link Blue",
+        "canonical": "#2257c7",
+        "dark": "#8ab0ff",
+        "tonalRamp": [
+          "oklch(18% 0.08 265)",
+          "oklch(28% 0.11 265)",
+          "oklch(40% 0.15 265)",
+          "oklch(52% 0.18 265)",
+          "oklch(64% 0.16 265)",
+          "oklch(75% 0.12 265)",
+          "oklch(86% 0.07 265)",
+          "oklch(95% 0.03 265)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Documentation Link Blue Hover",
+        "canonical": "#173f94",
+        "dark": "#b1caff",
+        "tonalRamp": [
+          "oklch(16% 0.08 265)",
+          "oklch(25% 0.11 265)",
+          "oklch(36% 0.15 265)",
+          "oklch(48% 0.18 265)",
+          "oklch(60% 0.16 265)",
+          "oklch(73% 0.12 265)",
+          "oklch(86% 0.07 265)",
+          "oklch(96% 0.03 265)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Blue Soft Surface",
+        "canonical": "#edf3fe",
+        "dark": "#15223a",
+        "tonalRamp": [
+          "oklch(18% 0.05 265)",
+          "oklch(28% 0.07 265)",
+          "oklch(40% 0.09 265)",
+          "oklch(54% 0.1 265)",
+          "oklch(68% 0.08 265)",
+          "oklch(80% 0.055 265)",
+          "oklch(90% 0.032 265)",
+          "oklch(97% 0.015 265)"
+        ]
+      },
+      "accent-line": {
+        "role": "primary",
+        "displayName": "Blue Hairline",
+        "canonical": "#c9daf8",
+        "dark": "#2a4470",
+        "tonalRamp": [
+          "oklch(19% 0.055 265)",
+          "oklch(30% 0.075 265)",
+          "oklch(43% 0.095 265)",
+          "oklch(57% 0.1 265)",
+          "oklch(70% 0.08 265)",
+          "oklch(81% 0.055 265)",
+          "oklch(90% 0.035 265)",
+          "oklch(96% 0.018 265)"
+        ]
+      },
+      "done": {
+        "role": "secondary",
+        "displayName": "Checkpoint Green",
+        "canonical": "#1b7a45",
+        "dark": "#5bc992",
+        "tonalRamp": [
+          "oklch(18% 0.06 150)",
+          "oklch(28% 0.08 150)",
+          "oklch(40% 0.11 150)",
+          "oklch(52% 0.13 150)",
+          "oklch(64% 0.12 150)",
+          "oklch(76% 0.09 150)",
+          "oklch(87% 0.055 150)",
+          "oklch(95% 0.025 150)"
+        ]
+      },
+      "done-soft": {
+        "role": "secondary",
+        "displayName": "Green Soft Surface",
+        "canonical": "#edf7f1",
+        "dark": "#11241a",
+        "tonalRamp": [
+          "oklch(17% 0.04 150)",
+          "oklch(27% 0.055 150)",
+          "oklch(39% 0.07 150)",
+          "oklch(53% 0.08 150)",
+          "oklch(67% 0.065 150)",
+          "oklch(80% 0.045 150)",
+          "oklch(90% 0.028 150)",
+          "oklch(97% 0.014 150)"
+        ]
+      },
+      "done-line": {
+        "role": "secondary",
+        "displayName": "Green Hairline",
+        "canonical": "#b9dfc8",
+        "dark": "#245238",
+        "tonalRamp": [
+          "oklch(18% 0.045 150)",
+          "oklch(29% 0.06 150)",
+          "oklch(42% 0.075 150)",
+          "oklch(56% 0.085 150)",
+          "oklch(69% 0.07 150)",
+          "oklch(81% 0.05 150)",
+          "oklch(90% 0.032 150)",
+          "oklch(96% 0.016 150)"
+        ]
+      },
+      "warn-ink": {
+        "role": "tertiary",
+        "displayName": "Warning Ink",
+        "canonical": "#714800",
+        "dark": "#f2d9a2",
+        "tonalRamp": [
+          "oklch(18% 0.055 75)",
+          "oklch(28% 0.075 75)",
+          "oklch(40% 0.095 75)",
+          "oklch(52% 0.11 75)",
+          "oklch(64% 0.095 75)",
+          "oklch(76% 0.07 75)",
+          "oklch(87% 0.045 75)",
+          "oklch(95% 0.025 75)"
+        ]
+      },
+      "warn-soft": {
+        "role": "tertiary",
+        "displayName": "Warning Soft Surface",
+        "canonical": "#fff7e6",
+        "dark": "#231c0e",
+        "tonalRamp": [
+          "oklch(18% 0.04 75)",
+          "oklch(29% 0.055 75)",
+          "oklch(42% 0.07 75)",
+          "oklch(56% 0.08 75)",
+          "oklch(70% 0.065 75)",
+          "oklch(82% 0.045 75)",
+          "oklch(91% 0.028 75)",
+          "oklch(97% 0.014 75)"
+        ]
+      },
+      "warn-line": {
+        "role": "tertiary",
+        "displayName": "Warning Hairline",
+        "canonical": "#f0d7a3",
+        "dark": "#54421d",
+        "tonalRamp": [
+          "oklch(19% 0.045 75)",
+          "oklch(31% 0.06 75)",
+          "oklch(44% 0.075 75)",
+          "oklch(58% 0.085 75)",
+          "oklch(72% 0.07 75)",
+          "oklch(83% 0.05 75)",
+          "oklch(91% 0.032 75)",
+          "oklch(96% 0.016 75)"
+        ]
+      },
+      "ph-bg": {
+        "role": "tertiary",
+        "displayName": "Placeholder Highlight",
+        "canonical": "#fff0c7",
+        "dark": "#3a2d0e",
+        "tonalRamp": [
+          "oklch(19% 0.05 80)",
+          "oklch(30% 0.07 80)",
+          "oklch(43% 0.09 80)",
+          "oklch(57% 0.1 80)",
+          "oklch(71% 0.08 80)",
+          "oklch(83% 0.055 80)",
+          "oklch(92% 0.035 80)",
+          "oklch(97% 0.018 80)"
+        ]
+      },
+      "ph-ink": {
+        "role": "tertiary",
+        "displayName": "Placeholder Ink",
+        "canonical": "#5f3d00",
+        "dark": "#f6dc9c",
+        "tonalRamp": [
+          "oklch(17% 0.055 80)",
+          "oklch(27% 0.075 80)",
+          "oklch(39% 0.095 80)",
+          "oklch(52% 0.11 80)",
+          "oklch(65% 0.095 80)",
+          "oklch(77% 0.07 80)",
+          "oklch(88% 0.045 80)",
+          "oklch(96% 0.025 80)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page title only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Major guide sections and numbered steps."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Subsections inside steps."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Plain-language instructional prose in a 42rem measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation labels, time estimates, metadata, and controls."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Prompts, code, file paths, and exact copied values."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Soft progress, sheet, chevron, marker, and checkmark state transitions."
+      },
+      {
+        "name": "fast-state",
+        "value": "0.15s ease",
+        "purpose": "Copy-button color and border state changes."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration: 0.01ms !important; animation-duration: 0.01ms !important",
+        "purpose": "OS reduced-motion override for all animated states."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sidebar-sheet",
+        "value": "63.99rem"
+      },
+      {
+        "name": "single-glance-column",
+        "value": "40rem"
+      },
+      {
+        "name": "stacked-tables",
+        "value": "36rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Copy Button",
+      "kind": "button",
+      "refersTo": "button-copy",
+      "description": "Compact utility button used in prompt headers to copy exact prompt text.",
+      "html": "<button type=\"button\" class=\"ds-copy-button\"><svg class=\"ds-copy-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"8.5\" y=\"8.5\" width=\"11\" height=\"11\" rx=\"2\"></rect><path d=\"M15.5 8.5V6.5a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2\"></path></svg><span>Copy</span></button>",
+      "css": ".ds-copy-button { display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2.125rem; padding: 0.25rem 0.75rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--ink); font: 600 0.8125rem/1.4 var(--font-sans); cursor: pointer; transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease; } .ds-copy-button:hover { border-color: var(--ink-3); background: var(--bg-subtle); } .ds-copy-button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; } .ds-copy-button.is-copied { border-color: var(--done-line); background: var(--done-soft); color: var(--done); } .ds-copy-icon { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Prompt Panel",
+      "kind": "card",
+      "refersTo": "prompt",
+      "description": "Copy-ready prompt block with a neutral header and monospace body.",
+      "html": "<figure class=\"ds-prompt\"><figcaption class=\"ds-prompt-head\"><span class=\"ds-prompt-title\">First prompt</span><span class=\"ds-prompt-meta\">Plan mode</span><button class=\"ds-copy-button\">Copy</button></figcaption><pre class=\"ds-prompt-body\"><code>You are my software-development coach. I am a beginner.</code></pre></figure>",
+      "css": ".ds-prompt { margin: 0; overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--bg-subtle); color: var(--ink); } .ds-prompt-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.75rem; padding: 0.5rem 0.5rem 0.5rem 1rem; border-bottom: 1px solid var(--line); background: var(--bg-inset); } .ds-prompt-title { font: 600 0.875rem/1.4 var(--font-sans); } .ds-prompt-meta { color: var(--ink-3); font: 400 0.8125rem/1.4 var(--font-sans); } .ds-copy-button { margin-left: auto; padding: 0.25rem 0.75rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--ink); font: 600 0.8125rem/1.4 var(--font-sans); } .ds-copy-button:hover { border-color: var(--ink-3); background: var(--bg-subtle); } .ds-copy-button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; } .ds-prompt-body { margin: 0; padding: 1rem 1.125rem 1.125rem; color: var(--ink); font: 400 0.875rem/1.6 var(--font-mono); white-space: pre-wrap; overflow-wrap: anywhere; tab-size: 2; }"
+    },
+    {
+      "name": "Checkpoint Card",
+      "kind": "card",
+      "refersTo": "checkpoint-done",
+      "description": "Tickable progress card saved in browser localStorage.",
+      "html": "<label class=\"ds-checkpoint\"><span class=\"ds-check-box\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\"></path></svg></span><span><strong>Checkpoint:</strong> The plan exists as a readable file and you agree with it.</span></label>",
+      "css": ".ds-checkpoint { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: 0.875rem; align-items: start; padding: 1rem 1.125rem; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); font: 400 1rem/1.55 var(--font-sans); cursor: pointer; transition: border-color 0.2s ease, background-color 0.35s var(--ease-out); } .ds-checkpoint:hover { border-color: var(--accent); } .ds-checkpoint:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; } .ds-check-box { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border: 2px solid var(--ink-3); border-radius: 6px; background: var(--bg); } .ds-check-box svg { width: 1rem; height: 1rem; fill: none; stroke: transparent; stroke-width: 2.75; stroke-linecap: round; stroke-linejoin: round; } .ds-checkpoint.is-done { border-color: var(--done-line); background: var(--done-soft); } .ds-checkpoint.is-done .ds-check-box { border-color: var(--done); background: var(--done); } .ds-checkpoint.is-done .ds-check-box svg { stroke: var(--on-done); }"
+    },
+    {
+      "name": "Note Callout",
+      "kind": "card",
+      "refersTo": "callout-note",
+      "description": "Instructional aside for helpful context.",
+      "html": "<div class=\"ds-callout\"><svg class=\"ds-callout-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"M12 11v5.5\"></path><path d=\"M12 7.6v.1\"></path></svg><p>This guide is for the standalone GitHub Copilot desktop app.</p></div>",
+      "css": ".ds-callout { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.75rem; align-items: start; padding: 0.875rem 1.125rem; border: 1px solid var(--accent-line); border-radius: var(--radius); background: var(--accent-soft); color: var(--ink); font: 400 1rem/1.55 var(--font-sans); } .ds-callout p { margin: 0; } .ds-callout-icon { width: 1.25rem; height: 1.25rem; margin-top: 0.1875rem; color: var(--accent); fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Warning Callout",
+      "kind": "card",
+      "refersTo": "callout-warning",
+      "description": "Instructional caution block for consequential workshop warnings.",
+      "html": "<div class=\"ds-callout-warning\"><svg class=\"ds-callout-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M10.3 4.4 3 17.2A2 2 0 0 0 4.7 20h14.6a2 2 0 0 0 1.7-2.8L13.7 4.4a2 2 0 0 0-3.4 0z\"></path><path d=\"M12 9.5v4\"></path><path d=\"M12 16.6v.1\"></path></svg><p><strong>Do not approve a full implementation just to save the plan.</strong></p></div>",
+      "css": ".ds-callout-warning { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.75rem; align-items: start; padding: 0.875rem 1.125rem; border: 1px solid var(--warn-line); border-radius: var(--radius); background: var(--warn-soft); color: var(--ink); font: 400 1rem/1.55 var(--font-sans); } .ds-callout-warning p { margin: 0; } .ds-callout-icon { width: 1.25rem; height: 1.25rem; margin-top: 0.1875rem; color: var(--warn-icon); fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Step Navigation Item",
+      "kind": "nav",
+      "refersTo": "nav-step-active",
+      "description": "Sidebar row that shows step number, title, time, active location, and done state.",
+      "html": "<a class=\"ds-nav-link is-active\" href=\"#step-1\"><span class=\"ds-nav-marker\">1</span><span class=\"ds-nav-title\">Meet the app and start a project</span><span class=\"ds-nav-time\">10 min</span></a>",
+      "css": ".ds-nav-link { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) auto; column-gap: 0.625rem; align-items: start; padding: 0.5rem; border-radius: var(--radius-sm); color: var(--ink-2); font: 400 0.9375rem/1.4 var(--font-sans); text-decoration: none; } .ds-nav-link:hover { background: var(--bg-inset); color: var(--ink); } .ds-nav-link.is-active { background: var(--accent-soft); color: var(--ink); font-weight: 600; } .ds-nav-link:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; } .ds-nav-marker { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; margin-top: -0.0625rem; border: 1.5px solid var(--line-strong); border-radius: 50%; background: var(--bg); color: var(--ink-2); font: 600 0.75rem/1 var(--font-sans); font-variant-numeric: tabular-nums; } .ds-nav-link.is-active .ds-nav-marker { border-color: var(--accent); color: var(--accent); } .ds-nav-time { padding-top: 0.125rem; color: var(--ink-3); font: 500 0.75rem/1.4 var(--font-sans); font-variant-numeric: tabular-nums; white-space: nowrap; }"
+    },
+    {
+      "name": "At-a-glance Panel",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Four-item facts panel at the top of the guide.",
+      "html": "<dl class=\"ds-glance\"><div class=\"ds-glance-item\"><dt>Audience</dt><dd>People with little or no software-development experience.</dd></div><div class=\"ds-glance-item\"><dt>Time</dt><dd>About 90–120 minutes.</dd></div></dl>",
+      "css": ".ds-glance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); color: var(--ink); } .ds-glance-item { padding: 1rem 1.125rem 1.0625rem; border-top: 1px solid var(--line); } .ds-glance-item:nth-child(-n + 2) { border-top: 0; } .ds-glance-item:nth-child(even) { border-left: 1px solid var(--line); } .ds-glance dt { margin: 0 0 0.25rem; color: var(--ink-3); font: 600 0.8125rem/1.4 var(--font-sans); } .ds-glance dd { margin: 0; font: 400 0.9375rem/1.5 var(--font-sans); } @media (max-width: 40rem) { .ds-glance { grid-template-columns: minmax(0, 1fr); } .ds-glance-item:nth-child(even) { border-left: 0; } .ds-glance-item:nth-child(2) { border-top: 1px solid var(--line); } }"
+    },
+    {
+      "name": "Workflow Chips",
+      "kind": "chip",
+      "refersTo": "workflow-chip",
+      "description": "Compact sequence chips for the workshop workflow.",
+      "html": "<ol class=\"ds-workflow\"><li><span>Describe</span></li><li><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14\"></path><path d=\"M13.5 6.5 19 12l-5.5 5.5\"></path></svg><span>Plan</span></li></ol>",
+      "css": ".ds-workflow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.375rem; margin: 0; padding: 0; list-style: none; color: var(--ink); } .ds-workflow li { display: inline-flex; align-items: center; gap: 0.375rem; margin: 0; padding: 0; } .ds-workflow span { padding: 0.3125rem 0.75rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--bg); font: 600 0.9375rem/1.35 var(--font-sans); } .ds-workflow svg { width: 1rem; height: 1rem; color: var(--ink-3); fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Workshop Canon",
+    "overview": "This system is a calm documentation room for a live beginner workshop. It behaves like a trusted reference page beside the GitHub Copilot app: one readable column, a persistent step list, copy-ready prompt blocks, and checkpoints that visibly remember progress. The owner deliberately chose the category-standard documentation look over a themed direction, with Stripe Docs, GOV.UK step-by-step guidance, and MDN as the quality bar.\n\nThe visual world is intentionally plain: white page, near-black ink, blue links, green completion, amber cautions and placeholders, system fonts, 1px hairlines, and 12px container corners. It refuses adventure metaphors, quest styling, decorative shadows, and marketing gloss. Light mode is the default use scene for a daytime workshop room; dark mode follows the operating system using the same semantic tokens.",
+    "keyCharacteristics": [
+      "Single-column reading measure with a sticky progress sidebar on wide screens.",
+      "Semantic color discipline: blue means navigation/action, green means done, amber means caution or replace-this placeholder.",
+      "Flat surfaces with 1px borders and tonal background shifts instead of decorative depth.",
+      "System sans everywhere except prompts and code, which use a monospace stack.",
+      "Copy and checkpoint interactions are progressive enhancement, never required to understand the guide."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "Blue is the single navigation and action accent; do not introduce additional accent colors for ordinary emphasis.",
+        "section": "colors"
+      },
+      {
+        "name": "The Green Means Done Rule",
+        "body": "Green appears only when something is complete, copied, or checked off.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber Is Instructional Rule",
+        "body": "Amber is for placeholders and cautions; it must tell the learner to pay attention or replace something.",
+        "section": "colors"
+      },
+      {
+        "name": "The System Stack Rule",
+        "body": "Do not add web fonts; the page makes no external font requests by design.",
+        "section": "typography"
+      },
+      {
+        "name": "The Monospace Means Exact Rule",
+        "body": "Use monospace only for prompts, code, file paths, and values the learner may copy.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Measure Rule",
+        "body": "Reading content, sources, and footer share the same 42rem measure; do not widen prose to fill the viewport.",
+        "section": "layout"
+      },
+      {
+        "name": "The Sidebar Is Progress Rule",
+        "body": "The left rail exists to show steps, time, active position, and checkpoint progress, not secondary marketing or decoration.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Canon Rule",
+        "body": "Do not add drop shadows, glows, or layered cards; a 1px hairline and subtle background shift are the depth language.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the category-standard documentation page: sticky step list, one readable column, copyable prompts, and visible checkpoints.",
+      "Do keep colors semantic: blue for links/actions, green for completion, amber for cautions and placeholders.",
+      "Do use the system font stacks so the GitHub Pages site makes no external font requests.",
+      "Do keep borders at 1px unless the control needs stronger checkbox legibility.",
+      "Do expand or stack complex content at narrow widths instead of allowing horizontal page scroll, except inside table wrappers where horizontal overflow is intentional."
+    ],
+    "donts": [
+      "Don't introduce adventure, quest, trail, expedition, map, badge, or game styling.",
+      "Don't add decorative shadows, gradients, glassmorphism, hero art, marketing gloss, or animated flourish.",
+      "Don't use green for anything that is not complete or copied.",
+      "Don't use amber as brand color; it is only for cautions and placeholders.",
+      "Don't add external fonts, icon packages, analytics, or third-party visual dependencies."
+    ]
+  }
+}

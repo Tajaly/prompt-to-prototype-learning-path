@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From idea to your first GitHub project · A beginner learning path with the GitHub Copilot app</title>
+<meta name="description" content="A beginner learning path with the GitHub Copilot app: describe, plan, document, build, test, review, and push a small Learning Tracker to your GitHub organization.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101317" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="From idea to your first GitHub project">
+<meta property="og:description" content="A beginner learning path with the GitHub Copilot app. About 90–120 minutes, from a written brief to a reviewed project in your GitHub organization.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.className = 'js';</script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<!--
+THESIS: A calm, canonical documentation page for a live workshop: one readable column, a sticky step list that shows progress, and prompts you can copy exactly. It refuses gimmicks, adventure metaphors, and marketing gloss.
+OWN-WORLD: White page, near-black ink, one link blue, green only for done, amber only for placeholders and cautions; system sans, monospace only inside prompts and code; 1px hairlines, 12px radii, no decorative shadows.
+STORY: A beginner sees what they will build, how long it takes, and what done means; follows seven steps; copies each prompt; ticks each checkpoint; returns later and continues where they stopped.
+FIRST VIEWPORT: Slim top bar with the guide name; left sidebar with progress and the seven steps with times; main column with the title, subtitle, a four-item at-a-glance panel, the intro, and the workflow line.
+FORM: Canon (category standard), chosen by the owner over rolled candidate 4; seed c844f2d1; quality bar Stripe Docs, GOV.UK step-by-step, MDN.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6.5a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><path d="M12 7.6v.1"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 4.4 3 17.2A2 2 0 0 0 4.7 20h14.6a2 2 0 0 0 1.7-2.8L13.7 4.4a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4"/><path d="M12 16.6v.1"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10"/><path d="M19.5 4.5 11 13"/><path d="M17.5 13.5v5a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-steps" viewBox="0 0 24 24"><path d="M9 6.5h10.5"/><path d="M9 12h10.5"/><path d="M9 17.5h10.5"/><path d="M4.5 6.5h.1"/><path d="M4.5 12h.1"/><path d="M4.5 17.5h.1"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6.5 9.5 12 15l5.5-5.5"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4.5 9V4.5H9"/><path d="M15 4.5h4.5V9"/><path d="M19.5 15v4.5H15"/><path d="M9 19.5H4.5V15"/></symbol>
+</svg>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+<div class="topbar-inner">
+<a class="brand" href="#overview">
+<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8"/><path d="M9.5 16.5l4.25 4.25L22.5 11"/></svg>
+<span class="brand-name">From idea to your first GitHub project</span>
+</a>
+<a class="topbar-link" href="#sources">Sources and credits</a>
+<button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="sidebar" hidden>
+<svg class="icon nav-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-steps"></use></svg><span class="nav-toggle-label">Steps</span><span class="nav-toggle-count" data-progress-badge>0/7</span>
+</button>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="Guide navigation">
+<div class="sidebar-inner">
+<div class="progress" data-progress>
+<p class="progress-text" data-progress-text><strong data-progress-count>0</strong> of 7 checkpoints done</p>
+<div class="progress-track" aria-hidden="true"><span class="progress-fill" data-progress-fill></span></div>
+<p class="progress-actions">
+<a class="progress-continue" href="#step-1" data-progress-continue hidden>Continue with step 1</a>
+<button type="button" class="text-button" data-progress-reset hidden>Reset progress</button>
+</p>
+<p class="progress-note" data-storage-note hidden>This browser isn’t saving progress, so your ticks will reset when you reload the page.</p>
+<p class="progress-hint" data-progress-hint>Tick the checkpoint at the end of each step. Your ticks are saved only in this browser.</p>
+</div>
+<nav aria-label="Steps in this guide">
+<ul class="nav">
+<li class="nav-item" data-section="overview"><a class="nav-link nav-link--plain" href="#overview"><span class="nav-title">Overview</span></a></li>
+<li class="nav-item" data-section="before-you-begin"><a class="nav-link nav-link--plain" href="#before-you-begin"><span class="nav-title">Before you begin</span></a>
+<ul class="nav-sub">
+<li><a class="nav-sublink" href="#five-words-you-will-use">Five words you will use</a></li>
+</ul>
+</li>
+<li class="nav-item nav-step" data-step="step-1">
+<a class="nav-link" href="#step-1">
+<span class="nav-marker" aria-hidden="true"><span class="nav-num">1</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="nav-title"><span class="visually-hidden">Step 1: </span>Meet the app and start a project<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-time">10 min</span>
+</a>
+<ul class="nav-sub">
+<li><a class="nav-sublink" href="#start-with-an-empty-local-folder">Start with an empty local folder</a></li>
+</ul>
+</li>
+<li class="nav-item nav-step" data-step="step-2">
+<a class="nav-link" href="#step-2">
+<span class="nav-marker" aria-hidden="true"><span class="nav-num">2</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="nav-title"><span class="visually-hidden">Step 2: </span>Write the whole brief<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-time">15 min</span>
+</a>
+<ul class="nav-sub">
+<li><a class="nav-sublink" href="#prepare-your-brief">Prepare your brief</a></li>
+<li><a class="nav-sublink" href="#copy-ready-first-prompt">Copy-ready first prompt</a></li>
+<li><a class="nav-sublink" href="#now-use-plan-mode">Now use Plan mode</a></li>
+</ul>
+</li>
+<li class="nav-item nav-step" data-step="step-3">
+<a class="nav-link" href="#step-3">
+<span class="nav-marker" aria-hidden="true"><span class="nav-num">3</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="nav-title"><span class="visually-hidden">Step 3: </span>Turn the plan into documentation<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-time">10–15 min</span>
+</a>
+<ul class="nav-sub">
+<li><a class="nav-sublink" href="#why-user-stories-and-documentation-matter">Why user stories and documentation matter</a></li>
+<li><a class="nav-sublink" href="#save-the-plan-before-building">Save the plan before building</a></li>
+</ul>
+</li>
+<li class="nav-item nav-step" data-step="step-4">
+<a class="nav-link" href="#step-4">
+<span class="nav-marker" aria-hidden="true"><span class="nav-num">4</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="nav-title"><span class="visually-hidden">Step 4: </span>Implement one step at a time<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-time">25–30 min</span>
+</a>
+</li>
+<li class="nav-item nav-step" data-step="step-5">
+<a class="nav-link" href="#step-5">
+<span class="nav-marker" aria-hidden="true"><span class="nav-num">5</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="nav-title"><span class="visually-hidden">Step 5: </span>Review the code<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-time">15–20 min</span>
+</a>
+<ul class="nav-sub">
+<li><a class="nav-sublink" href="#copy-ready-review-prompt">Copy-ready review prompt</a></li>
+</ul>
+</li>
+<li class="nav-item nav-step" data-step="step-6">
+<a class="nav-link" href="#step-6">
+<span class="nav-marker" aria-hidden="true"><span class="nav-num">6</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="nav-title"><span class="visually-hidden">Step 6: </span>Publish to your organization<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-time">10–15 min</span>
+</a>
+<ul class="nav-sub">
+<li><a class="nav-sublink" href="#create-the-empty-github-repository">Create the empty GitHub repository</a></li>
+<li><a class="nav-sublink" href="#ask-copilot-to-prepare-the-upload-without-uploading-yet">Ask Copilot to prepare the upload, without uploading yet</a></li>
+<li><a class="nav-sublink" href="#approve-the-exact-destination-and-push">Approve the exact destination and push</a></li>
+<li><a class="nav-sublink" href="#confirm-it-really-arrived">Confirm it really arrived</a></li>
+</ul>
+</li>
+<li class="nav-item nav-step" data-step="step-7">
+<a class="nav-link" href="#step-7">
+<span class="nav-marker" aria-hidden="true"><span class="nav-num">7</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="nav-title"><span class="visually-hidden">Step 7: </span>Show what you learned<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+</a>
+</li>
+<li class="nav-item" data-section="sources"><a class="nav-link nav-link--plain" href="#sources"><span class="nav-title">Sources and credits</span></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main class="content" id="main" tabindex="-1">
+<article class="guide">
+<header class="guide-header" id="overview" data-spy>
+<h1>From idea to your first GitHub project</h1>
+<p class="subtitle">A beginner learning path with the GitHub Copilot app</p>
+<dl class="glance">
+<div class="glance-item">
+<dt>Audience</dt>
+<dd>People with little or no software-development experience.</dd>
+</div>
+<div class="glance-item">
+<dt>Time</dt>
+<dd>About 90–120 minutes, after account and software setup.</dd>
+</div>
+<div class="glance-item">
+<dt>Your project</dt>
+<dd>A small <strong>Learning Tracker</strong> that remembers what you want to learn.</dd>
+</div>
+<div class="glance-item">
+<dt>Your finish line</dt>
+<dd>A working, documented, reviewed project in your GitHub organization.</dd>
+</div>
+</dl>
+<p class="intro">You do not need to memorize programming syntax. Your job is to explain the goal, make decisions, check the result, and decide what gets shared. Copilot helps you write the code; you remain responsible for the outcome.</p>
+<div class="workflow">
+<p class="workflow-label" id="workflow-label"><strong>The workflow:</strong></p>
+<ol class="workflow-steps" aria-labelledby="workflow-label">
+<li><span>Describe</span></li>
+<li><svg class="icon workflow-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg><span>Plan</span></li>
+<li><svg class="icon workflow-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg><span>Document</span></li>
+<li><svg class="icon workflow-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg><span>Build</span></li>
+<li><svg class="icon workflow-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg><span>Test</span></li>
+<li><svg class="icon workflow-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg><span>Review</span></li>
+<li><svg class="icon workflow-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg><span>Push</span></li>
+</ol>
+</div>
+<div class="callout callout--note">
+<svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+<p>This guide is for the <strong>standalone GitHub Copilot desktop app</strong>. It is not a guide to Microsoft 365 Copilot, GitHub Desktop, or the Copilot extension in Visual Studio Code.</p>
+</div>
+</header>
+<section class="guide-section" id="before-you-begin" aria-labelledby="before-you-begin-title" data-spy>
+<h2 id="before-you-begin-title">Before you begin</h2>
+<ul>
+<li>Accept your organization’s GitHub invitation. Complete any required sign-in or single sign-on (SSO) steps.</li>
+<li>Have the GitHub Copilot app installed and signed in with the invited account, with Copilot access enabled by your organization.</li>
+<li>Have <strong>Git</strong> installed. For this example, also have an organization-approved <strong>Node.js LTS</strong> installation for running the app locally and running tests. Ask the facilitator for setup help; do not install unfamiliar tools just because an agent suggests them.</li>
+<li>Know your organization name, the required repository visibility, and whether its rules allow the first push to a new repository’s <code>main</code> branch.</li>
+<li>Use fictional learning topics only. Do not paste passwords, API keys, customer information, or confidential documents into the exercise.</li>
+</ul>
+<div class="callout callout--note">
+<svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+<p>Replace <code><span class="ph">YOUR-ORG</span></code> and <code><span class="ph">YOUR-USERNAME</span></code> when they appear below. Organization membership and Copilot access are separate: accepting an invitation does not necessarily enable Copilot.</p>
+</div>
+<h3 id="five-words-you-will-use" data-spy>Five words you will use</h3>
+<div class="table-wrap">
+<table class="data-table" role="table">
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">Word</th><th scope="col" role="columnheader">Plain-language meaning</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader">Project / repository</th><td role="cell" data-label="Plain-language meaning">Your project is a folder of files. A Git repository also records their change history. A copy on GitHub lets others collaborate.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Session</th><td role="cell" data-label="Plain-language meaning">One conversation and working context with Copilot for a task.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Commit</th><td role="cell" data-label="Plain-language meaning">A named snapshot of selected changes, initially saved locally.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Push</th><td role="cell" data-label="Plain-language meaning">Uploading local commits to a repository on GitHub. Saving a file or making a commit does not push it.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Branch / pull request</th><td role="cell" data-label="Plain-language meaning">A branch keeps a line of work separate. A pull request, or PR, asks people to review and merge that work.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="guide-section step" id="step-1" aria-labelledby="step-1-title" data-spy>
+<h2 id="step-1-title"><span class="step-num" aria-hidden="true">1</span><span class="visually-hidden">Step 1: </span>Meet the app and start a project</h2>
+<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10 minutes</p>
+<p class="step-lead">Learn these controls; ignore advanced customization and automation for now.</p>
+<figure class="screenshot screenshot--portrait">
+<img src="assets/01-app-sidebar.png" alt="GitHub's published Copilot app screenshot showing navigation and project sessions." width="1146" height="1284" loading="lazy" decoding="async">
+<figcaption>Screenshot 1: GitHub’s published app navigation example. It uses older labels, including <strong>Sessions</strong> and <strong>Quick chats</strong>. Current documentation calls these areas <strong>Projects</strong> and <strong>Chats</strong>. Screenshots in this guide are published macOS examples; Windows controls and newer versions can look different. Follow the current labels in the instructions. <a href="#sources">Image sources</a>. <a class="screenshot-open" href="assets/01-app-sidebar.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+</figure>
+<div class="table-wrap">
+<table class="data-table" role="table">
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">Area</th><th scope="col" role="columnheader">What you need it for today</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><strong>Projects</strong> in the sidebar</th><td role="cell" data-label="What you need it for today">Connect your project folder and return to its session.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Prompt box</th><td role="cell" data-label="What you need it for today">Tell Copilot what you want. Read its questions and answers here.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Mode dropdown below the prompt</th><td role="cell" data-label="What you need it for today">Choose <strong>Plan</strong> before building, then <strong>Interactive</strong> for controlled implementation.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><strong>Changes</strong> above the prompt</th><td role="cell" data-label="What you need it for today">Inspect which files and lines changed.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Browser / terminal canvas</th><td role="cell" data-label="What you need it for today">See the running app or commands. You can ask Copilot to open these for you.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><strong>My work</strong></th><td role="cell" data-label="What you need it for today">Find GitHub issues and pull requests later.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="start-with-an-empty-local-folder" data-spy>Start with an empty local folder</h3>
+<ol>
+<li>In your computer’s file manager, create a folder named <code>learning-tracker-<span class="ph">YOUR-USERNAME</span></code>. On Windows, a suitable location is <code>C:\Users\<span class="ph">YOUR-NAME</span>\Projects\learning-tracker-<span class="ph">YOUR-USERNAME</span></code>. Do not select your whole home folder, Downloads folder, or a folder containing unrelated work.</li>
+<li>In the app sidebar, click <strong>+</strong> next to <strong>Projects</strong>.</li>
+<li>Under <strong>Add project from</strong>, choose <strong>Local folder or repository</strong>, then select your new folder.</li>
+<li>Under <strong>Projects</strong>, find the connected folder and click <strong>+</strong> next to it to start a session.</li>
+<li>Stay in that project and session throughout this first exercise. For a plain folder, work in that folder. If a repository location picker appears, choose <strong>Local repository</strong> for this one-person lab, not a cloud session or a separate worktree.</li>
+<li>Leave the model on <strong>Auto</strong>, or the model your facilitator recommends. Select <strong>Plan</strong> in the mode dropdown. Do not send a request to build yet.</li>
+</ol>
+<figure class="screenshot">
+<img src="assets/02-session-location.png" alt="GitHub's screenshot of the session location menu, with New worktree and Local repository choices." width="1143" height="524" loading="lazy" decoding="async">
+<figcaption>Screenshot 2: The location picker for an existing Git repository. The screenshot selects <strong>New worktree</strong>, which creates a separate working copy; this introductory exercise uses <strong>Local repository</strong> instead when the picker is available. An empty, non-Git folder may not show this menu. <a class="screenshot-open" href="assets/02-session-location.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+</figure>
+<div class="callout callout--note">
+<svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+<p><strong>Why start locally?</strong> You can experiment before sharing anything. Connecting a local folder does <strong>not</strong> create a repository in the organization or upload your files. We will do that after review.</p>
+</div>
+<div class="checkpoint">
+<input type="checkbox" class="checkpoint-input" id="checkpoint-step-1" data-checkpoint="step-1">
+<label class="checkpoint-label" for="checkpoint-step-1">
+<span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="checkpoint-text"><strong>Checkpoint:</strong> You can identify the selected project, its folder, and the <strong>Plan</strong> mode control.</span>
+</label>
+</div>
+</section>
+<section class="guide-section step" id="step-2" aria-labelledby="step-2-title" data-spy>
+<h2 id="step-2-title"><span class="step-num" aria-hidden="true">2</span><span class="visually-hidden">Step 2: </span>Write the whole brief before sending the Plan-mode prompt</h2>
+<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 15 minutes</p>
+<p class="step-lead">Plan mode is a conversation about the work, not a magic “make it correct” button.</p>
+<div class="table-wrap">
+<table class="data-table" role="table">
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">Mode</th><th scope="col" role="columnheader">How to use it in this learning path</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><strong>Plan</strong></th><td role="cell" data-label="How to use it in this learning path">Clarify requirements and propose an approach. Review before approving implementation.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><strong>Interactive</strong></th><td role="cell" data-label="How to use it in this learning path">Build in small, agreed steps and respond to questions and permission requests.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><strong>Autopilot</strong></th><td role="cell" data-label="How to use it in this learning path">More autonomous execution. Skip it for this first exercise.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Interactive mode is not a promise to ask before every line of code. Keep normal permission prompts and organization controls enabled. Do not enable blanket tool auto-approval.</p>
+<h3 id="prepare-your-brief" data-spy>Prepare your brief</h3>
+<p>Write your first prompt in a note before sending it. Use this checklist to remove avoidable ambiguity:</p>
+<div class="table-wrap">
+<table class="data-table table-labels" role="table">
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">Consider</th><th scope="col" role="columnheader">Write down</th><th scope="col" role="columnheader">Learning Tracker example</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader">Problem and outcome</th><td role="cell" data-label="Write down">What problem are we solving?</td><td role="cell" data-label="Learning Tracker example">I forget what I want to learn and what I have finished.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">User</th><td role="cell" data-label="Write down">Who will use it?</td><td role="cell" data-label="Learning Tracker example">One beginner using their own browser.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Main journey</th><td role="cell" data-label="Write down">What will the user actually do?</td><td role="cell" data-label="Learning Tracker example">Add a topic, mark it done, filter the list, return later.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">First-version scope</th><td role="cell" data-label="Write down">What must work? What is excluded?</td><td role="cell" data-label="Learning Tracker example">Four small features; no accounts, sharing, notifications, or deployment.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Data</th><td role="cell" data-label="Write down">What is stored, where, and how sensitive is it?</td><td role="cell" data-label="Learning Tracker example">Fictional topic titles and completion states, in this browser only.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Constraints</th><td role="cell" data-label="Write down">Devices, technology, budget, installation limits?</td><td role="cell" data-label="Learning Tracker example">Simple web page; no paid services or new packages without approval.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Success</th><td role="cell" data-label="Write down">What could another person check?</td><td role="cell" data-label="Learning Tracker example">A topic remains after refresh; empty input is rejected.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Unknowns</th><td role="cell" data-label="Write down">What should Copilot ask rather than assume?</td><td role="cell" data-label="Learning Tracker example">Duplicate titles, ordering, and what happens if saving fails.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Avoid “Build a nice app that works.” Prefer observable outcomes. “Nice,” “simple,” and “user-friendly” are useful intentions, but they are not testable requirements on their own.</p>
+<h3 id="copy-ready-first-prompt" data-spy>Copy-ready first prompt</h3>
+<p>For the guided exercise, use the complete prompt below. For your own idea, rewrite the goal, journey, scope, data, and success conditions <strong>before</strong> you send it.</p>
+<figure class="prompt" data-prompt data-collapsible>
+<figcaption class="prompt-head">
+<span class="prompt-title">First prompt</span>
+<span class="prompt-meta">Plan mode</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: First prompt" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-1"><code>You are my software-development coach. I am a beginner.
+Help me plan a small application in plain language.
+
+MODE AND BOUNDARIES
+We are planning, not implementing.
+You may inspect the selected project and check relevant installed tools.
+Do not write application code, install packages, create cloud resources,
+commit, push, or publish anything. Do not inspect unrelated folders.
+
+GOAL AND USER
+I want a Learning Tracker for one person who wants to remember what to
+learn next and what they have completed.
+Success means I can capture a topic, change its completion state,
+find unfinished topics, and return after a browser refresh without
+losing my list.
+
+MAIN USER JOURNEY
+Open the page -&gt; enter a topic -&gt; add it to the list -&gt; mark it done
+or reopen it -&gt; filter the list -&gt; refresh and continue later.
+
+FIRST-VERSION SCOPE
+1. Add a topic with a title of 1-80 characters after trimming whitespace.
+   Reject empty, whitespace-only, and overlong titles with a clear message.
+2. Mark an individual topic as done and change it back to "to learn".
+3. Remember topics and completion states in the same browser after refresh.
+4. Filter between All, To learn, and Done, including a helpful empty state.
+
+OUT OF SCOPE
+No accounts, team sharing, editing or deleting topics, due dates,
+notifications, AI features inside the app, external APIs, databases,
+paid services, or internet deployment.
+
+DATA AND TECHNICAL CONSTRAINTS
+Use fictional topic titles only; no personal or confidential information.
+Use plain HTML, CSS, and JavaScript for the browser app.
+Node.js LTS is the workshop's approved local runtime; use it only for
+local serving and tests. Prefer its built-in capabilities over packages.
+Propose npm start for local preview and npm test for automated tests.
+The preview server must listen only on the local machine.
+Confirm the relevant tools are available before relying on them.
+Explain any additional tool or dependency and ask before adding it.
+Explain what browser-local storage does and does not protect or preserve.
+
+QUALITY AND SUCCESS
+The app must work with a keyboard and at a 375-pixel-wide viewport.
+User-entered text must be displayed as text, not interpreted as HTML.
+Test normal use, invalid input, refreshing, and empty filter results.
+Include a visible, honest response if browser storage cannot be used.
+Keep the code and documentation understandable to a beginner.
+
+ASK ME; DO NOT SILENTLY DECIDE
+Before finalizing the plan, ask about missing or ambiguous requirements.
+Ask one focused question at a time and WAIT for my answer.
+Give 2-3 clear options, a recommendation, and a short explanation.
+In particular, ask about duplicate topic titles, list ordering,
+and the expected behavior when browser storage fails.
+Do not silently choose consequential behavior, change scope, add
+services, or invent my preferences. Record unresolved items as open
+questions, not as approved assumptions.
+If I do not know, explain the trade-off and help me choose.
+
+PLAN OUTPUT
+After we resolve the important questions, show the proposed plan as
+Markdown in this conversation. Include:
+- Goal, intended user, and success conditions.
+- In scope and out of scope.
+- User stories with IDs such as US-01, written as:
+  "As a [user], I want [capability], so that [benefit]."
+- Testable acceptance criteria for each story using Given/When/Then.
+- Agreed decisions, reasons, assumptions, and remaining open questions.
+- Simple technical approach and proposed file structure.
+- Small implementation steps, one user story at a time.
+- Automated and manual checks tied to the acceptance criteria.
+- Risks, limitations, and a definition of done.
+
+Do not implement or mark the plan approved.
+Ask me to review it and wait for explicit approval.
+Start with your first clarification question.</code></pre>
+<button type="button" class="prompt-toggle" data-prompt-toggle aria-expanded="true" aria-controls="prompt-1" data-lines="78" hidden><svg class="icon prompt-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-chevron"></use></svg><span data-toggle-label>Show less</span></button>
+</figure>
+<h3 id="now-use-plan-mode" data-spy>Now use Plan mode</h3>
+<ol>
+<li>Confirm the correct project and <strong>Plan</strong> in the mode dropdown.</li>
+<li>Paste the complete prompt and send it.</li>
+<li>Answer the questions. Ask for a simpler explanation if an option is unfamiliar.</li>
+<li>Read the proposed plan. Check that it matches your goal, stays small, and contains no unexplained technology or invented decisions.</li>
+<li>Ask for revisions before approving. A useful response is: “Keep accounts out of scope. Replace ‘easy to use’ with a keyboard test. Ask me about the unresolved storage behavior.”</li>
+</ol>
+<p>If Copilot starts guessing, say:</p>
+<figure class="prompt" data-prompt>
+<figcaption class="prompt-head">
+<span class="prompt-title">If Copilot starts guessing</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: If Copilot starts guessing" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-2"><code>Pause. That decision was not agreed.
+Explain the options in plain language, ask me to choose, and wait.
+Update the plan after my answer. Do not implement yet.</code></pre>
+</figure>
+<div class="checkpoint">
+<input type="checkbox" class="checkpoint-input" id="checkpoint-step-2" data-checkpoint="step-2">
+<label class="checkpoint-label" for="checkpoint-step-2">
+<span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="checkpoint-text"><strong>Checkpoint:</strong> You can explain what will be built, what will not, how you will check it, and which decisions you made.</span>
+</label>
+</div>
+</section>
+<section class="guide-section step" id="step-3" aria-labelledby="step-3-title" data-spy>
+<h2 id="step-3-title"><span class="step-num" aria-hidden="true">3</span><span class="visually-hidden">Step 3: </span>Turn the agreed plan into project documentation</h2>
+<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10–15 minutes</p>
+<p class="step-lead">A chat is a working conversation. The repository should hold the durable agreement.</p>
+<h3 id="why-user-stories-and-documentation-matter" data-spy>Why user stories and documentation matter</h3>
+<p>A <strong>user story</strong> describes value to a person, rather than just a technical task.</p>
+<blockquote class="example">
+<p>As a learner, I want my topics to remain after a refresh, so that I can continue learning later.</p>
+</blockquote>
+<p>An <strong>acceptance criterion</strong> makes that story checkable:</p>
+<blockquote class="example">
+<p>Given I have added “Learn GitHub” and marked it done, when I refresh the same local address in the same browser, then the topic and its completed state remain.</p>
+</blockquote>
+<p>“Use browser storage” is an implementation choice, not the user benefit. “Make saving reliable” is too vague to tell whether the story is finished.</p>
+<p>Clear documentation helps another person understand the project, helps you resume next week, gives Copilot reusable context, and prevents reviews from turning into arguments about what was meant. <strong>Update the documentation when an agreed requirement changes; do not quietly change the goal to match unfinished code.</strong></p>
+<div class="table-wrap">
+<table class="data-table" role="table">
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">File in your project</th><th scope="col" role="columnheader">Purpose</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><code>README.md</code></th><td role="cell" data-label="Purpose">What the app does, how to start and test it, and its limitations.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><code>docs\PLAN.md</code></th><td role="cell" data-label="Purpose">The agreed goal, scope, user stories, acceptance criteria, decisions, and implementation sequence.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><code>docs\TEST-RESULTS.md</code></th><td role="cell" data-label="Purpose">What was actually checked, the results, and what remains untested.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><code>docs\REVIEW.md</code></th><td role="cell" data-label="Purpose">Review findings and what was fixed or deliberately deferred.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Here, <code>docs\PLAN.md</code> means a file named <code>PLAN.md</code> inside the <code>docs</code> folder. These examples use Windows-style paths; on macOS or Linux, ask Copilot to use the equivalent paths for your operating system.</p>
+<p>Markdown is plain text with lightweight formatting: <code>#</code> creates a heading, <code>-</code> creates a bullet, and <code>- [ ]</code> creates a checkbox. GitHub renders <code>.md</code> files into readable pages.</p>
+<h3 id="save-the-plan-before-building" data-spy>Save the plan before building</h3>
+<p>First ask for the final Markdown in the conversation. Then switch to <strong>Interactive</strong> and send the documentation-only request below.</p>
+<div class="callout callout--warning">
+<svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>
+<p><strong>Do not approve a full implementation just to save the plan.</strong> If the app is waiting on a plan-approval card, ask Copilot to make documentation-only the next step before approving it. An app-internal plan or a chat message is not a substitute for the file in your project.</p>
+</div>
+<figure class="prompt" data-prompt>
+<figcaption class="prompt-head">
+<span class="prompt-title">Documentation-only request</span>
+<span class="prompt-meta">Interactive mode</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Documentation-only request" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-3"><code>I approve creating the documentation only, not application code.
+
+Save our agreed plan as docs\PLAN.md in this project.
+Include the user stories, acceptance criteria, decisions and reasons,
+test strategy, and definition of done. Preserve any unresolved questions.
+Do not label unresolved decisions as approved.
+
+Create a short README.md with the app's purpose, scope, and a link
+to the plan. If the app cannot run yet, say that explicitly;
+do not invent working setup or test commands.
+
+Show me the actual file paths and open the Markdown for me to read.
+Stop after these documentation changes.
+Do not install, implement, commit, or push anything.</code></pre>
+</figure>
+<p>Use the <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/templates/PLAN-TEMPLATE.md">reusable plan template</a> to check the structure. The <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/examples/PLAN-learning-tracker.md">worked Learning Tracker plan</a> shows how specific a good plan can be. Its decisions are <strong>examples</strong>, not answers Copilot may assume on your behalf.</p>
+<p>Read the saved files. Correct them if necessary. In a future session, explicitly ask Copilot to read <code>README.md</code> and <code>docs\PLAN.md</code>, or attach them with <code>@</code>; do not assume every project document is automatically included.</p>
+<div class="checkpoint">
+<input type="checkbox" class="checkpoint-input" id="checkpoint-step-3" data-checkpoint="step-3">
+<label class="checkpoint-label" for="checkpoint-step-3">
+<span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="checkpoint-text"><strong>Checkpoint:</strong> The plan exists as a readable <code>.md</code> file in your project, and you agree with its stories and acceptance criteria.</span>
+</label>
+</div>
+</section>
+<section class="guide-section step" id="step-4" aria-labelledby="step-4-title" data-spy>
+<h2 id="step-4-title"><span class="step-num" aria-hidden="true">4</span><span class="visually-hidden">Step 4: </span>Implement one small, approved step at a time</h2>
+<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 25–30 minutes</p>
+<p class="step-lead">Stay in <strong>Interactive</strong> mode.</p>
+<figure class="prompt" data-prompt>
+<figcaption class="prompt-head">
+<span class="prompt-title">Implement the setup and US-01</span>
+<span class="prompt-meta">Interactive mode</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Implement the setup and US-01" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-4"><code>Read README.md and docs\PLAN.md.
+Check for unresolved decisions that block implementation; ask me first
+if you find any.
+
+I approve the agreed minimal project setup and US-01 only.
+Implement that story and its acceptance criteria, with focused tests.
+Use the approved tools and do not introduce new dependencies without
+explaining why and getting my approval.
+
+Explain the files you change in beginner-friendly language.
+Start the local preview and give me its exact local URL.
+Explain how to stop it. Keep it accessible only on this machine.
+Run the applicable checks and report the actual commands and results.
+Tell me explicitly if something could not be checked.
+
+Update README.md with the verified start and test instructions.
+Create or update docs\TEST-RESULTS.md with the checks and outcomes.
+Do not mark a story complete just because code was generated.
+Stop for my feedback before starting the next story.
+Do not commit, push, deploy, or add extra features.</code></pre>
+</figure>
+<p>Open the preview yourself. Add a topic. Try an empty title. Check that the behavior matches the plan.</p>
+<p>If it does not, report the <strong>steps, expected result, and actual result</strong>:</p>
+<figure class="prompt" data-prompt>
+<figcaption class="prompt-head">
+<span class="prompt-title">Example problem report</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Example problem report" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-5"><code>For US-01, I entered only spaces and selected Add.
+Expected: a clear validation message and no new topic.
+Actual: an empty row appeared.
+Please fix this within the agreed scope and add a regression test.
+Explain the change and rerun the relevant checks.</code></pre>
+</figure>
+<p>Once satisfied, approve the next story by ID. Repeat for US-02, US-03, and US-04. A change of direction goes back into the plan before it becomes code.</p>
+<p><strong>Do the final acceptance checks yourself as well:</strong></p>
+<ul>
+<li>Add a normal title; reject empty, whitespace-only, and overlong titles.</li>
+<li>Mark a topic done, then reopen it.</li>
+<li>Refresh the <strong>same local URL</strong>, including the port, and check the saved state.</li>
+<li>Try every filter, including one with no matching topics.</li>
+<li>Complete the main journey using only the keyboard; check a narrow, phone-sized preview.</li>
+</ul>
+<p>Ask Copilot to help reproduce less familiar cases, such as unavailable browser storage. Record checks not performed as <strong>Not run</strong>, never as passing.</p>
+<div class="checkpoint">
+<input type="checkbox" class="checkpoint-input" id="checkpoint-step-4" data-checkpoint="step-4">
+<label class="checkpoint-label" for="checkpoint-step-4">
+<span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="checkpoint-text"><strong>Checkpoint:</strong> All agreed stories behave as specified; the README contains working instructions; test results are recorded honestly.</span>
+</label>
+</div>
+</section>
+<section class="guide-section step" id="step-5" aria-labelledby="step-5-title" data-spy>
+<h2 id="step-5-title"><span class="step-num" aria-hidden="true">5</span><span class="visually-hidden">Step 5: </span>Ask Copilot to review the code, then address the findings</h2>
+<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 15–20 minutes</p>
+<p class="step-lead">Implementation is not the final quality check. Review is a separate pass to look for mistakes, missing requirements, and avoidable complexity.</p>
+<figure class="screenshot screenshot--tall">
+<img src="assets/03-code-changes.png" alt="GitHub's screenshot of the Changes view, showing changed files and added and removed lines." width="1098" height="948" loading="lazy" decoding="async">
+<figcaption>Screenshot 3: <strong>Changes</strong> shows a diff. Green or <code>+</code> lines are additions; red or <code>-</code> lines are removals. This is an example project, not the Learning Tracker. You do not need to understand every line immediately: ask Copilot to explain the purpose of each changed file. <a class="screenshot-open" href="assets/03-code-changes.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+</figure>
+<p>Open <strong>Changes</strong> above the prompt box. If a plain folder does not yet provide a Git diff, ask Copilot to list and review the project files directly. Do not assume “no diff” means “nothing to review.”</p>
+<h3 id="copy-ready-review-prompt" data-spy>Copy-ready review prompt</h3>
+<figure class="prompt" data-prompt>
+<figcaption class="prompt-head">
+<span class="prompt-title">Review-only pass</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Review-only pass" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-6"><code>Perform a review-only pass of this Learning Tracker.
+Do not change application files or fix findings yet.
+
+Read README.md, docs\PLAN.md, and the current implementation and tests.
+Review the whole small project, including new or untracked files,
+not only an existing Git diff.
+
+Check:
+- Every user story and acceptance criterion, including edge cases.
+- Input validation, safe display of entered text, and storage failures.
+- Keyboard use, labels, focus visibility, and the narrow-screen layout.
+- Missing or misleading tests.
+- Unnecessary complexity, dependencies, or features outside the plan.
+- Accidentally included secrets, private data, or generated files.
+- Whether the documentation matches the actual application.
+
+Run the existing relevant, non-destructive checks where possible.
+Report findings with an ID, priority, file and line when applicable,
+what can go wrong, how to reproduce it, and the smallest suggested fix.
+Do not print secret values if you find one.
+
+Map each acceptance criterion to evidence or mark it unverified.
+Separate confirmed problems from suggestions and uncertainty.
+State exactly what you did not inspect or test.
+Explain the results for a beginner and wait for my decision.</code></pre>
+</figure>
+<p>The app also supports <strong><code>/review</code></strong> for an active session’s changes. The full prompt above is useful for a first project because it explicitly includes new files and checks the agreed plan, not just the diff.</p>
+<p>Decide which findings to fix. For example, after replacing the IDs with the real ones:</p>
+<figure class="prompt" data-prompt>
+<figcaption class="prompt-head">
+<span class="prompt-title">Example: fix selected findings</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Example: fix selected findings" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-7"><code>Fix findings R1 and R2 only, staying within the approved plan.
+Add or update focused tests, rerun the affected checks, and review
+the fixes again. Report any remaining uncertainty.
+
+Save the findings and their final status in docs\REVIEW.md.
+Update docs\TEST-RESULTS.md with the actual results.
+Record deferred findings and the reason; do not hide them.
+Do not commit, push, or publish yet.</code></pre>
+</figure>
+<p>If there are no findings, still record the review scope, checks, and limitations. AI review is useful feedback, not proof that the app is safe or correct. Have a peer or facilitator inspect the result if you are unsure what a finding means. Fix exposed credentials before publishing; removing a secret from the latest file is not sufficient if it is already in Git history.</p>
+<div class="checkpoint">
+<input type="checkbox" class="checkpoint-input" id="checkpoint-step-5" data-checkpoint="step-5">
+<label class="checkpoint-label" for="checkpoint-step-5">
+<span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="checkpoint-text"><strong>Checkpoint:</strong> Review is recorded, blocking findings are fixed and rechecked, and you know any remaining limitations.</span>
+</label>
+</div>
+</section>
+<section class="guide-section step" id="step-6" aria-labelledby="step-6-title" data-spy>
+<h2 id="step-6-title"><span class="step-num" aria-hidden="true">6</span><span class="visually-hidden">Step 6: </span>Publish the reviewed project to your organization</h2>
+<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10–15 minutes</p>
+<p class="step-lead">You are uploading source code and documentation, <strong>not deploying a public website</strong>.</p>
+<h3 id="create-the-empty-github-repository" data-spy>Create the empty GitHub repository</h3>
+<ol>
+<li>In your browser, sign in to GitHub with the invited account.</li>
+<li>Open <a href="https://github.com/new" target="_blank" rel="noopener">Create a new repository<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a>.</li>
+<li>In <strong>Owner</strong>, select <strong><span class="ph">YOUR-ORG</span></strong>, not your personal username. If the organization is missing, stop and ask the facilitator about membership, SSO, or permissions.</li>
+<li>Use a unique repository name, such as <code>learning-tracker-<span class="ph">YOUR-USERNAME</span></code>, and add a short description.</li>
+<li>Choose <strong>Private</strong>, unless the facilitator has explicitly specified another organization-approved visibility. Do not choose Public merely to make sharing easier.</li>
+<li>Because you already have local files, leave <strong>Add a README</strong>, <strong>Add .gitignore</strong>, and <strong>Choose a license</strong> unselected. Do not select a template or ask a cloud agent to populate the repository.</li>
+<li>Recheck the owner, name, and visibility, then click <strong>Create repository</strong>.</li>
+<li>On the empty repository’s <strong>Quick Setup</strong> page, choose <strong>HTTPS</strong> and copy its URL.</li>
+</ol>
+<figure class="screenshot">
+<img src="assets/github-repository-owner.png" alt="GitHub's new-repository form with the Owner selector highlighted." width="1528" height="304" loading="lazy" decoding="async">
+<figcaption>Screenshot 4: Open <strong>Owner</strong> and select your training organization rather than accepting a personal-account default. <a class="screenshot-open" href="assets/github-repository-owner.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+</figure>
+<figure class="screenshot">
+<img src="assets/github-repository-url.png" alt="GitHub's Quick Setup panel, with the copy button next to the remote repository URL." width="2442" height="386" loading="lazy" decoding="async">
+<figcaption>Screenshot 5: Copy your own repository’s HTTPS URL. It will look like <code>https://github.com/<span class="ph">YOUR-ORG</span>/learning-tracker-<span class="ph">YOUR-USERNAME</span>.git</code>. <a class="screenshot-open" href="assets/github-repository-url.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+</figure>
+<h3 id="ask-copilot-to-prepare-the-upload-without-uploading-yet" data-spy>Ask Copilot to prepare the upload, without uploading yet</h3>
+<p>Return to the same project session. Replace the example URL in this prompt with the URL you just copied:</p>
+<figure class="prompt" data-prompt>
+<figcaption class="prompt-head">
+<span class="prompt-title">Prepare the upload</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Prepare the upload" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-8"><code>Prepare to publish this project, but do not change files, initialize Git,
+stage, commit, push, or change GitHub settings yet.
+
+Destination:
+https://github.com/<span class="ph">YOUR-ORG</span>/learning-tracker-<span class="ph">YOUR-USERNAME</span>.git
+Expected visibility: Private.
+
+Inspect the actual project root, local Git state, branch, existing
+remotes, and the destination repository where access is available.
+If you cannot verify the destination owner, visibility, or empty state,
+tell me what I must verify in the browser; do not assume.
+
+Check which project files should be included and propose a .gitignore
+for secrets, local settings, dependency folders, and generated output.
+Check for accidentally included credentials or private data, including
+tracked files and any existing history. Report locations, not values.
+Explain the limits of this check.
+
+Show the exact files to include, excluded files, destination, branch,
+and proposed Git steps in beginner-friendly language.
+
+If this folder is not a Git repository, propose initializing only
+this project folder, with main as the initial branch.
+If there is existing history, a different remote, a non-empty
+destination, or a branch-protection conflict, stop and explain.
+Do not overwrite, force-push, replace remotes, or bypass policies.
+Wait for my approval.</code></pre>
+</figure>
+<p>Read the proposed file list. It should include your source, tests, README, and project documentation, but not passwords, <code>.env</code> secrets, installed dependency folders, or unrelated files. An ignore rule does <strong>not</strong> remove files already tracked by Git.</p>
+<h3 id="approve-the-exact-destination-and-push" data-spy>Approve the exact destination and push</h3>
+<p>The following prompt is for a <strong>new, empty repository whose rules permit the initial push to <code>main</code></strong>. Only send it after reviewing the preparation above. Replace the URL and any details that do not match the agreed steps.</p>
+<figure class="prompt" data-prompt>
+<figcaption class="prompt-head">
+<span class="prompt-title">Approve the destination and push</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Approve the destination and push" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+</figcaption>
+<pre class="prompt-body" id="prompt-9"><code>I have checked the file list and verified that this is the correct,
+empty Private repository:
+https://github.com/<span class="ph">YOUR-ORG</span>/learning-tracker-<span class="ph">YOUR-USERNAME</span>.git
+
+I approve the proposed .gitignore and the listed files.
+Initialize Git in this project folder only if needed.
+If a commit identity is missing, ask me rather than inventing one
+or changing global Git settings.
+
+Create a commit named "Add learning tracker with plan and review".
+Connect this exact destination if no remote is configured, and push
+the approved commit to main without force.
+
+Stop if authentication, permissions, repository state, or branch
+rules differ from our preparation. Do not change access, visibility,
+security settings, or rules. Do not deploy the app.
+
+Afterward, verify that GitHub has the same commit and expected files.
+Show the repository URL, branch, and commit ID.
+Tell me clearly if any operation failed or could not be verified.</code></pre>
+</figure>
+<p>Complete authentication in GitHub’s trusted sign-in flow yourself. Never paste a token or password into a prompt. App sign-in and Git’s push authentication may need separate authorization.</p>
+<div class="callout callout--warning">
+<svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>
+<p><strong>If a rule blocks the push:</strong> Do not force-push or disable the rule. Ask the facilitator to provide an approved initialized repository and use a feature branch plus a pull request. A completely empty repository may need an authorized initial commit before the PR route is possible.</p>
+</div>
+<h3 id="confirm-it-really-arrived" data-spy>Confirm it really arrived</h3>
+<p>Open the repository in your browser and check:</p>
+<ul>
+<li>The owner is <strong><span class="ph">YOUR-ORG</span></strong>, the repository name is correct, and visibility matches the agreed setting.</li>
+<li>The expected branch and newest commit are present.</li>
+<li>Source files, tests, <code>README.md</code>, <code>docs\PLAN.md</code>, <code>docs\TEST-RESULTS.md</code>, and <code>docs\REVIEW.md</code> are visible.</li>
+<li>The README renders and its instructions and document links make sense.</li>
+<li>No unwanted files were included. Ask a facilitator to inspect unexpected files before sharing further.</li>
+</ul>
+<p>For later changes, start a feature branch or isolated repository session and use <strong>Create PR</strong> when ready for review. Follow the organization’s required reviewers and checks; a push alone is not a review or merge.</p>
+<div class="checkpoint">
+<input type="checkbox" class="checkpoint-input" id="checkpoint-step-6" data-checkpoint="step-6">
+<label class="checkpoint-label" for="checkpoint-step-6">
+<span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="checkpoint-text"><strong>Checkpoint:</strong> The repository exists in the organization and contains the reviewed work and its documentation.</span>
+</label>
+</div>
+</section>
+<section class="guide-section step" id="step-7" aria-labelledby="step-7-title" data-spy>
+<h2 id="step-7-title"><span class="step-num" aria-hidden="true">7</span><span class="visually-hidden">Step 7: </span>Show what you learned</h2>
+<p>Give a two-minute demonstration to a partner or facilitator:</p>
+<ol>
+<li>Explain the user problem and one thing deliberately left out of scope.</li>
+<li>Show a user story and demonstrate its acceptance criteria in the app.</li>
+<li>Show one question Copilot asked before a decision was made.</li>
+<li>Show the plan, a test result, and the code-review record.</li>
+<li>Open the organization’s repository and point out the uploaded commit.</li>
+</ol>
+<div class="checkpoint">
+<input type="checkbox" class="checkpoint-input" id="checkpoint-step-7" data-checkpoint="step-7">
+<label class="checkpoint-label" for="checkpoint-step-7">
+<span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<span class="checkpoint-text"><strong>Done means:</strong> The agreed behavior works, the evidence and limitations are documented, review findings are addressed, and the correct organization repository contains the project. “Copilot finished answering” is not the definition of done.</span>
+</label>
+</div>
+</section>
+</article>
+<section class="guide-section sources" id="sources" aria-labelledby="sources-title" data-spy>
+<h2 id="sources-title">Sources and screenshot credits</h2>
+<p class="checked-date"><strong>Documentation checked:</strong> 23 September 2026.</p>
+<p>The learning activities, prompts, template, and worked example were written for this learning path. Product behavior and labels were checked against the official sources below. The local app was not inspected; screenshots are published GitHub examples, not a claim of a live walkthrough on the user’s computer.</p>
+<h3 id="sources-product-and-workflow-references" data-spy>Product and workflow references</h3>
+<div class="table-wrap">
+<table class="data-table" role="table">
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">Reference</th><th scope="col" role="columnheader">Used for</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><a href="https://docs.github.com/en/copilot/get-started/quickstart-copilot-app" target="_blank" rel="noopener">Getting started with the GitHub Copilot app<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></th><td role="cell" data-label="Used for">Installation prerequisites, sign-in, Projects, adding a local folder, starting a session, Changes, and Create PR.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><a href="https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions" target="_blank" rel="noopener">Working with agent sessions<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></th><td role="cell" data-label="Used for">Plan, Interactive, Autopilot, execution locations, and session context.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><a href="https://docs.github.com/en/copilot/reference/github-copilot-app-reference/slash-commands" target="_blank" rel="noopener">Slash commands for the app<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></th><td role="cell" data-label="Used for"><code>/plan</code>, <code>/interactive</code>, and <code>/review</code>.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><a href="https://docs.github.com/en/copilot/concepts/agents/github-copilot-app" target="_blank" rel="noopener">About the GitHub Copilot app<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></th><td role="cell" data-label="Used for">Supported platforms, availability, and organization policies.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><a href="https://docs.github.com/en/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests" target="_blank" rel="noopener">Managing issues and pull requests<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></th><td role="cell" data-label="Used for">Reviewing diffs, PR creation, and organizational review workflows.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository" target="_blank" rel="noopener">Creating a new repository<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></th><td role="cell" data-label="Used for">Owner, repository name, visibility, and initial file options.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><a href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github" target="_blank" rel="noopener">Adding locally hosted code to GitHub<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></th><td role="cell" data-label="Used for">Empty-remote import, authentication, remote URL, Git initialization, and pushing.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><a href="https://github.com/features/ai/github-app" target="_blank" rel="noopener">GitHub Copilot app product page<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></th><td role="cell" data-label="Used for">Published app screenshot sources.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Prefer the current documentation to older launch announcements for account eligibility and policy requirements.</p>
+<h3 id="sources-screenshot-provenance" data-spy>Screenshot provenance</h3>
+<p>Screenshots are GitHub product/documentation imagery, copyright GitHub, Inc. They are credited teaching references, not original screenshots produced for this workshop. No personal account or private project was captured. The published app examples use macOS chrome and some older navigation labels; the guide explicitly distinguishes them from the current instructions.</p>
+<div class="table-wrap">
+<table class="data-table" role="table">
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">Local file</th><th scope="col" role="columnheader">Original image</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader"><code>assets\01-app-sidebar.png</code></th><td role="cell" data-label="Original image"><a href="https://github.githubassets.com/assets/features_1-mac-c8a8098b6d3149c4.webp" target="_blank" rel="noopener">GitHub app navigation screenshot<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><code>assets\02-session-location.png</code></th><td role="cell" data-label="Original image"><a href="https://github.githubassets.com/assets/features_2-mac-e57009c187ffdbfd.webp" target="_blank" rel="noopener">GitHub app execution-location screenshot<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><code>assets\03-code-changes.png</code></th><td role="cell" data-label="Original image"><a href="https://github.githubassets.com/assets/features_3-mac-1f3a4f74bedaf2d3.webp" target="_blank" rel="noopener">GitHub app Changes screenshot<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><code>assets\github-repository-owner.png</code></th><td role="cell" data-label="Original image"><a href="https://docs.github.com/assets/images/help/repository/create-repository-owner.png" target="_blank" rel="noopener">GitHub Docs repository Owner screenshot<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></td></tr>
+<tr role="row"><th scope="row" role="rowheader"><code>assets\github-repository-url.png</code></th><td role="cell" data-label="Original image"><a href="https://docs.github.com/assets/images/help/repository/copy-remote-repository-url-quick-setup.png" target="_blank" rel="noopener">GitHub Docs Quick Setup URL screenshot<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></td></tr>
+</tbody>
+</table>
+</div>
+<p>The three WebP app images were converted to PNG with transparency composited over white for reliable Markdown display. Their UI content was not rewritten or fabricated. The two GitHub Docs PNGs are unchanged.</p>
+</section>
+<footer class="page-footer">
+<p class="footer-heading"><strong>Learning materials</strong></p>
+<ul class="footer-links">
+<li><a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/templates/PLAN-TEMPLATE.md">Plan template</a></li>
+<li><a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/examples/PLAN-learning-tracker.md">Worked example plan</a></li>
+<li><a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/FACILITATOR.md">Facilitator setup</a></li>
+<li><a href="#sources">Sources and screenshot credits</a></li>
+</ul>
+<p class="footer-note">The guide’s steps follow the official GitHub documentation checked on 23 September 2026. Screenshots are GitHub product and documentation imagery, © GitHub, Inc., credited above as teaching references.</p>
+</footer>
+</main>
+</div>
+<div class="visually-hidden" aria-live="polite" data-announcer></div>
+</body>
+</html>
