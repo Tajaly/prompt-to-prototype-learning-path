@@ -6,8 +6,8 @@ Prepare a 90-120 minute learning session after account and software setup. Learn
 
 | Prepare | Why it matters |
 |---|---|
-| Organization invitation accepted with the intended GitHub account. | Learners otherwise choose a personal account or cannot see the organization. |
-| Any required SSO completed and repository-creation permission confirmed. | Organization membership alone does not guarantee repository creation or pushing. |
+| Each learner's personal GitHub account invited to the organization, and the invitation accepted. | Learners otherwise cannot see the organization or choose it as the repository owner. |
+| Repository-creation permission confirmed for organization members. | Organization membership alone does not guarantee repository creation or pushing. |
 | GitHub Copilot app and Git installed; app sign-in completed. | Keep the workshop focused on learning rather than installation. |
 | Appropriate Copilot access and the organization's GitHub Copilot app policy enabled. | App access is distinct from membership and from the Copilot CLI policy in current documentation. |
 | Organization-approved Node.js LTS installed for the example. | Supplies the local runtime and built-in test capabilities without requiring a framework. |
