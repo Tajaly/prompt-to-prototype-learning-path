@@ -2,7 +2,7 @@
 
 ## Before the session
 
-Prepare a 90-120 minute learning session after account and software setup. Learners build a small local Learning Tracker, then publish it to an organization they can write to.
+Prepare a 90-120 minute learning session after account and software setup. Each learner turns their own small idea into a working first version on their computer, then publishes it to an organization they can write to.
 
 | Prepare | Why it matters |
 |---|---|
@@ -10,12 +10,12 @@ Prepare a 90-120 minute learning session after account and software setup. Learn
 | Repository-creation permission confirmed for organization members. | Organization membership alone does not guarantee repository creation or pushing. |
 | GitHub Copilot app and Git installed; app sign-in completed. | Keep the workshop focused on learning rather than installation. |
 | Appropriate Copilot access and the organization's GitHub Copilot app policy enabled. | App access is distinct from membership and from the Copilot CLI policy in current documentation. |
-| Organization-approved Node.js LTS installed for the example. | Supplies the local runtime and built-in test capabilities without requiring a framework. |
-| One unique repository name per learner, such as `learning-tracker-USERNAME`. | Avoids naming collisions and accidental pushes to another learner's repository. |
+| The tools learners' projects are likely to need, such as a programming language, approved and installed in advance. | Learners choose their own ideas, so agree up front which tools they may use. Installing unfamiliar tools mid-session costs time and can break policy. |
+| One unique repository name per learner: a short project name plus their GitHub username, such as `PROJECT-USERNAME`. | Avoids naming collisions and accidental pushes to another learner's repository. |
 | Required visibility and a policy-compliant initial-push route agreed. | The main guide uses a new private repository and an allowed initial push to `main`. |
 | A support route for authentication, blocked permissions, and missing tools. | Learners should ask for help rather than weaken controls. |
 
-Tell learners the literal organization name and repository naming rule. `YOUR-ORG` and `YOUR-USERNAME` in the materials are placeholders; never paste those literal values as destinations.
+Tell learners the literal organization name and repository naming rule. `YOUR-ORG`, `YOUR-USERNAME`, and `YOUR-PROJECT` in the materials are placeholders; never paste those literal values as destinations.
 
 Do not require learners to enter secrets in prompts, enable blanket tool approvals, expose their local server publicly, or bypass organization controls.
 
@@ -35,10 +35,11 @@ Explain that the session's working copy can differ from the original clone. Keep
 
 ## Facilitation cues
 
+- Ask learners to bring an idea. Help anyone who is stuck narrow theirs to one kind of user, one main task, and three or four small features, but let them choose it.
 - Ask "How would you check that?" whenever a requirement says "easy," "good," or "reliable."
-- Let Copilot ask its clarification questions. Do not give learners the worked example as if its decisions were pre-approved.
+- Let Copilot ask its clarification questions. The example plan only shows the level of detail to aim for; learners plan their own idea and make their own decisions.
 - Require learners to explain one trade-off in their own words.
-- Keep the first app small. Save new feature ideas for later stories.
+- Keep the first project small. Save new feature ideas for later stories.
 - Demonstrate that a file saved in a chat's internal plan location is not automatically part of the learner's repository.
 - Make the code review a separate activity after implementation, not a single "build and review everything" request.
 - Have learners check the GitHub destination themselves before approving a push.
@@ -48,10 +49,10 @@ Explain that the session's working copy can differ from the original clone. Keep
 | Evidence | What to look for |
 |---|---|
 | `docs\PLAN.md` | Clear goal, scope, numbered stories, checkable criteria, and explicit decisions. |
-| Running app | At least one demonstrated normal path and one edge case. |
+| Working project | At least one demonstrated normal path and one edge case. |
 | `docs\TEST-RESULTS.md` | Actual results, including anything not run. |
 | `docs\REVIEW.md` | Findings, fixes, rechecks, and visible limitations. |
-| `README.md` | Accurate local start/test/stop instructions and a link to the plan. |
+| `README.md` | Accurate run, test, and stop instructions and a link to the plan. |
 | Organization repository or policy-required PR | Correct owner, visibility, branch, and expected commit/files. |
 
 ## Screenshots and version changes

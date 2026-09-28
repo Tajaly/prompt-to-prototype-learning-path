@@ -46,4 +46,4 @@ Ticking a checkpoint updates the step list's progress. On a return visit, the pa
 
 - The final GitHub Pages URL.
 - Whether the repository becomes public.
-- Whether the facilitator notes, template, or worked example should become pages of the site.
+- Whether the facilitator notes, template, or example plan should become pages of the site.

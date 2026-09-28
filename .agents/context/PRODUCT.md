@@ -17,7 +17,7 @@ Static HTML, CSS, and JavaScript in `docs/`, with no build step and no dependenc
 
 ## Product Purpose
 
-*From idea to your first GitHub project* is a beginner learning path. It teaches one workflow: **Describe -> Plan -> Document -> Build -> Test -> Review -> Push**. Each learner builds a small Learning Tracker. They finish with a working, documented, reviewed project in their GitHub organization.
+*From idea to your first GitHub project* is a beginner learning path. It teaches one workflow: **Describe -> Plan -> Document -> Build -> Test -> Review -> Push**. Each learner brings their own small idea and turns it into a working first version. Any kind of small project is allowed, and the build and test steps are tool-neutral (owner decision, 28 September 2026). They finish with a working, documented, reviewed project in their GitHub organization.
 
 "Done" means four things: the agreed behavior works, evidence and limitations are documented, review findings are addressed, and the correct organization repository contains the project.
 
@@ -55,7 +55,7 @@ The copy-ready prompts contain explicit boundaries, such as "do not commit, push
 
 ## Evidence on Hand
 
-- The full guide text, nine copy-ready prompts, a plan template, and a worked example plan.
+- The full guide text, nine copy-ready prompts (the first is a fill-in template for the learner's own idea), a plan template, and an example plan for a different idea (the Learning Tracker).
 - Five GitHub-published screenshots in `assets/`, with their provenance recorded in `SOURCES.md`.
 - There are no testimonials, participant counts, completion rates, or outcome data. Do not invent any.
 

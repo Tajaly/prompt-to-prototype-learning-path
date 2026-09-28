@@ -62,6 +62,7 @@ typography:
     fontWeight: 400
     lineHeight: 1.6
 rounded:
+  placeholder: "3px"
   focus: "4px"
   code: "6px"
   sm: "8px"
@@ -201,7 +202,7 @@ This system has no decorative shadows. Depth is conveyed by position, 1px border
 
 ## Shapes
 
-The form language is softly rectangular and practical. Containers use a 12px radius, compact controls use 8px, inline code and checkbox boxes use 6px, focus outlines use a 4px radius, and the progress track is fully rounded. Numbered step markers and nav markers are circles because they represent sequence and completion.
+The form language is softly rectangular and practical. Containers use a 12px radius, compact controls use 8px, inline code and checkbox boxes use 6px, focus outlines use a 4px radius, placeholder highlights (such as `YOUR-ORG` or a `[fill-in]` part of a prompt) use 3px, and the progress track is fully rounded. Numbered step markers and nav markers are circles because they represent sequence and completion.
 
 Borders are usually 1px; completion checkbox boxes use a 2px stroke for legibility. Images inherit the 12px container radius with a 1px border.
 
