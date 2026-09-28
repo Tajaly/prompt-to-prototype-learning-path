@@ -21,8 +21,6 @@ This guide is for the **standalone GitHub Copilot desktop app**. It is not a gui
 - Know your organization name, the required repository visibility, and whether its rules allow the first push to a new repository's `main` branch.
 - Use made-up or non-sensitive example data only. Do not paste passwords, API keys, customer information, or confidential documents into the exercise.
 
-Replace `YOUR-ORG`, `YOUR-USERNAME`, and `YOUR-PROJECT` when they appear below. `YOUR-PROJECT` is a short name for your idea, in lowercase with hyphens instead of spaces, such as `my-first-project`. Organization membership and Copilot access are separate: accepting an invitation does not necessarily enable Copilot.
-
 ### Five words you will use
 
 | Word | Plain-language meaning |
@@ -52,7 +50,7 @@ Replace `YOUR-ORG`, `YOUR-USERNAME`, and `YOUR-PROJECT` when they appear below. 
 
 ### Start with an empty local folder
 
-1. In your computer's file manager, create a folder named `YOUR-PROJECT-YOUR-USERNAME`. On Windows, a suitable location is `C:\Users\YOUR-NAME\Projects\YOUR-PROJECT-YOUR-USERNAME`. Do not select your whole home folder, Downloads folder, or a folder containing unrelated work.
+1. In your computer's file manager, create a folder named `YOUR-PROJECT-YOUR-USERNAME`. Replace `YOUR-PROJECT` with a short name for your idea, in lowercase with hyphens, such as `my-first-project`, and `YOUR-USERNAME` with your GitHub username. On Windows, a suitable location is `C:\Users\YOUR-NAME\Projects\YOUR-PROJECT-YOUR-USERNAME`. Do not select your whole home folder, Downloads folder, or a folder containing unrelated work.
 2. In the app sidebar, click **+** next to **Projects**.
 3. Under **Add project from**, choose **Local folder or repository**, then select your new folder.
 4. Under **Projects**, find the connected folder and click **+** next to it to start a session.
