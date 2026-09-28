@@ -41,7 +41,7 @@ Check these points before you publish:
 
 - **Your plan.** This repository is currently private. GitHub Pages for a private repository needs a paid plan, such as GitHub Pro for a personal account. With GitHub Free, the repository must be public.
 - **Visibility.** A published Pages site is public on the internet, even when the repository is private. Only GitHub Enterprise Cloud offers access-controlled Pages.
-- **Links.** The **Plan template**, **Worked example plan**, and **Facilitator setup** links open the files on GitHub. While the repository is private, only people with access can open them.
+- **Links.** The **Plan template**, **Example plan**, and **Facilitator setup** links open the files on GitHub. While the repository is private, only people with access can open them.
 
 ## Keep the web page and the guide in sync
 

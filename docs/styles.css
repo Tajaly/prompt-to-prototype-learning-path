@@ -795,6 +795,16 @@ code {
   white-space: nowrap;
 }
 
+/* Fill-in parts of a prompt, such as [who will use it]; unlike .ph these may wrap. */
+.ph-fill {
+  padding: 0 0.1em;
+  border-radius: 3px;
+  background: var(--ph-bg);
+  color: var(--ph-ink);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 /* Callouts and examples */
 
 .callout {

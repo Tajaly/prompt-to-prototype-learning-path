@@ -1,10 +1,12 @@
 # Example plan: Learning Tracker
 
-**Status:** Teaching example - not approved for your project  
+**Status:** Teaching example for a different idea - not your project  
 **Scope:** A single-person local learning app  
-**Approval:** Required after the learner answers the open decisions
+**Approval:** In a real plan, recorded only after the owner answers the open decisions
 
-This worked example shows the level of detail to aim for. The choices in the decision table are example answers. Copilot must ask the learner, not quietly copy these choices as if they were approved.
+This is an example of a good plan for someone else's idea: a small Learning Tracker. Use it to see how specific your own plan should be, in its stories, acceptance criteria, decisions, and tests. Do not copy its idea or its decisions. Your plan describes your own idea, and Copilot must ask you about each decision instead of borrowing these.
+
+This example happens to be a browser app built with HTML, CSS, and JavaScript. Your project may use different tools.
 
 ## 1. Goal and user
 

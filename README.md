@@ -4,10 +4,10 @@
 
 **Audience:** People with little or no software-development experience.  
 **Time:** About 90-120 minutes, after account and software setup.  
-**Your project:** A small **Learning Tracker** that remembers what you want to learn.  
+**Your project:** A small idea of your own, such as a simple app, tool, or script.  
 **Your finish line:** A working, documented, reviewed project in your GitHub organization.
 
-You do not need to memorize programming syntax. Your job is to explain the goal, make decisions, check the result, and decide what gets shared. Copilot helps you write the code; you remain responsible for the outcome.
+You do not need to memorize programming syntax. You bring the idea. Your job is to explain the goal, make decisions, check the result, and decide what gets shared. Copilot helps you write the code; you remain responsible for the outcome.
 
 **The workflow:** Describe -> Plan -> Document -> Build -> Test -> Review -> Push.
 
@@ -16,11 +16,12 @@ This guide is for the **standalone GitHub Copilot desktop app**. It is not a gui
 ### Before you begin
 
 - Have the GitHub Copilot app installed and signed in with your personal GitHub account, the one your organization invited. If you have not accepted the invitation yet, look for the invitation email from GitHub and accept it first. Your organization also needs to enable Copilot access for you.
-- Have **Git** installed. For this example, also have an organization-approved **Node.js LTS** installation for running the app locally and running tests. Ask the facilitator for setup help; do not install unfamiliar tools just because an agent suggests them.
+- Have **Git** installed. Your project may need other tools, such as a programming language. Copilot checks what is already installed; use those tools or ones your facilitator has approved. Ask the facilitator for setup help; do not install unfamiliar tools just because an agent suggests them.
+- Bring an idea for something small you would like to build. It does not need to be complete; you will shape it in step 2.
 - Know your organization name, the required repository visibility, and whether its rules allow the first push to a new repository's `main` branch.
-- Use fictional learning topics only. Do not paste passwords, API keys, customer information, or confidential documents into the exercise.
+- Use made-up or non-sensitive example data only. Do not paste passwords, API keys, customer information, or confidential documents into the exercise.
 
-Replace `YOUR-ORG` and `YOUR-USERNAME` when they appear below. Organization membership and Copilot access are separate: accepting an invitation does not necessarily enable Copilot.
+Replace `YOUR-ORG`, `YOUR-USERNAME`, and `YOUR-PROJECT` when they appear below. `YOUR-PROJECT` is a short name for your idea, in lowercase with hyphens instead of spaces, such as `my-first-project`. Organization membership and Copilot access are separate: accepting an invitation does not necessarily enable Copilot.
 
 ### Five words you will use
 
@@ -46,12 +47,12 @@ Replace `YOUR-ORG` and `YOUR-USERNAME` when they appear below. Organization memb
 | Prompt box | Tell Copilot what you want. Read its questions and answers here. |
 | Mode dropdown below the prompt | Choose **Plan** before building, then **Interactive** for controlled implementation. |
 | **Changes** above the prompt | Inspect which files and lines changed. |
-| Browser / terminal canvas | See the running app or commands. You can ask Copilot to open these for you. |
+| Browser / terminal canvas | See your project running, or the commands Copilot runs. You can ask Copilot to open these for you. |
 | **My work** | Find GitHub issues and pull requests later. |
 
 ### Start with an empty local folder
 
-1. In your computer's file manager, create a folder named `learning-tracker-YOUR-USERNAME`. On Windows, a suitable location is `C:\Users\YOUR-NAME\Projects\learning-tracker-YOUR-USERNAME`. Do not select your whole home folder, Downloads folder, or a folder containing unrelated work.
+1. In your computer's file manager, create a folder named `YOUR-PROJECT-YOUR-USERNAME`. On Windows, a suitable location is `C:\Users\YOUR-NAME\Projects\YOUR-PROJECT-YOUR-USERNAME`. Do not select your whole home folder, Downloads folder, or a folder containing unrelated work.
 2. In the app sidebar, click **+** next to **Projects**.
 3. Under **Add project from**, choose **Local folder or repository**, then select your new folder.
 4. Under **Projects**, find the connected folder and click **+** next to it to start a session.
@@ -66,9 +67,9 @@ Replace `YOUR-ORG` and `YOUR-USERNAME` when they appear below. Organization memb
 
 **Checkpoint:** You can identify the selected project, its folder, and the **Plan** mode control.
 
-## 2. Write the whole brief before sending the Plan-mode prompt
+## 2. Shape your idea and write the whole brief
 
-**Allow 15 minutes.** Plan mode is a conversation about the work, not a magic "make it correct" button.
+**Allow 20 minutes.** Plan mode is a conversation about the work, not a magic "make it correct" button.
 
 | Mode | How to use it in this learning path |
 |---|---|
@@ -78,84 +79,104 @@ Replace `YOUR-ORG` and `YOUR-USERNAME` when they appear below. Organization memb
 
 Interactive mode is not a promise to ask before every line of code. Keep normal permission prompts and organization controls enabled. Do not enable blanket tool auto-approval.
 
+### Choose a small idea
+
+Pick something you would actually use. Your first project should do one main job for one kind of person, and be small enough to describe in a sentence.
+
+| Aspect | Good for a first project | Leave for later |
+|---|---|---|
+| Users | You, or one kind of person like you. | Several kinds of users with different permissions. |
+| Size | One main task with three or four small features. | A long feature list or a whole platform. |
+| Tools | Runs on your own computer with tools you have or are approved to use. | Paid services, new accounts, or other people's systems. |
+| Data | Made-up or non-sensitive examples. | Real customer, personal, or confidential data. |
+| Checking | You can try it and see whether it works. | Behavior that is hard to check, such as AI features inside the project. |
+
+If you have several ideas, choose the smallest. You can ask Copilot to help you narrow one down, but the idea and the decisions stay yours.
+
 ### Prepare your brief
 
 Write your first prompt in a note before sending it. Use this checklist to remove avoidable ambiguity:
 
-| Consider | Write down | Learning Tracker example |
+| Consider | Write down | Tip |
 |---|---|---|
-| Problem and outcome | What problem are we solving? | I forget what I want to learn and what I have finished. |
-| User | Who will use it? | One beginner using their own browser. |
-| Main journey | What will the user actually do? | Add a topic, mark it done, filter the list, return later. |
-| First-version scope | What must work? What is excluded? | Four small features; no accounts, sharing, notifications, or deployment. |
-| Data | What is stored, where, and how sensitive is it? | Fictional topic titles and completion states, in this browser only. |
-| Constraints | Devices, technology, budget, installation limits? | Simple web page; no paid services or new packages without approval. |
-| Success | What could another person check? | A topic remains after refresh; empty input is rejected. |
-| Unknowns | What should Copilot ask rather than assume? | Duplicate titles, ordering, and what happens if saving fails. |
+| Problem and outcome | What problem are we solving? | One or two sentences, in your own words. |
+| User | Who will use it? | One kind of person is enough for a first version. |
+| Main journey | What will the user actually do? | Write it as steps: start, action, result, next action. |
+| First-version scope | What must work? What is excluded? | Three or four small features; name what you are leaving out. |
+| Data | What information does it use or save, where, and how sensitive is it? | Use made-up examples; nothing personal or confidential. |
+| Constraints | Devices, technology, budget, installation limits? | Prefer tools already on your computer; no paid services. |
+| Success | What could another person check? | Something observable, such as "my entries are still there when I come back." |
+| Unknowns | What should Copilot ask rather than assume? | Empty or unusual input, edge cases, and what happens when something fails. |
 
 Avoid "Build a nice app that works." Prefer observable outcomes. "Nice," "simple," and "user-friendly" are useful intentions, but they are not testable requirements on their own.
 
 ### Copy-ready first prompt
 
-For the guided exercise, use the complete prompt below. For your own idea, rewrite the goal, journey, scope, data, and success conditions **before** you send it.
+Copy the prompt below into your note. Replace every part in [square brackets] with your own idea, using your answers from the checklist. Keep the other sections as they are: they set the boundaries and make Copilot ask you instead of guessing.
 
 ```text
 You are my software-development coach. I am a beginner.
-Help me plan a small application in plain language.
+Help me plan a small project in plain language.
 
 MODE AND BOUNDARIES
 We are planning, not implementing.
 You may inspect the selected project and check relevant installed tools.
-Do not write application code, install packages, create cloud resources,
+Do not write project code, install packages, create cloud resources,
 commit, push, or publish anything. Do not inspect unrelated folders.
 
-GOAL AND USER
-I want a Learning Tracker for one person who wants to remember what to
-learn next and what they have completed.
-Success means I can capture a topic, change its completion state,
-find unfinished topics, and return after a browser refresh without
-losing my list.
+MY IDEA
+I want to build [a short description of your project]
+for [who will use it].
+It solves this problem: [the problem, in one or two sentences].
+Success means [what someone could see or check when it works].
 
 MAIN USER JOURNEY
-Open the page -> enter a topic -> add it to the list -> mark it done
-or reopen it -> filter the list -> refresh and continue later.
+[First step] -> [next step] -> [result] -> [what happens next]
 
 FIRST-VERSION SCOPE
-1. Add a topic with a title of 1-80 characters after trimming whitespace.
-   Reject empty, whitespace-only, and overlong titles with a clear message.
-2. Mark an individual topic as done and change it back to "to learn".
-3. Remember topics and completion states in the same browser after refresh.
-4. Filter between All, To learn, and Done, including a helpful empty state.
+1. [The most important thing it must do, with any rules or limits.]
+2. [The second thing it must do.]
+3. [The third thing it must do.]
+4. [Optional: a fourth small thing. Delete this line if not needed.]
 
 OUT OF SCOPE
-No accounts, team sharing, editing or deleting topics, due dates,
-notifications, AI features inside the app, external APIs, databases,
-paid services, or internet deployment.
+No accounts, sharing, notifications, AI features inside the project,
+external APIs, databases, paid services, or internet deployment.
+Also out of scope: [anything else you are deliberately leaving out].
 
 DATA AND TECHNICAL CONSTRAINTS
-Use fictional topic titles only; no personal or confidential information.
-Use plain HTML, CSS, and JavaScript for the browser app.
-Node.js LTS is the workshop's approved local runtime; use it only for
-local serving and tests. Prefer its built-in capabilities over packages.
-Propose npm start for local preview and npm test for automated tests.
-The preview server must listen only on the local machine.
+The project works with [what information it uses or saves].
+Use made-up or non-sensitive examples only; no personal or
+confidential information.
+Recommend the simplest technology that fits my idea, preferring tools
+that are already installed or approved by my organization. Explain
+your recommendation in plain language and ask me before choosing.
 Confirm the relevant tools are available before relying on them.
+Prefer built-in capabilities over extra packages.
 Explain any additional tool or dependency and ask before adding it.
-Explain what browser-local storage does and does not protect or preserve.
+Propose one simple way to run the project and one way to run its
+automated tests. Anything that runs a local server must listen only
+on this machine.
+If the project saves information, explain where it is stored and what
+that does and does not protect or preserve.
 
 QUALITY AND SUCCESS
-The app must work with a keyboard and at a 375-pixel-wide viewport.
-User-entered text must be displayed as text, not interpreted as HTML.
-Test normal use, invalid input, refreshing, and empty filter results.
-Include a visible, honest response if browser storage cannot be used.
+Handle invalid or unexpected input with a clear message.
+Treat anything a user enters as data, never as code to run.
+If the project has a screen, it must work with a keyboard alone.
+If it is a web page, it must also work on a phone-sized screen.
+Test normal use, invalid input, and empty or unusual cases.
+If something the project depends on fails, such as saving, it must
+say so honestly.
 Keep the code and documentation understandable to a beginner.
 
 ASK ME; DO NOT SILENTLY DECIDE
 Before finalizing the plan, ask about missing or ambiguous requirements.
 Ask one focused question at a time and WAIT for my answer.
 Give 2-3 clear options, a recommendation, and a short explanation.
-In particular, ask about duplicate topic titles, list ordering,
-and the expected behavior when browser storage fails.
+In particular, ask about edge cases in my scope, such as empty,
+duplicate, or very long input, and what should happen when
+something fails.
 Do not silently choose consequential behavior, change scope, add
 services, or invent my preferences. Record unresolved items as open
 questions, not as approved assumptions.
@@ -167,7 +188,7 @@ Markdown in this conversation. Include:
 - Goal, intended user, and success conditions.
 - In scope and out of scope.
 - User stories with IDs such as US-01, written as:
-  "As a [user], I want [capability], so that [benefit]."
+  "As a ..., I want ..., so that ...".
 - Testable acceptance criteria for each story using Given/When/Then.
 - Agreed decisions, reasons, assumptions, and remaining open questions.
 - Simple technical approach and proposed file structure.
@@ -183,10 +204,10 @@ Start with your first clarification question.
 ### Now use Plan mode
 
 1. Confirm the correct project and **Plan** in the mode dropdown.
-2. Paste the complete prompt and send it.
+2. Check that no [square brackets] are left in your prompt, then paste it and send it.
 3. Answer the questions. Ask for a simpler explanation if an option is unfamiliar.
-4. Read the proposed plan. Check that it matches your goal, stays small, and contains no unexplained technology or invented decisions.
-5. Ask for revisions before approving. A useful response is: "Keep accounts out of scope. Replace 'easy to use' with a keyboard test. Ask me about the unresolved storage behavior."
+4. Read the proposed plan. Check that it matches your idea, stays small, and contains no unexplained technology or invented decisions.
+5. Ask for revisions before approving. A useful response is: "Keep accounts out of scope. Replace 'easy to use' with a check I can do myself. Ask me about the open question instead of deciding for me."
 
 If Copilot starts guessing, say:
 
@@ -204,21 +225,21 @@ Update the plan after my answer. Do not implement yet.
 
 ### Why user stories and documentation matter
 
-A **user story** describes value to a person, rather than just a technical task.
+A **user story** describes value to a person, rather than just a technical task. It follows a simple pattern: "As a [kind of user], I want [capability], so that [benefit]." For example:
 
-> As a learner, I want my topics to remain after a refresh, so that I can continue learning later.
+> As a user, I want my entries to still be there when I come back, so that I can continue where I stopped.
 
 An **acceptance criterion** makes that story checkable:
 
-> Given I have added "Learn GitHub" and marked it done, when I refresh the same local address in the same browser, then the topic and its completed state remain.
+> Given I have saved an entry, when I close the project and open it again, then the entry is still there.
 
-"Use browser storage" is an implementation choice, not the user benefit. "Make saving reliable" is too vague to tell whether the story is finished.
+"Save it in a file" is an implementation choice, not the user benefit. "Make saving reliable" is too vague to tell whether the story is finished.
 
 Clear documentation helps another person understand the project, helps you resume next week, gives Copilot reusable context, and prevents reviews from turning into arguments about what was meant. **Update the documentation when an agreed requirement changes; do not quietly change the goal to match unfinished code.**
 
 | File in your project | Purpose |
 |---|---|
-| `README.md` | What the app does, how to start and test it, and its limitations. |
+| `README.md` | What the project does, how to run and test it, and its limitations. |
 | `docs\PLAN.md` | The agreed goal, scope, user stories, acceptance criteria, decisions, and implementation sequence. |
 | `docs\TEST-RESULTS.md` | What was actually checked, the results, and what remains untested. |
 | `docs\REVIEW.md` | Review findings and what was fixed or deliberately deferred. |
@@ -234,15 +255,15 @@ First ask for the final Markdown in the conversation. Then switch to **Interacti
 **Do not approve a full implementation just to save the plan.** If the app is waiting on a plan-approval card, ask Copilot to make documentation-only the next step before approving it. An app-internal plan or a chat message is not a substitute for the file in your project.
 
 ```text
-I approve creating the documentation only, not application code.
+I approve creating the documentation only, not project code.
 
 Save our agreed plan as docs\PLAN.md in this project.
 Include the user stories, acceptance criteria, decisions and reasons,
 test strategy, and definition of done. Preserve any unresolved questions.
 Do not label unresolved decisions as approved.
 
-Create a short README.md with the app's purpose, scope, and a link
-to the plan. If the app cannot run yet, say that explicitly;
+Create a short README.md with the project's purpose, scope, and a link
+to the plan. If the project cannot run yet, say that explicitly;
 do not invent working setup or test commands.
 
 Show me the actual file paths and open the Markdown for me to read.
@@ -250,7 +271,7 @@ Stop after these documentation changes.
 Do not install, implement, commit, or push anything.
 ```
 
-Use the [reusable plan template](templates/PLAN-TEMPLATE.md) to check the structure. The [worked Learning Tracker plan](examples/PLAN-learning-tracker.md) shows how specific a good plan can be. Its decisions are **examples**, not answers Copilot may assume on your behalf.
+Use the [reusable plan template](templates/PLAN-TEMPLATE.md) to check the structure. To see how specific a good plan can be, look at the [example plan](examples/PLAN-learning-tracker.md). It describes someone else's idea, a small Learning Tracker, so compare its level of detail, not its content. Your plan describes your own idea, and its decisions are yours.
 
 Read the saved files. Correct them if necessary. In a future session, explicitly ask Copilot to read `README.md` and `docs\PLAN.md`, or attach them with `@`; do not assume every project document is automatically included.
 
@@ -271,41 +292,42 @@ Use the approved tools and do not introduce new dependencies without
 explaining why and getting my approval.
 
 Explain the files you change in beginner-friendly language.
-Start the local preview and give me its exact local URL.
-Explain how to stop it. Keep it accessible only on this machine.
+Show me how to run the project and try it myself: give me the exact
+steps, and explain how to stop it. If it runs a local server, give me
+its exact local address and keep it accessible only on this machine.
 Run the applicable checks and report the actual commands and results.
 Tell me explicitly if something could not be checked.
 
-Update README.md with the verified start and test instructions.
+Update README.md with the verified run and test instructions.
 Create or update docs\TEST-RESULTS.md with the checks and outcomes.
 Do not mark a story complete just because code was generated.
 Stop for my feedback before starting the next story.
 Do not commit, push, deploy, or add extra features.
 ```
 
-Open the preview yourself. Add a topic. Try an empty title. Check that the behavior matches the plan.
+Run or open the project yourself. Try what US-01 promises, then try something it should reject or handle, such as empty input. Check that the behavior matches the plan.
 
-If it does not, report the **steps, expected result, and actual result**:
+If it does not, report the **steps, expected result, and actual result**. Replace the brackets with what you saw:
 
 ```text
-For US-01, I entered only spaces and selected Add.
-Expected: a clear validation message and no new topic.
-Actual: an empty row appeared.
+For US-01, I [what you did, step by step].
+Expected: [what the plan says should happen].
+Actual: [what happened instead].
 Please fix this within the agreed scope and add a regression test.
 Explain the change and rerun the relevant checks.
 ```
 
-Once satisfied, approve the next story by ID. Repeat for US-02, US-03, and US-04. A change of direction goes back into the plan before it becomes code.
+Once satisfied, approve the next story by ID, such as US-02, and repeat until every story in your plan is done. A change of direction goes back into the plan before it becomes code.
 
 **Do the final acceptance checks yourself as well:**
 
-- Add a normal title; reject empty, whitespace-only, and overlong titles.
-- Mark a topic done, then reopen it.
-- Refresh the **same local URL**, including the port, and check the saved state.
-- Try every filter, including one with no matching topics.
-- Complete the main journey using only the keyboard; check a narrow, phone-sized preview.
+- Try the normal path of every story in your plan.
+- Try invalid or unusual input, such as empty, very long, or unexpected values, and check that the project responds clearly.
+- If the project saves anything, close it and open it again, and check that the saved information is still there. For a web page, refresh the **same local address**, including the port.
+- Try starting with no data at all, and any other edge cases in your plan.
+- If the project has a screen, complete the main journey using only the keyboard. If it is a web page, also check a narrow, phone-sized window.
 
-Ask Copilot to help reproduce less familiar cases, such as unavailable browser storage. Record checks not performed as **Not run**, never as passing.
+Ask Copilot to help reproduce less familiar cases, such as a failed save. Record checks not performed as **Not run**, never as passing.
 
 **Checkpoint:** All agreed stories behave as specified; the README contains working instructions; test results are recorded honestly.
 
@@ -315,15 +337,15 @@ Ask Copilot to help reproduce less familiar cases, such as unavailable browser s
 
 ![GitHub's screenshot of the Changes view, showing changed files and added and removed lines.](assets/03-code-changes.png)
 
-*Screenshot 3: **Changes** shows a diff. Green or `+` lines are additions; red or `-` lines are removals. This is an example project, not the Learning Tracker. You do not need to understand every line immediately: ask Copilot to explain the purpose of each changed file.*
+*Screenshot 3: **Changes** shows a diff. Green or `+` lines are additions; red or `-` lines are removals. This is an example project, not yours. You do not need to understand every line immediately: ask Copilot to explain the purpose of each changed file.*
 
 Open **Changes** above the prompt box. If a plain folder does not yet provide a Git diff, ask Copilot to list and review the project files directly. Do not assume "no diff" means "nothing to review."
 
 ### Copy-ready review prompt
 
 ```text
-Perform a review-only pass of this Learning Tracker.
-Do not change application files or fix findings yet.
+Perform a review-only pass of this project.
+Do not change project files or fix findings yet.
 
 Read README.md, docs\PLAN.md, and the current implementation and tests.
 Review the whole small project, including new or untracked files,
@@ -331,12 +353,14 @@ not only an existing Git diff.
 
 Check:
 - Every user story and acceptance criterion, including edge cases.
-- Input validation, safe display of entered text, and storage failures.
-- Keyboard use, labels, focus visibility, and the narrow-screen layout.
+- Input validation, safe handling of entered data, and error handling,
+  such as failed saves.
+- If the project has a screen: keyboard use, labels, visible focus,
+  and small screens.
 - Missing or misleading tests.
 - Unnecessary complexity, dependencies, or features outside the plan.
 - Accidentally included secrets, private data, or generated files.
-- Whether the documentation matches the actual application.
+- Whether the documentation matches the actual project.
 
 Run the existing relevant, non-destructive checks where possible.
 Report findings with an ID, priority, file and line when applicable,
@@ -364,7 +388,7 @@ Record deferred findings and the reason; do not hide them.
 Do not commit, push, or publish yet.
 ```
 
-If there are no findings, still record the review scope, checks, and limitations. AI review is useful feedback, not proof that the app is safe or correct. Have a peer or facilitator inspect the result if you are unsure what a finding means. Fix exposed credentials before publishing; removing a secret from the latest file is not sufficient if it is already in Git history.
+If there are no findings, still record the review scope, checks, and limitations. AI review is useful feedback, not proof that the project is safe or correct. Have a peer or facilitator inspect the result if you are unsure what a finding means. Fix exposed credentials before publishing; removing a secret from the latest file is not sufficient if it is already in Git history.
 
 **Checkpoint:** Review is recorded, blocking findings are fixed and rechecked, and you know any remaining limitations.
 
@@ -377,7 +401,7 @@ If there are no findings, still record the review scope, checks, and limitations
 1. In your browser, sign in to GitHub with your personal account, the one invited to the organization.
 2. Open [Create a new repository](https://github.com/new).
 3. In **Owner**, select **YOUR-ORG**, not your personal username. If the organization is missing, you may not have accepted its invitation yet: look for the invitation email from GitHub. If it is still missing, stop and ask the facilitator about your membership or permissions.
-4. Use a unique repository name, such as `learning-tracker-YOUR-USERNAME`, and add a short description.
+4. Use a unique repository name, such as `YOUR-PROJECT-YOUR-USERNAME`, and add a short description.
 5. Choose **Private**, unless the facilitator has explicitly specified another organization-approved visibility. Do not choose Public merely to make sharing easier.
 6. Because you already have local files, leave **Add a README**, **Add .gitignore**, and **Choose a license** unselected. Do not select a template or ask a cloud agent to populate the repository.
 7. Recheck the owner, name, and visibility, then click **Create repository**.
@@ -389,7 +413,7 @@ If there are no findings, still record the review scope, checks, and limitations
 
 ![GitHub's Quick Setup panel, with the copy button next to the remote repository URL.](assets/github-repository-url.png)
 
-*Screenshot 5: Copy your own repository's HTTPS URL. It will look like `https://github.com/YOUR-ORG/learning-tracker-YOUR-USERNAME.git`.*
+*Screenshot 5: Copy your own repository's HTTPS URL. It will look like `https://github.com/YOUR-ORG/YOUR-PROJECT-YOUR-USERNAME.git`.*
 
 ### Ask Copilot to prepare the upload, without uploading yet
 
@@ -400,7 +424,7 @@ Prepare to publish this project, but do not change files, initialize Git,
 stage, commit, push, or change GitHub settings yet.
 
 Destination:
-https://github.com/YOUR-ORG/learning-tracker-YOUR-USERNAME.git
+https://github.com/YOUR-ORG/YOUR-PROJECT-YOUR-USERNAME.git
 Expected visibility: Private.
 
 Inspect the actual project root, local Git state, branch, existing
@@ -434,20 +458,20 @@ The following prompt is for a **new, empty repository whose rules permit the ini
 ```text
 I have checked the file list and verified that this is the correct,
 empty Private repository:
-https://github.com/YOUR-ORG/learning-tracker-YOUR-USERNAME.git
+https://github.com/YOUR-ORG/YOUR-PROJECT-YOUR-USERNAME.git
 
 I approve the proposed .gitignore and the listed files.
 Initialize Git in this project folder only if needed.
 If a commit identity is missing, ask me rather than inventing one
 or changing global Git settings.
 
-Create a commit named "Add learning tracker with plan and review".
+Create a commit named "Add first version with plan and review".
 Connect this exact destination if no remote is configured, and push
 the approved commit to main without force.
 
 Stop if authentication, permissions, repository state, or branch
 rules differ from our preparation. Do not change access, visibility,
-security settings, or rules. Do not deploy the app.
+security settings, or rules. Do not deploy anything.
 
 Afterward, verify that GitHub has the same commit and expected files.
 Show the repository URL, branch, and commit ID.
@@ -477,7 +501,7 @@ For later changes, start a feature branch or isolated repository session and use
 Give a two-minute demonstration to a partner or facilitator:
 
 1. Explain the user problem and one thing deliberately left out of scope.
-2. Show a user story and demonstrate its acceptance criteria in the app.
+2. Show a user story and demonstrate its acceptance criteria in your project.
 3. Show one question Copilot asked before a decision was made.
 4. Show the plan, a test result, and the code-review record.
 5. Open the organization's repository and point out the uploaded commit.
@@ -486,4 +510,4 @@ Give a two-minute demonstration to a partner or facilitator:
 
 ---
 
-**Learning materials:** [Plan template](templates/PLAN-TEMPLATE.md) | [Worked example plan](examples/PLAN-learning-tracker.md) | [Facilitator setup](FACILITATOR.md) | [Sources and screenshot credits](SOURCES.md)
+**Learning materials:** [Plan template](templates/PLAN-TEMPLATE.md) | [Example plan](examples/PLAN-learning-tracker.md) | [Facilitator setup](FACILITATOR.md) | [Sources and screenshot credits](SOURCES.md)

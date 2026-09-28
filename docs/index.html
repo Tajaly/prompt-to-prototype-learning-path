@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>From idea to your first GitHub project · A beginner learning path with the GitHub Copilot app</title>
-<meta name="description" content="A beginner learning path with the GitHub Copilot app: describe, plan, document, build, test, review, and push a small Learning Tracker to your GitHub organization.">
+<meta name="description" content="A beginner learning path with the GitHub Copilot app: describe, plan, document, build, test, review, and push a small project of your own to your GitHub organization.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#101317" media="(prefers-color-scheme: dark)">
@@ -85,10 +85,11 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <li class="nav-item nav-step" data-step="step-2">
 <a class="nav-link" href="#step-2">
 <span class="nav-marker" aria-hidden="true"><span class="nav-num">2</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="nav-title"><span class="visually-hidden">Step 2: </span>Write the whole brief<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
-<span class="nav-time">15 min</span>
+<span class="nav-title"><span class="visually-hidden">Step 2: </span>Shape your idea<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-time">20 min</span>
 </a>
 <ul class="nav-sub">
+<li><a class="nav-sublink" href="#choose-a-small-idea">Choose a small idea</a></li>
 <li><a class="nav-sublink" href="#prepare-your-brief">Prepare your brief</a></li>
 <li><a class="nav-sublink" href="#copy-ready-first-prompt">Copy-ready first prompt</a></li>
 <li><a class="nav-sublink" href="#now-use-plan-mode">Now use Plan mode</a></li>
@@ -162,14 +163,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </div>
 <div class="glance-item">
 <dt>Your project</dt>
-<dd>A small <strong>Learning Tracker</strong> that remembers what you want to learn.</dd>
+<dd>A small idea of your own, such as a simple app, tool, or script.</dd>
 </div>
 <div class="glance-item">
 <dt>Your finish line</dt>
 <dd>A working, documented, reviewed project in your GitHub organization.</dd>
 </div>
 </dl>
-<p class="intro">You do not need to memorize programming syntax. Your job is to explain the goal, make decisions, check the result, and decide what gets shared. Copilot helps you write the code; you remain responsible for the outcome.</p>
+<p class="intro">You do not need to memorize programming syntax. You bring the idea. Your job is to explain the goal, make decisions, check the result, and decide what gets shared. Copilot helps you write the code; you remain responsible for the outcome.</p>
 <div class="workflow">
 <p class="workflow-label" id="workflow-label"><strong>The workflow:</strong></p>
 <ol class="workflow-steps" aria-labelledby="workflow-label">
@@ -191,13 +192,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <h2 id="before-you-begin-title">Before you begin</h2>
 <ul>
 <li>Have the GitHub Copilot app installed and signed in with your personal GitHub account, the one your organization invited. If you have not accepted the invitation yet, look for the invitation email from GitHub and accept it first. Your organization also needs to enable Copilot access for you.</li>
-<li>Have <strong>Git</strong> installed. For this example, also have an organization-approved <strong>Node.js LTS</strong> installation for running the app locally and running tests. Ask the facilitator for setup help; do not install unfamiliar tools just because an agent suggests them.</li>
+<li>Have <strong>Git</strong> installed. Your project may need other tools, such as a programming language. Copilot checks what is already installed; use those tools or ones your facilitator has approved. Ask the facilitator for setup help; do not install unfamiliar tools just because an agent suggests them.</li>
+<li>Bring an idea for something small you would like to build. It does not need to be complete; you will shape it in step 2.</li>
 <li>Know your organization name, the required repository visibility, and whether its rules allow the first push to a new repository’s <code>main</code> branch.</li>
-<li>Use fictional learning topics only. Do not paste passwords, API keys, customer information, or confidential documents into the exercise.</li>
+<li>Use made-up or non-sensitive example data only. Do not paste passwords, API keys, customer information, or confidential documents into the exercise.</li>
 </ul>
 <div class="callout callout--note">
 <svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
-<p>Replace <code><span class="ph">YOUR-ORG</span></code> and <code><span class="ph">YOUR-USERNAME</span></code> when they appear below. Organization membership and Copilot access are separate: accepting an invitation does not necessarily enable Copilot.</p>
+<p>Replace <code><span class="ph">YOUR-ORG</span></code>, <code><span class="ph">YOUR-USERNAME</span></code>, and <code><span class="ph">YOUR-PROJECT</span></code> when they appear below. <code><span class="ph">YOUR-PROJECT</span></code> is a short name for your idea, in lowercase with hyphens instead of spaces, such as <code>my-first-project</code>. Organization membership and Copilot access are separate: accepting an invitation does not necessarily enable Copilot.</p>
 </div>
 <h3 id="five-words-you-will-use" data-spy>Five words you will use</h3>
 <div class="table-wrap">
@@ -233,14 +235,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <tr role="row"><th scope="row" role="rowheader">Prompt box</th><td role="cell" data-label="What you need it for today">Tell Copilot what you want. Read its questions and answers here.</td></tr>
 <tr role="row"><th scope="row" role="rowheader">Mode dropdown below the prompt</th><td role="cell" data-label="What you need it for today">Choose <strong>Plan</strong> before building, then <strong>Interactive</strong> for controlled implementation.</td></tr>
 <tr role="row"><th scope="row" role="rowheader"><strong>Changes</strong> above the prompt</th><td role="cell" data-label="What you need it for today">Inspect which files and lines changed.</td></tr>
-<tr role="row"><th scope="row" role="rowheader">Browser / terminal canvas</th><td role="cell" data-label="What you need it for today">See the running app or commands. You can ask Copilot to open these for you.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Browser / terminal canvas</th><td role="cell" data-label="What you need it for today">See your project running, or the commands Copilot runs. You can ask Copilot to open these for you.</td></tr>
 <tr role="row"><th scope="row" role="rowheader"><strong>My work</strong></th><td role="cell" data-label="What you need it for today">Find GitHub issues and pull requests later.</td></tr>
 </tbody>
 </table>
 </div>
 <h3 id="start-with-an-empty-local-folder" data-spy>Start with an empty local folder</h3>
 <ol>
-<li>In your computer’s file manager, create a folder named <code>learning-tracker-<span class="ph">YOUR-USERNAME</span></code>. On Windows, a suitable location is <code>C:\Users\<span class="ph">YOUR-NAME</span>\Projects\learning-tracker-<span class="ph">YOUR-USERNAME</span></code>. Do not select your whole home folder, Downloads folder, or a folder containing unrelated work.</li>
+<li>In your computer’s file manager, create a folder named <code><span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span></code>. On Windows, a suitable location is <code>C:\Users\<span class="ph">YOUR-NAME</span>\Projects\<span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span></code>. Do not select your whole home folder, Downloads folder, or a folder containing unrelated work.</li>
 <li>In the app sidebar, click <strong>+</strong> next to <strong>Projects</strong>.</li>
 <li>Under <strong>Add project from</strong>, choose <strong>Local folder or repository</strong>, then select your new folder.</li>
 <li>Under <strong>Projects</strong>, find the connected folder and click <strong>+</strong> next to it to start a session.</li>
@@ -264,8 +266,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </div>
 </section>
 <section class="guide-section step" id="step-2" aria-labelledby="step-2-title" data-spy>
-<h2 id="step-2-title"><span class="step-num" aria-hidden="true">2</span><span class="visually-hidden">Step 2: </span>Write the whole brief before sending the Plan-mode prompt</h2>
-<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 15 minutes</p>
+<h2 id="step-2-title"><span class="step-num" aria-hidden="true">2</span><span class="visually-hidden">Step 2: </span>Shape your idea and write the whole brief</h2>
+<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 20 minutes</p>
 <p class="step-lead">Plan mode is a conversation about the work, not a magic “make it correct” button.</p>
 <div class="table-wrap">
 <table class="data-table" role="table">
@@ -280,90 +282,113 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </table>
 </div>
 <p>Interactive mode is not a promise to ask before every line of code. Keep normal permission prompts and organization controls enabled. Do not enable blanket tool auto-approval.</p>
+<h3 id="choose-a-small-idea" data-spy>Choose a small idea</h3>
+<p>Pick something you would actually use. Your first project should do one main job for one kind of person, and be small enough to describe in a sentence.</p>
+<div class="table-wrap">
+<table class="data-table table-labels" role="table">
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">Aspect</th><th scope="col" role="columnheader">Good for a first project</th><th scope="col" role="columnheader">Leave for later</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader">Users</th><td role="cell" data-label="Good for a first project">You, or one kind of person like you.</td><td role="cell" data-label="Leave for later">Several kinds of users with different permissions.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Size</th><td role="cell" data-label="Good for a first project">One main task with three or four small features.</td><td role="cell" data-label="Leave for later">A long feature list or a whole platform.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Tools</th><td role="cell" data-label="Good for a first project">Runs on your own computer with tools you have or are approved to use.</td><td role="cell" data-label="Leave for later">Paid services, new accounts, or other people’s systems.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Data</th><td role="cell" data-label="Good for a first project">Made-up or non-sensitive examples.</td><td role="cell" data-label="Leave for later">Real customer, personal, or confidential data.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Checking</th><td role="cell" data-label="Good for a first project">You can try it and see whether it works.</td><td role="cell" data-label="Leave for later">Behavior that is hard to check, such as AI features inside the project.</td></tr>
+</tbody>
+</table>
+</div>
+<p>If you have several ideas, choose the smallest. You can ask Copilot to help you narrow one down, but the idea and the decisions stay yours.</p>
 <h3 id="prepare-your-brief" data-spy>Prepare your brief</h3>
 <p>Write your first prompt in a note before sending it. Use this checklist to remove avoidable ambiguity:</p>
 <div class="table-wrap">
 <table class="data-table table-labels" role="table">
 <thead role="rowgroup">
-<tr role="row"><th scope="col" role="columnheader">Consider</th><th scope="col" role="columnheader">Write down</th><th scope="col" role="columnheader">Learning Tracker example</th></tr>
+<tr role="row"><th scope="col" role="columnheader">Consider</th><th scope="col" role="columnheader">Write down</th><th scope="col" role="columnheader">Tip</th></tr>
 </thead>
 <tbody role="rowgroup">
-<tr role="row"><th scope="row" role="rowheader">Problem and outcome</th><td role="cell" data-label="Write down">What problem are we solving?</td><td role="cell" data-label="Learning Tracker example">I forget what I want to learn and what I have finished.</td></tr>
-<tr role="row"><th scope="row" role="rowheader">User</th><td role="cell" data-label="Write down">Who will use it?</td><td role="cell" data-label="Learning Tracker example">One beginner using their own browser.</td></tr>
-<tr role="row"><th scope="row" role="rowheader">Main journey</th><td role="cell" data-label="Write down">What will the user actually do?</td><td role="cell" data-label="Learning Tracker example">Add a topic, mark it done, filter the list, return later.</td></tr>
-<tr role="row"><th scope="row" role="rowheader">First-version scope</th><td role="cell" data-label="Write down">What must work? What is excluded?</td><td role="cell" data-label="Learning Tracker example">Four small features; no accounts, sharing, notifications, or deployment.</td></tr>
-<tr role="row"><th scope="row" role="rowheader">Data</th><td role="cell" data-label="Write down">What is stored, where, and how sensitive is it?</td><td role="cell" data-label="Learning Tracker example">Fictional topic titles and completion states, in this browser only.</td></tr>
-<tr role="row"><th scope="row" role="rowheader">Constraints</th><td role="cell" data-label="Write down">Devices, technology, budget, installation limits?</td><td role="cell" data-label="Learning Tracker example">Simple web page; no paid services or new packages without approval.</td></tr>
-<tr role="row"><th scope="row" role="rowheader">Success</th><td role="cell" data-label="Write down">What could another person check?</td><td role="cell" data-label="Learning Tracker example">A topic remains after refresh; empty input is rejected.</td></tr>
-<tr role="row"><th scope="row" role="rowheader">Unknowns</th><td role="cell" data-label="Write down">What should Copilot ask rather than assume?</td><td role="cell" data-label="Learning Tracker example">Duplicate titles, ordering, and what happens if saving fails.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Problem and outcome</th><td role="cell" data-label="Write down">What problem are we solving?</td><td role="cell" data-label="Tip">One or two sentences, in your own words.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">User</th><td role="cell" data-label="Write down">Who will use it?</td><td role="cell" data-label="Tip">One kind of person is enough for a first version.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Main journey</th><td role="cell" data-label="Write down">What will the user actually do?</td><td role="cell" data-label="Tip">Write it as steps: start, action, result, next action.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">First-version scope</th><td role="cell" data-label="Write down">What must work? What is excluded?</td><td role="cell" data-label="Tip">Three or four small features; name what you are leaving out.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Data</th><td role="cell" data-label="Write down">What information does it use or save, where, and how sensitive is it?</td><td role="cell" data-label="Tip">Use made-up examples; nothing personal or confidential.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Constraints</th><td role="cell" data-label="Write down">Devices, technology, budget, installation limits?</td><td role="cell" data-label="Tip">Prefer tools already on your computer; no paid services.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Success</th><td role="cell" data-label="Write down">What could another person check?</td><td role="cell" data-label="Tip">Something observable, such as “my entries are still there when I come back.”</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Unknowns</th><td role="cell" data-label="Write down">What should Copilot ask rather than assume?</td><td role="cell" data-label="Tip">Empty or unusual input, edge cases, and what happens when something fails.</td></tr>
 </tbody>
 </table>
 </div>
 <p>Avoid “Build a nice app that works.” Prefer observable outcomes. “Nice,” “simple,” and “user-friendly” are useful intentions, but they are not testable requirements on their own.</p>
 <h3 id="copy-ready-first-prompt" data-spy>Copy-ready first prompt</h3>
-<p>For the guided exercise, use the complete prompt below. For your own idea, rewrite the goal, journey, scope, data, and success conditions <strong>before</strong> you send it.</p>
+<p>Copy the prompt below into your note. Replace every part in [square brackets] with your own idea, using your answers from the checklist. Keep the other sections as they are: they set the boundaries and make Copilot ask you instead of guessing.</p>
 <figure class="prompt" data-prompt data-collapsible>
 <figcaption class="prompt-head">
-<span class="prompt-title">First prompt</span>
+<span class="prompt-title">First prompt: fill in your idea</span>
 <span class="prompt-meta">Plan mode</span>
-<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: First prompt" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: First prompt: fill in your idea" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
 <pre class="prompt-body" id="prompt-1"><code>You are my software-development coach. I am a beginner.
-Help me plan a small application in plain language.
+Help me plan a small project in plain language.
 
 MODE AND BOUNDARIES
 We are planning, not implementing.
 You may inspect the selected project and check relevant installed tools.
-Do not write application code, install packages, create cloud resources,
+Do not write project code, install packages, create cloud resources,
 commit, push, or publish anything. Do not inspect unrelated folders.
 
-GOAL AND USER
-I want a Learning Tracker for one person who wants to remember what to
-learn next and what they have completed.
-Success means I can capture a topic, change its completion state,
-find unfinished topics, and return after a browser refresh without
-losing my list.
+MY IDEA
+I want to build <span class="ph-fill">[a short description of your project]</span>
+for <span class="ph-fill">[who will use it]</span>.
+It solves this problem: <span class="ph-fill">[the problem, in one or two sentences]</span>.
+Success means <span class="ph-fill">[what someone could see or check when it works]</span>.
 
 MAIN USER JOURNEY
-Open the page -&gt; enter a topic -&gt; add it to the list -&gt; mark it done
-or reopen it -&gt; filter the list -&gt; refresh and continue later.
+<span class="ph-fill">[First step]</span> -&gt; <span class="ph-fill">[next step]</span> -&gt; <span class="ph-fill">[result]</span> -&gt; <span class="ph-fill">[what happens next]</span>
 
 FIRST-VERSION SCOPE
-1. Add a topic with a title of 1-80 characters after trimming whitespace.
-   Reject empty, whitespace-only, and overlong titles with a clear message.
-2. Mark an individual topic as done and change it back to "to learn".
-3. Remember topics and completion states in the same browser after refresh.
-4. Filter between All, To learn, and Done, including a helpful empty state.
+1. <span class="ph-fill">[The most important thing it must do, with any rules or limits.]</span>
+2. <span class="ph-fill">[The second thing it must do.]</span>
+3. <span class="ph-fill">[The third thing it must do.]</span>
+4. <span class="ph-fill">[Optional: a fourth small thing. Delete this line if not needed.]</span>
 
 OUT OF SCOPE
-No accounts, team sharing, editing or deleting topics, due dates,
-notifications, AI features inside the app, external APIs, databases,
-paid services, or internet deployment.
+No accounts, sharing, notifications, AI features inside the project,
+external APIs, databases, paid services, or internet deployment.
+Also out of scope: <span class="ph-fill">[anything else you are deliberately leaving out]</span>.
 
 DATA AND TECHNICAL CONSTRAINTS
-Use fictional topic titles only; no personal or confidential information.
-Use plain HTML, CSS, and JavaScript for the browser app.
-Node.js LTS is the workshop's approved local runtime; use it only for
-local serving and tests. Prefer its built-in capabilities over packages.
-Propose npm start for local preview and npm test for automated tests.
-The preview server must listen only on the local machine.
+The project works with <span class="ph-fill">[what information it uses or saves]</span>.
+Use made-up or non-sensitive examples only; no personal or
+confidential information.
+Recommend the simplest technology that fits my idea, preferring tools
+that are already installed or approved by my organization. Explain
+your recommendation in plain language and ask me before choosing.
 Confirm the relevant tools are available before relying on them.
+Prefer built-in capabilities over extra packages.
 Explain any additional tool or dependency and ask before adding it.
-Explain what browser-local storage does and does not protect or preserve.
+Propose one simple way to run the project and one way to run its
+automated tests. Anything that runs a local server must listen only
+on this machine.
+If the project saves information, explain where it is stored and what
+that does and does not protect or preserve.
 
 QUALITY AND SUCCESS
-The app must work with a keyboard and at a 375-pixel-wide viewport.
-User-entered text must be displayed as text, not interpreted as HTML.
-Test normal use, invalid input, refreshing, and empty filter results.
-Include a visible, honest response if browser storage cannot be used.
+Handle invalid or unexpected input with a clear message.
+Treat anything a user enters as data, never as code to run.
+If the project has a screen, it must work with a keyboard alone.
+If it is a web page, it must also work on a phone-sized screen.
+Test normal use, invalid input, and empty or unusual cases.
+If something the project depends on fails, such as saving, it must
+say so honestly.
 Keep the code and documentation understandable to a beginner.
 
 ASK ME; DO NOT SILENTLY DECIDE
 Before finalizing the plan, ask about missing or ambiguous requirements.
 Ask one focused question at a time and WAIT for my answer.
 Give 2-3 clear options, a recommendation, and a short explanation.
-In particular, ask about duplicate topic titles, list ordering,
-and the expected behavior when browser storage fails.
+In particular, ask about edge cases in my scope, such as empty,
+duplicate, or very long input, and what should happen when
+something fails.
 Do not silently choose consequential behavior, change scope, add
 services, or invent my preferences. Record unresolved items as open
 questions, not as approved assumptions.
@@ -375,7 +400,7 @@ Markdown in this conversation. Include:
 - Goal, intended user, and success conditions.
 - In scope and out of scope.
 - User stories with IDs such as US-01, written as:
-  "As a [user], I want [capability], so that [benefit]."
+  "As a ..., I want ..., so that ...".
 - Testable acceptance criteria for each story using Given/When/Then.
 - Agreed decisions, reasons, assumptions, and remaining open questions.
 - Simple technical approach and proposed file structure.
@@ -386,15 +411,15 @@ Markdown in this conversation. Include:
 Do not implement or mark the plan approved.
 Ask me to review it and wait for explicit approval.
 Start with your first clarification question.</code></pre>
-<button type="button" class="prompt-toggle" data-prompt-toggle aria-expanded="true" aria-controls="prompt-1" data-lines="78" hidden><svg class="icon prompt-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-chevron"></use></svg><span data-toggle-label>Show less</span></button>
+<button type="button" class="prompt-toggle" data-prompt-toggle aria-expanded="true" aria-controls="prompt-1" data-lines="84" hidden><svg class="icon prompt-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-chevron"></use></svg><span data-toggle-label>Show less</span></button>
 </figure>
 <h3 id="now-use-plan-mode" data-spy>Now use Plan mode</h3>
 <ol>
 <li>Confirm the correct project and <strong>Plan</strong> in the mode dropdown.</li>
-<li>Paste the complete prompt and send it.</li>
+<li>Check that no [square brackets] are left in your prompt, then paste it and send it.</li>
 <li>Answer the questions. Ask for a simpler explanation if an option is unfamiliar.</li>
-<li>Read the proposed plan. Check that it matches your goal, stays small, and contains no unexplained technology or invented decisions.</li>
-<li>Ask for revisions before approving. A useful response is: “Keep accounts out of scope. Replace ‘easy to use’ with a keyboard test. Ask me about the unresolved storage behavior.”</li>
+<li>Read the proposed plan. Check that it matches your idea, stays small, and contains no unexplained technology or invented decisions.</li>
+<li>Ask for revisions before approving. A useful response is: “Keep accounts out of scope. Replace ‘easy to use’ with a check I can do myself. Ask me about the open question instead of deciding for me.”</li>
 </ol>
 <p>If Copilot starts guessing, say:</p>
 <figure class="prompt" data-prompt>
@@ -419,15 +444,15 @@ Update the plan after my answer. Do not implement yet.</code></pre>
 <p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10–15 minutes</p>
 <p class="step-lead">A chat is a working conversation. The repository should hold the durable agreement.</p>
 <h3 id="why-user-stories-and-documentation-matter" data-spy>Why user stories and documentation matter</h3>
-<p>A <strong>user story</strong> describes value to a person, rather than just a technical task.</p>
+<p>A <strong>user story</strong> describes value to a person, rather than just a technical task. It follows a simple pattern: “As a [kind of user], I want [capability], so that [benefit].” For example:</p>
 <blockquote class="example">
-<p>As a learner, I want my topics to remain after a refresh, so that I can continue learning later.</p>
+<p>As a user, I want my entries to still be there when I come back, so that I can continue where I stopped.</p>
 </blockquote>
 <p>An <strong>acceptance criterion</strong> makes that story checkable:</p>
 <blockquote class="example">
-<p>Given I have added “Learn GitHub” and marked it done, when I refresh the same local address in the same browser, then the topic and its completed state remain.</p>
+<p>Given I have saved an entry, when I close the project and open it again, then the entry is still there.</p>
 </blockquote>
-<p>“Use browser storage” is an implementation choice, not the user benefit. “Make saving reliable” is too vague to tell whether the story is finished.</p>
+<p>“Save it in a file” is an implementation choice, not the user benefit. “Make saving reliable” is too vague to tell whether the story is finished.</p>
 <p>Clear documentation helps another person understand the project, helps you resume next week, gives Copilot reusable context, and prevents reviews from turning into arguments about what was meant. <strong>Update the documentation when an agreed requirement changes; do not quietly change the goal to match unfinished code.</strong></p>
 <div class="table-wrap">
 <table class="data-table" role="table">
@@ -435,7 +460,7 @@ Update the plan after my answer. Do not implement yet.</code></pre>
 <tr role="row"><th scope="col" role="columnheader">File in your project</th><th scope="col" role="columnheader">Purpose</th></tr>
 </thead>
 <tbody role="rowgroup">
-<tr role="row"><th scope="row" role="rowheader"><code>README.md</code></th><td role="cell" data-label="Purpose">What the app does, how to start and test it, and its limitations.</td></tr>
+<tr role="row"><th scope="row" role="rowheader"><code>README.md</code></th><td role="cell" data-label="Purpose">What the project does, how to run and test it, and its limitations.</td></tr>
 <tr role="row"><th scope="row" role="rowheader"><code>docs\PLAN.md</code></th><td role="cell" data-label="Purpose">The agreed goal, scope, user stories, acceptance criteria, decisions, and implementation sequence.</td></tr>
 <tr role="row"><th scope="row" role="rowheader"><code>docs\TEST-RESULTS.md</code></th><td role="cell" data-label="Purpose">What was actually checked, the results, and what remains untested.</td></tr>
 <tr role="row"><th scope="row" role="rowheader"><code>docs\REVIEW.md</code></th><td role="cell" data-label="Purpose">Review findings and what was fixed or deliberately deferred.</td></tr>
@@ -456,22 +481,22 @@ Update the plan after my answer. Do not implement yet.</code></pre>
 <span class="prompt-meta">Interactive mode</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Documentation-only request" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-3"><code>I approve creating the documentation only, not application code.
+<pre class="prompt-body" id="prompt-3"><code>I approve creating the documentation only, not project code.
 
 Save our agreed plan as docs\PLAN.md in this project.
 Include the user stories, acceptance criteria, decisions and reasons,
 test strategy, and definition of done. Preserve any unresolved questions.
 Do not label unresolved decisions as approved.
 
-Create a short README.md with the app's purpose, scope, and a link
-to the plan. If the app cannot run yet, say that explicitly;
+Create a short README.md with the project's purpose, scope, and a link
+to the plan. If the project cannot run yet, say that explicitly;
 do not invent working setup or test commands.
 
 Show me the actual file paths and open the Markdown for me to read.
 Stop after these documentation changes.
 Do not install, implement, commit, or push anything.</code></pre>
 </figure>
-<p>Use the <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/templates/PLAN-TEMPLATE.md">reusable plan template</a> to check the structure. The <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/examples/PLAN-learning-tracker.md">worked Learning Tracker plan</a> shows how specific a good plan can be. Its decisions are <strong>examples</strong>, not answers Copilot may assume on your behalf.</p>
+<p>Use the <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/templates/PLAN-TEMPLATE.md">reusable plan template</a> to check the structure. To see how specific a good plan can be, look at the <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/examples/PLAN-learning-tracker.md">example plan</a>. It describes someone else’s idea, a small Learning Tracker, so compare its level of detail, not its content. Your plan describes your own idea, and its decisions are yours.</p>
 <p>Read the saved files. Correct them if necessary. In a future session, explicitly ask Copilot to read <code>README.md</code> and <code>docs\PLAN.md</code>, or attach them with <code>@</code>; do not assume every project document is automatically included.</p>
 <div class="checkpoint">
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-3" data-checkpoint="step-3">
@@ -501,40 +526,41 @@ Use the approved tools and do not introduce new dependencies without
 explaining why and getting my approval.
 
 Explain the files you change in beginner-friendly language.
-Start the local preview and give me its exact local URL.
-Explain how to stop it. Keep it accessible only on this machine.
+Show me how to run the project and try it myself: give me the exact
+steps, and explain how to stop it. If it runs a local server, give me
+its exact local address and keep it accessible only on this machine.
 Run the applicable checks and report the actual commands and results.
 Tell me explicitly if something could not be checked.
 
-Update README.md with the verified start and test instructions.
+Update README.md with the verified run and test instructions.
 Create or update docs\TEST-RESULTS.md with the checks and outcomes.
 Do not mark a story complete just because code was generated.
 Stop for my feedback before starting the next story.
 Do not commit, push, deploy, or add extra features.</code></pre>
 </figure>
-<p>Open the preview yourself. Add a topic. Try an empty title. Check that the behavior matches the plan.</p>
-<p>If it does not, report the <strong>steps, expected result, and actual result</strong>:</p>
+<p>Run or open the project yourself. Try what US-01 promises, then try something it should reject or handle, such as empty input. Check that the behavior matches the plan.</p>
+<p>If it does not, report the <strong>steps, expected result, and actual result</strong>. Replace the brackets with what you saw:</p>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">Example problem report</span>
-<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Example problem report" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
+<span class="prompt-title">Problem report: fill in what you saw</span>
+<button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Problem report: fill in what you saw" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-5"><code>For US-01, I entered only spaces and selected Add.
-Expected: a clear validation message and no new topic.
-Actual: an empty row appeared.
+<pre class="prompt-body" id="prompt-5"><code>For US-01, I <span class="ph-fill">[what you did, step by step]</span>.
+Expected: <span class="ph-fill">[what the plan says should happen]</span>.
+Actual: <span class="ph-fill">[what happened instead]</span>.
 Please fix this within the agreed scope and add a regression test.
 Explain the change and rerun the relevant checks.</code></pre>
 </figure>
-<p>Once satisfied, approve the next story by ID. Repeat for US-02, US-03, and US-04. A change of direction goes back into the plan before it becomes code.</p>
+<p>Once satisfied, approve the next story by ID, such as US-02, and repeat until every story in your plan is done. A change of direction goes back into the plan before it becomes code.</p>
 <p><strong>Do the final acceptance checks yourself as well:</strong></p>
 <ul>
-<li>Add a normal title; reject empty, whitespace-only, and overlong titles.</li>
-<li>Mark a topic done, then reopen it.</li>
-<li>Refresh the <strong>same local URL</strong>, including the port, and check the saved state.</li>
-<li>Try every filter, including one with no matching topics.</li>
-<li>Complete the main journey using only the keyboard; check a narrow, phone-sized preview.</li>
+<li>Try the normal path of every story in your plan.</li>
+<li>Try invalid or unusual input, such as empty, very long, or unexpected values, and check that the project responds clearly.</li>
+<li>If the project saves anything, close it and open it again, and check that the saved information is still there. For a web page, refresh the <strong>same local address</strong>, including the port.</li>
+<li>Try starting with no data at all, and any other edge cases in your plan.</li>
+<li>If the project has a screen, complete the main journey using only the keyboard. If it is a web page, also check a narrow, phone-sized window.</li>
 </ul>
-<p>Ask Copilot to help reproduce less familiar cases, such as unavailable browser storage. Record checks not performed as <strong>Not run</strong>, never as passing.</p>
+<p>Ask Copilot to help reproduce less familiar cases, such as a failed save. Record checks not performed as <strong>Not run</strong>, never as passing.</p>
 <div class="checkpoint">
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-4" data-checkpoint="step-4">
 <label class="checkpoint-label" for="checkpoint-step-4">
@@ -549,7 +575,7 @@ Explain the change and rerun the relevant checks.</code></pre>
 <p class="step-lead">Implementation is not the final quality check. Review is a separate pass to look for mistakes, missing requirements, and avoidable complexity.</p>
 <figure class="screenshot screenshot--tall">
 <img src="assets/03-code-changes.png" alt="GitHub's screenshot of the Changes view, showing changed files and added and removed lines." width="1098" height="948" loading="lazy" decoding="async">
-<figcaption>Screenshot 3: <strong>Changes</strong> shows a diff. Green or <code>+</code> lines are additions; red or <code>-</code> lines are removals. This is an example project, not the Learning Tracker. You do not need to understand every line immediately: ask Copilot to explain the purpose of each changed file. <a class="screenshot-open" href="assets/03-code-changes.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+<figcaption>Screenshot 3: <strong>Changes</strong> shows a diff. Green or <code>+</code> lines are additions; red or <code>-</code> lines are removals. This is an example project, not yours. You do not need to understand every line immediately: ask Copilot to explain the purpose of each changed file. <a class="screenshot-open" href="assets/03-code-changes.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
 </figure>
 <p>Open <strong>Changes</strong> above the prompt box. If a plain folder does not yet provide a Git diff, ask Copilot to list and review the project files directly. Do not assume “no diff” means “nothing to review.”</p>
 <h3 id="copy-ready-review-prompt" data-spy>Copy-ready review prompt</h3>
@@ -558,8 +584,8 @@ Explain the change and rerun the relevant checks.</code></pre>
 <span class="prompt-title">Review-only pass</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Review-only pass" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-6"><code>Perform a review-only pass of this Learning Tracker.
-Do not change application files or fix findings yet.
+<pre class="prompt-body" id="prompt-6"><code>Perform a review-only pass of this project.
+Do not change project files or fix findings yet.
 
 Read README.md, docs\PLAN.md, and the current implementation and tests.
 Review the whole small project, including new or untracked files,
@@ -567,12 +593,14 @@ not only an existing Git diff.
 
 Check:
 - Every user story and acceptance criterion, including edge cases.
-- Input validation, safe display of entered text, and storage failures.
-- Keyboard use, labels, focus visibility, and the narrow-screen layout.
+- Input validation, safe handling of entered data, and error handling,
+  such as failed saves.
+- If the project has a screen: keyboard use, labels, visible focus,
+  and small screens.
 - Missing or misleading tests.
 - Unnecessary complexity, dependencies, or features outside the plan.
 - Accidentally included secrets, private data, or generated files.
-- Whether the documentation matches the actual application.
+- Whether the documentation matches the actual project.
 
 Run the existing relevant, non-destructive checks where possible.
 Report findings with an ID, priority, file and line when applicable,
@@ -600,7 +628,7 @@ Update docs\TEST-RESULTS.md with the actual results.
 Record deferred findings and the reason; do not hide them.
 Do not commit, push, or publish yet.</code></pre>
 </figure>
-<p>If there are no findings, still record the review scope, checks, and limitations. AI review is useful feedback, not proof that the app is safe or correct. Have a peer or facilitator inspect the result if you are unsure what a finding means. Fix exposed credentials before publishing; removing a secret from the latest file is not sufficient if it is already in Git history.</p>
+<p>If there are no findings, still record the review scope, checks, and limitations. AI review is useful feedback, not proof that the project is safe or correct. Have a peer or facilitator inspect the result if you are unsure what a finding means. Fix exposed credentials before publishing; removing a secret from the latest file is not sufficient if it is already in Git history.</p>
 <div class="checkpoint">
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-5" data-checkpoint="step-5">
 <label class="checkpoint-label" for="checkpoint-step-5">
@@ -618,7 +646,7 @@ Do not commit, push, or publish yet.</code></pre>
 <li>In your browser, sign in to GitHub with your personal account, the one invited to the organization.</li>
 <li>Open <a href="https://github.com/new" target="_blank" rel="noopener">Create a new repository<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a>.</li>
 <li>In <strong>Owner</strong>, select <strong><span class="ph">YOUR-ORG</span></strong>, not your personal username. If the organization is missing, you may not have accepted its invitation yet: look for the invitation email from GitHub. If it is still missing, stop and ask the facilitator about your membership or permissions.</li>
-<li>Use a unique repository name, such as <code>learning-tracker-<span class="ph">YOUR-USERNAME</span></code>, and add a short description.</li>
+<li>Use a unique repository name, such as <code><span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span></code>, and add a short description.</li>
 <li>Choose <strong>Private</strong>, unless the facilitator has explicitly specified another organization-approved visibility. Do not choose Public merely to make sharing easier.</li>
 <li>Because you already have local files, leave <strong>Add a README</strong>, <strong>Add .gitignore</strong>, and <strong>Choose a license</strong> unselected. Do not select a template or ask a cloud agent to populate the repository.</li>
 <li>Recheck the owner, name, and visibility, then click <strong>Create repository</strong>.</li>
@@ -630,7 +658,7 @@ Do not commit, push, or publish yet.</code></pre>
 </figure>
 <figure class="screenshot">
 <img src="assets/github-repository-url.png" alt="GitHub's Quick Setup panel, with the copy button next to the remote repository URL." width="2442" height="386" loading="lazy" decoding="async">
-<figcaption>Screenshot 5: Copy your own repository’s HTTPS URL. It will look like <code>https://github.com/<span class="ph">YOUR-ORG</span>/learning-tracker-<span class="ph">YOUR-USERNAME</span>.git</code>. <a class="screenshot-open" href="assets/github-repository-url.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+<figcaption>Screenshot 5: Copy your own repository’s HTTPS URL. It will look like <code>https://github.com/<span class="ph">YOUR-ORG</span>/<span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span>.git</code>. <a class="screenshot-open" href="assets/github-repository-url.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
 </figure>
 <h3 id="ask-copilot-to-prepare-the-upload-without-uploading-yet" data-spy>Ask Copilot to prepare the upload, without uploading yet</h3>
 <p>Return to the same project session. Replace the example URL in this prompt with the URL you just copied:</p>
@@ -643,7 +671,7 @@ Do not commit, push, or publish yet.</code></pre>
 stage, commit, push, or change GitHub settings yet.
 
 Destination:
-https://github.com/<span class="ph">YOUR-ORG</span>/learning-tracker-<span class="ph">YOUR-USERNAME</span>.git
+https://github.com/<span class="ph">YOUR-ORG</span>/<span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span>.git
 Expected visibility: Private.
 
 Inspect the actual project root, local Git state, branch, existing
@@ -677,20 +705,20 @@ Wait for my approval.</code></pre>
 </figcaption>
 <pre class="prompt-body" id="prompt-9"><code>I have checked the file list and verified that this is the correct,
 empty Private repository:
-https://github.com/<span class="ph">YOUR-ORG</span>/learning-tracker-<span class="ph">YOUR-USERNAME</span>.git
+https://github.com/<span class="ph">YOUR-ORG</span>/<span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span>.git
 
 I approve the proposed .gitignore and the listed files.
 Initialize Git in this project folder only if needed.
 If a commit identity is missing, ask me rather than inventing one
 or changing global Git settings.
 
-Create a commit named "Add learning tracker with plan and review".
+Create a commit named "Add first version with plan and review".
 Connect this exact destination if no remote is configured, and push
 the approved commit to main without force.
 
 Stop if authentication, permissions, repository state, or branch
 rules differ from our preparation. Do not change access, visibility,
-security settings, or rules. Do not deploy the app.
+security settings, or rules. Do not deploy anything.
 
 Afterward, verify that GitHub has the same commit and expected files.
 Show the repository URL, branch, and commit ID.
@@ -724,7 +752,7 @@ Tell me clearly if any operation failed or could not be verified.</code></pre>
 <p>Give a two-minute demonstration to a partner or facilitator:</p>
 <ol>
 <li>Explain the user problem and one thing deliberately left out of scope.</li>
-<li>Show a user story and demonstrate its acceptance criteria in the app.</li>
+<li>Show a user story and demonstrate its acceptance criteria in your project.</li>
 <li>Show one question Copilot asked before a decision was made.</li>
 <li>Show the plan, a test result, and the code-review record.</li>
 <li>Open the organization’s repository and point out the uploaded commit.</li>
@@ -783,7 +811,7 @@ Tell me clearly if any operation failed or could not be verified.</code></pre>
 <p class="footer-heading"><strong>Learning materials</strong></p>
 <ul class="footer-links">
 <li><a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/templates/PLAN-TEMPLATE.md">Plan template</a></li>
-<li><a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/examples/PLAN-learning-tracker.md">Worked example plan</a></li>
+<li><a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/examples/PLAN-learning-tracker.md">Example plan</a></li>
 <li><a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/FACILITATOR.md">Facilitator setup</a></li>
 <li><a href="#sources">Sources and screenshot credits</a></li>
 </ul>
