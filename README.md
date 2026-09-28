@@ -11,8 +11,6 @@ You do not need to memorize programming syntax. You bring the idea. Your job is 
 
 **The workflow:** Describe -> Plan -> Document -> Build -> Test -> Review -> Push.
 
-This guide is for the **standalone GitHub Copilot desktop app**. It is not a guide to Microsoft 365 Copilot, GitHub Desktop, or the Copilot extension in Visual Studio Code.
-
 ### Before you begin
 
 - Have the GitHub Copilot app installed and signed in with your personal GitHub account, the one your organization invited. If you have not accepted the invitation yet, look for the invitation email from GitHub and accept it first. Your organization also needs to enable Copilot access for you.
