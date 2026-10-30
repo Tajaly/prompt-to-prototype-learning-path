@@ -3,17 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>From idea to your first GitHub project · A beginner learning path with the GitHub Copilot app</title>
-<meta name="description" content="A beginner learning path with the GitHub Copilot app: describe, plan, document, build, test, review, and push a small project of your own to your GitHub organization.">
+<title data-i18n="page-title">From idea to your first GitHub project · A beginner learning path with the GitHub Copilot app</title>
+<meta name="description" data-i18n-content="page-description" content="A beginner learning path with the GitHub Copilot app: describe, plan, document, build, test, review, and push a small project of your own to your GitHub organization.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#101317" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:title" content="From idea to your first GitHub project">
-<meta property="og:description" content="A beginner learning path with the GitHub Copilot app. About 90–120 minutes, from a written brief to a reviewed project in your GitHub organization.">
+<meta property="og:title" data-i18n-content="site-title" content="From idea to your first GitHub project">
+<meta property="og:description" data-i18n-content="social-description" content="A beginner learning path with the GitHub Copilot app. About 90–120 minutes, from a written brief to a reviewed project in your GitHub organization.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>
+document.documentElement.className = 'js';
+try {
+  const theme = localStorage.getItem('idea-to-first-github-project:theme:v1');
+  if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+} catch {
+  document.documentElement.dataset.preferencesUnavailable = 'true';
+}
+</script>
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.className = 'js';</script>
+<script src="i18n-de.js" defer></script>
 <script src="app.js" defer></script>
 </head>
 <body>
@@ -37,119 +46,128 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13.5 6.5 19 12l-5.5 5.5"/></symbol>
   <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6.5 9.5 12 15l5.5-5.5"/></symbol>
   <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4.5 9V4.5H9"/><path d="M15 4.5h4.5V9"/><path d="M19.5 15v4.5H15"/><path d="M9 19.5H4.5V15"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5a8.5 8.5 0 1 0 9.5 9.5Z"/></symbol>
 </svg>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-i18n="skip-content">Skip to content</a>
 <header class="topbar">
 <div class="topbar-inner">
 <a class="brand" href="#overview">
 <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8"/><path d="M9.5 16.5l4.25 4.25L22.5 11"/></svg>
-<span class="brand-name">From idea to your first GitHub project</span>
+<span class="brand-name" data-i18n="site-title">From idea to your first GitHub project</span>
 </a>
-<a class="topbar-link" href="#sources">Sources and credits</a>
+<div class="topbar-actions">
+<a class="topbar-link" href="#sources" data-i18n="sources-link">Sources and credits</a>
+<button type="button" class="preference-button theme-toggle" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode" hidden>
+<svg class="icon" aria-hidden="true" focusable="false"><use data-theme-icon href="#i-moon"></use></svg>
+</button>
+<button type="button" class="preference-button language-toggle" data-language-toggle lang="de" aria-label="Auf Deutsch lesen" title="Auf Deutsch lesen" hidden>Deutsch</button>
 <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="sidebar" hidden>
-<svg class="icon nav-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-steps"></use></svg><span class="nav-toggle-label">Steps</span><span class="nav-toggle-count" data-progress-badge>0/7</span>
+<svg class="icon nav-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-steps"></use></svg><span class="nav-toggle-label" data-i18n="steps-label">Steps</span><span class="nav-toggle-count" data-progress-badge>0/7</span>
 </button>
 </div>
+</div>
 </header>
+<p class="preferences-note" data-preferences-note role="status" hidden></p>
 <div class="layout">
-<aside class="sidebar" id="sidebar" aria-label="Guide navigation">
+<aside class="sidebar" id="sidebar" aria-label="Guide navigation" data-i18n-aria-label="guide-navigation">
 <div class="sidebar-inner">
 <div class="progress" data-progress>
-<p class="progress-text" data-progress-text><strong data-progress-count>0</strong> of 7 checkpoints done</p>
+<p class="progress-text" data-progress-text><strong data-progress-count>0</strong><span data-progress-total> of 7 checkpoints done</span></p>
 <div class="progress-track" aria-hidden="true"><span class="progress-fill" data-progress-fill></span></div>
 <p class="progress-actions">
 <a class="progress-continue" href="#step-1" data-progress-continue hidden>Continue with step 1</a>
 <button type="button" class="text-button" data-progress-reset hidden>Reset progress</button>
 </p>
-<p class="progress-note" data-storage-note hidden>This browser isn’t saving progress, so your ticks will reset when you reload the page.</p>
-<p class="progress-hint" data-progress-hint>Tick the checkpoint at the end of each step. Your ticks are saved only in this browser.</p>
+<p class="progress-note" data-storage-note data-i18n="progress-storage" hidden>This browser isn’t saving progress, so your ticks will reset when you reload the page.</p>
+<p class="progress-hint" data-progress-hint data-i18n="progress-hint">Tick the checkpoint at the end of each step. Your ticks are saved only in this browser.</p>
 </div>
-<nav aria-label="Steps in this guide">
+<nav aria-label="Steps in this guide" data-i18n-aria-label="steps-navigation">
 <ul class="nav">
-<li class="nav-item" data-section="overview"><a class="nav-link nav-link--plain" href="#overview"><span class="nav-title">Overview</span></a></li>
-<li class="nav-item" data-section="before-you-begin"><a class="nav-link nav-link--plain" href="#before-you-begin"><span class="nav-title">Before you begin</span></a>
+<li class="nav-item" data-section="overview"><a class="nav-link nav-link--plain" href="#overview"><span class="nav-title" data-i18n="overview-label">Overview</span></a></li>
+<li class="nav-item" data-section="before-you-begin"><a class="nav-link nav-link--plain" href="#before-you-begin"><span class="nav-title" data-i18n="before-label">Before you begin</span></a>
 <ul class="nav-sub">
-<li><a class="nav-sublink" href="#five-words-you-will-use">Five words you will use</a></li>
+<li><a class="nav-sublink" href="#five-words-you-will-use" data-i18n="five-words">Five words you will use</a></li>
 </ul>
 </li>
 <li class="nav-item nav-step" data-step="step-1">
 <a class="nav-link" href="#step-1">
 <span class="nav-marker" aria-hidden="true"><span class="nav-num">1</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="nav-title"><span class="visually-hidden">Step 1: </span>Meet the app and start a project<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-title" data-i18n="nav-step-1"><span class="visually-hidden">Step 1: </span>Meet the app and start a project<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
 <span class="nav-time">10 min</span>
 </a>
 <ul class="nav-sub">
-<li><a class="nav-sublink" href="#start-with-an-empty-local-folder">Start with an empty local folder</a></li>
+<li><a class="nav-sublink" href="#start-with-an-empty-local-folder" data-i18n="start-folder">Start with an empty local folder</a></li>
 </ul>
 </li>
 <li class="nav-item nav-step" data-step="step-2">
 <a class="nav-link" href="#step-2">
 <span class="nav-marker" aria-hidden="true"><span class="nav-num">2</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="nav-title"><span class="visually-hidden">Step 2: </span>Shape your idea<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-title" data-i18n="nav-step-2"><span class="visually-hidden">Step 2: </span>Shape your idea<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
 <span class="nav-time">20 min</span>
 </a>
 <ul class="nav-sub">
-<li><a class="nav-sublink" href="#choose-a-small-idea">Choose a small idea</a></li>
-<li><a class="nav-sublink" href="#prepare-your-brief">Prepare your brief</a></li>
-<li><a class="nav-sublink" href="#copy-ready-first-prompt">Copy-ready first prompt</a></li>
-<li><a class="nav-sublink" href="#now-use-plan-mode">Now use Plan mode</a></li>
+<li><a class="nav-sublink" href="#choose-a-small-idea" data-i18n="choose-idea">Choose a small idea</a></li>
+<li><a class="nav-sublink" href="#prepare-your-brief" data-i18n="prepare-brief">Prepare your brief</a></li>
+<li><a class="nav-sublink" href="#copy-ready-first-prompt" data-i18n="first-prompt">Copy-ready first prompt</a></li>
+<li><a class="nav-sublink" href="#now-use-plan-mode" data-i18n="now-plan">Now use Plan mode</a></li>
 </ul>
 </li>
 <li class="nav-item nav-step" data-step="step-3">
 <a class="nav-link" href="#step-3">
 <span class="nav-marker" aria-hidden="true"><span class="nav-num">3</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="nav-title"><span class="visually-hidden">Step 3: </span>Turn the plan into documentation<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-title" data-i18n="nav-step-3"><span class="visually-hidden">Step 3: </span>Turn the plan into documentation<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
 <span class="nav-time">10–15 min</span>
 </a>
 <ul class="nav-sub">
-<li><a class="nav-sublink" href="#why-user-stories-and-documentation-matter">Why user stories and documentation matter</a></li>
-<li><a class="nav-sublink" href="#save-the-plan-before-building">Save the plan before building</a></li>
+<li><a class="nav-sublink" href="#why-user-stories-and-documentation-matter" data-i18n="stories-matter">Why user stories and documentation matter</a></li>
+<li><a class="nav-sublink" href="#save-the-plan-before-building" data-i18n="save-plan">Save the plan before building</a></li>
 </ul>
 </li>
 <li class="nav-item nav-step" data-step="step-4">
 <a class="nav-link" href="#step-4">
 <span class="nav-marker" aria-hidden="true"><span class="nav-num">4</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="nav-title"><span class="visually-hidden">Step 4: </span>Implement one step at a time<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-title" data-i18n="nav-step-4"><span class="visually-hidden">Step 4: </span>Implement one step at a time<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
 <span class="nav-time">25–30 min</span>
 </a>
 </li>
 <li class="nav-item nav-step" data-step="step-5">
 <a class="nav-link" href="#step-5">
 <span class="nav-marker" aria-hidden="true"><span class="nav-num">5</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="nav-title"><span class="visually-hidden">Step 5: </span>Review the code<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-title" data-i18n="nav-step-5"><span class="visually-hidden">Step 5: </span>Review the code<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
 <span class="nav-time">15–20 min</span>
 </a>
 <ul class="nav-sub">
-<li><a class="nav-sublink" href="#copy-ready-review-prompt">Copy-ready review prompt</a></li>
+<li><a class="nav-sublink" href="#copy-ready-review-prompt" data-i18n="review-prompt">Copy-ready review prompt</a></li>
 </ul>
 </li>
 <li class="nav-item nav-step" data-step="step-6">
 <a class="nav-link" href="#step-6">
 <span class="nav-marker" aria-hidden="true"><span class="nav-num">6</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="nav-title"><span class="visually-hidden">Step 6: </span>Publish to your organization<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-title" data-i18n="nav-step-6"><span class="visually-hidden">Step 6: </span>Publish to your organization<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
 <span class="nav-time">10–15 min</span>
 </a>
 <ul class="nav-sub">
-<li><a class="nav-sublink" href="#create-the-empty-github-repository">Create the empty GitHub repository</a></li>
-<li><a class="nav-sublink" href="#ask-copilot-to-prepare-the-upload-without-uploading-yet">Ask Copilot to prepare the upload, without uploading yet</a></li>
-<li><a class="nav-sublink" href="#approve-the-exact-destination-and-push">Approve the exact destination and push</a></li>
-<li><a class="nav-sublink" href="#confirm-it-really-arrived">Confirm it really arrived</a></li>
+<li><a class="nav-sublink" href="#create-the-empty-github-repository" data-i18n="create-repo">Create the empty GitHub repository</a></li>
+<li><a class="nav-sublink" href="#ask-copilot-to-prepare-the-upload-without-uploading-yet" data-i18n="prepare-upload">Ask Copilot to prepare the upload, without uploading yet</a></li>
+<li><a class="nav-sublink" href="#approve-the-exact-destination-and-push" data-i18n="approve-push">Approve the exact destination and push</a></li>
+<li><a class="nav-sublink" href="#confirm-it-really-arrived" data-i18n="verify-upload">Confirm it really arrived</a></li>
 </ul>
 </li>
 <li class="nav-item nav-step" data-step="step-7">
 <a class="nav-link" href="#step-7">
 <span class="nav-marker" aria-hidden="true"><span class="nav-num">7</span><svg class="nav-check" viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="nav-title"><span class="visually-hidden">Step 7: </span>Show what you learned<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
+<span class="nav-title" data-i18n="nav-step-7"><span class="visually-hidden">Step 7: </span>Show what you learned<span class="visually-hidden" data-done-label hidden> (checkpoint done)</span></span>
 </a>
 </li>
-<li class="nav-item" data-section="sources"><a class="nav-link nav-link--plain" href="#sources"><span class="nav-title">Sources and credits</span></a></li>
+<li class="nav-item" data-section="sources"><a class="nav-link nav-link--plain" href="#sources"><span class="nav-title" data-i18n="sources-link">Sources and credits</span></a></li>
 </ul>
 </nav>
 </div>
 </aside>
 <main class="content" id="main" tabindex="-1">
 <article class="guide">
-<header class="guide-header" id="overview" data-spy>
+<header class="guide-header" id="overview" data-spy data-i18n="overview">
 <h1>From idea to your first GitHub project</h1>
 <p class="subtitle">A beginner learning path with the GitHub Copilot app</p>
 <dl class="glance">
@@ -184,7 +202,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </ol>
 </div>
 </header>
-<section class="guide-section" id="before-you-begin" aria-labelledby="before-you-begin-title" data-spy>
+<section class="guide-section" id="before-you-begin" aria-labelledby="before-you-begin-title" data-spy data-i18n="before">
 <h2 id="before-you-begin-title">Before you begin</h2>
 <ul>
 <li>Have the GitHub Copilot app installed and signed in with your personal GitHub account, the one your organization invited. If you have not accepted the invitation yet, look for the invitation email from GitHub and accept it first. Your organization also needs to enable Copilot access for you.</li>
@@ -210,15 +228,15 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </div>
 </section>
 <section class="guide-section step" id="step-1" aria-labelledby="step-1-title" data-spy>
-<h2 id="step-1-title"><span class="step-num" aria-hidden="true">1</span><span class="visually-hidden">Step 1: </span>Meet the app and start a project</h2>
-<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10 minutes</p>
-<p class="step-lead">Learn these controls; ignore advanced customization and automation for now.</p>
+<h2 id="step-1-title" data-i18n="step-1-title"><span class="step-num" aria-hidden="true">1</span><span class="visually-hidden">Step 1: </span>Meet the app and start a project</h2>
+<p class="step-time" data-i18n="time-10"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10 minutes</p>
+<p class="step-lead" data-i18n="step-1-lead">Learn these controls; ignore advanced customization and automation for now.</p>
 <figure class="screenshot screenshot--portrait">
-<img src="assets/01-app-sidebar.png" alt="GitHub's published Copilot app screenshot showing navigation and project sessions." width="1146" height="1284" loading="lazy" decoding="async">
-<figcaption>Screenshot 1: GitHub’s published app navigation example. It uses older labels, including <strong>Sessions</strong> and <strong>Quick chats</strong>. Current documentation calls these areas <strong>Projects</strong> and <strong>Chats</strong>. Screenshots in this guide are published macOS examples; Windows controls and newer versions can look different. Follow the current labels in the instructions. <a href="#sources">Image sources</a>. <a class="screenshot-open" href="assets/01-app-sidebar.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+<img src="assets/01-app-sidebar.png" data-i18n-alt="image-1-alt" alt="GitHub's published Copilot app screenshot showing navigation and project sessions." width="1146" height="1284" loading="lazy" decoding="async">
+<figcaption data-i18n="caption-1">Screenshot 1: GitHub’s published app navigation example. It uses older labels, including <strong>Sessions</strong> and <strong>Quick chats</strong>. Current documentation calls these areas <strong>Projects</strong> and <strong>Chats</strong>. Screenshots in this guide are published macOS examples; Windows controls and newer versions can look different. Follow the current labels in the instructions. <a href="#sources">Image sources</a>. <a class="screenshot-open" href="assets/01-app-sidebar.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
 </figure>
 <div class="table-wrap">
-<table class="data-table" role="table">
+<table class="data-table" role="table" data-i18n="table-app">
 <thead role="rowgroup">
 <tr role="row"><th scope="col" role="columnheader">Area</th><th scope="col" role="columnheader">What you need it for today</th></tr>
 </thead>
@@ -232,8 +250,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </tbody>
 </table>
 </div>
-<h3 id="start-with-an-empty-local-folder" data-spy>Start with an empty local folder</h3>
-<ol>
+<h3 id="start-with-an-empty-local-folder" data-spy data-i18n="start-folder">Start with an empty local folder</h3>
+<ol data-i18n="folder-steps">
 <li>In your computer’s file manager, create a folder named <code><span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span></code>. Replace <code><span class="ph">YOUR-PROJECT</span></code> with a short name for your idea, in lowercase with hyphens, such as <code>my-first-project</code>, and <code><span class="ph">YOUR-USERNAME</span></code> with your GitHub username. On Windows, a suitable location is <code>C:\Users\<span class="ph">YOUR-NAME</span>\Projects\<span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span></code>. Do not select your whole home folder, Downloads folder, or a folder containing unrelated work.</li>
 <li>In the app sidebar, click <strong>+</strong> next to <strong>Projects</strong>.</li>
 <li>Under <strong>Add project from</strong>, choose <strong>Local folder or repository</strong>, then select your new folder.</li>
@@ -242,27 +260,27 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <li>Leave the model on <strong>Auto</strong>, or the model your facilitator recommends. Select <strong>Plan</strong> in the mode dropdown. Do not send a request to build yet.</li>
 </ol>
 <figure class="screenshot">
-<img src="assets/02-session-location.png" alt="GitHub's screenshot of the session location menu, with New worktree and Local repository choices." width="1143" height="524" loading="lazy" decoding="async">
-<figcaption>Screenshot 2: The location picker for an existing Git repository. The screenshot selects <strong>New worktree</strong>, which creates a separate working copy; this introductory exercise uses <strong>Local repository</strong> instead when the picker is available. An empty, non-Git folder may not show this menu. <a class="screenshot-open" href="assets/02-session-location.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+<img src="assets/02-session-location.png" data-i18n-alt="image-2-alt" alt="GitHub's screenshot of the session location menu, with New worktree and Local repository choices." width="1143" height="524" loading="lazy" decoding="async">
+<figcaption data-i18n="caption-2">Screenshot 2: The location picker for an existing Git repository. The screenshot selects <strong>New worktree</strong>, which creates a separate working copy; this introductory exercise uses <strong>Local repository</strong> instead when the picker is available. An empty, non-Git folder may not show this menu. <a class="screenshot-open" href="assets/02-session-location.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
 </figure>
 <div class="callout callout--note">
 <svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
-<p><strong>Why start locally?</strong> You can experiment before sharing anything. Connecting a local folder does <strong>not</strong> create a repository in the organization or upload your files. We will do that after review.</p>
+<p data-i18n="local-start"><strong>Why start locally?</strong> You can experiment before sharing anything. Connecting a local folder does <strong>not</strong> create a repository in the organization or upload your files. We will do that after review.</p>
 </div>
 <div class="checkpoint">
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-1" data-checkpoint="step-1">
 <label class="checkpoint-label" for="checkpoint-step-1">
 <span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="checkpoint-text"><strong>Checkpoint:</strong> You can identify the selected project, its folder, and the <strong>Plan</strong> mode control.</span>
+<span class="checkpoint-text" data-i18n="checkpoint-1"><strong>Checkpoint:</strong> You can identify the selected project, its folder, and the <strong>Plan</strong> mode control.</span>
 </label>
 </div>
 </section>
 <section class="guide-section step" id="step-2" aria-labelledby="step-2-title" data-spy>
-<h2 id="step-2-title"><span class="step-num" aria-hidden="true">2</span><span class="visually-hidden">Step 2: </span>Shape your idea and write the whole brief</h2>
-<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 20 minutes</p>
-<p class="step-lead">Plan mode is a conversation about the work, not a magic “make it correct” button.</p>
+<h2 id="step-2-title" data-i18n="step-2-title"><span class="step-num" aria-hidden="true">2</span><span class="visually-hidden">Step 2: </span>Shape your idea and write the whole brief</h2>
+<p class="step-time" data-i18n="time-20"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 20 minutes</p>
+<p class="step-lead" data-i18n="step-2-lead">Plan mode is a conversation about the work, not a magic “make it correct” button.</p>
 <div class="table-wrap">
-<table class="data-table" role="table">
+<table class="data-table" role="table" data-i18n="table-modes">
 <thead role="rowgroup">
 <tr role="row"><th scope="col" role="columnheader">Mode</th><th scope="col" role="columnheader">How to use it in this learning path</th></tr>
 </thead>
@@ -273,11 +291,11 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </tbody>
 </table>
 </div>
-<p>Interactive mode is not a promise to ask before every line of code. Keep normal permission prompts and organization controls enabled. Do not enable blanket tool auto-approval.</p>
-<h3 id="choose-a-small-idea" data-spy>Choose a small idea</h3>
-<p>Pick something you would actually use. Your first project should do one main job for one kind of person, and be small enough to describe in a sentence.</p>
+<p data-i18n="interactive-boundaries">Interactive mode is not a promise to ask before every line of code. Keep normal permission prompts and organization controls enabled. Do not enable blanket tool auto-approval.</p>
+<h3 id="choose-a-small-idea" data-spy data-i18n="choose-idea">Choose a small idea</h3>
+<p data-i18n="small-idea">Pick something you would actually use. Your first project should do one main job for one kind of person, and be small enough to describe in a sentence.</p>
 <div class="table-wrap">
-<table class="data-table table-labels" role="table">
+<table class="data-table table-labels" role="table" data-i18n="table-scopes">
 <thead role="rowgroup">
 <tr role="row"><th scope="col" role="columnheader">Aspect</th><th scope="col" role="columnheader">Good for a first project</th><th scope="col" role="columnheader">Leave for later</th></tr>
 </thead>
@@ -290,11 +308,11 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </tbody>
 </table>
 </div>
-<p>If you have several ideas, choose the smallest. You can ask Copilot to help you narrow one down, but the idea and the decisions stay yours.</p>
-<h3 id="prepare-your-brief" data-spy>Prepare your brief</h3>
-<p>Write your first prompt in a note before sending it. Use this checklist to remove avoidable ambiguity:</p>
+<p data-i18n="choose-smallest">If you have several ideas, choose the smallest. You can ask Copilot to help you narrow one down, but the idea and the decisions stay yours.</p>
+<h3 id="prepare-your-brief" data-spy data-i18n="prepare-brief">Prepare your brief</h3>
+<p data-i18n="brief-intro">Write your first prompt in a note before sending it. Use this checklist to remove avoidable ambiguity:</p>
 <div class="table-wrap">
-<table class="data-table table-labels" role="table">
+<table class="data-table table-labels" role="table" data-i18n="table-brief">
 <thead role="rowgroup">
 <tr role="row"><th scope="col" role="columnheader">Consider</th><th scope="col" role="columnheader">Write down</th><th scope="col" role="columnheader">Tip</th></tr>
 </thead>
@@ -310,16 +328,16 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </tbody>
 </table>
 </div>
-<p>Avoid “Build a nice app that works.” Prefer observable outcomes. “Nice,” “simple,” and “user-friendly” are useful intentions, but they are not testable requirements on their own.</p>
-<h3 id="copy-ready-first-prompt" data-spy>Copy-ready first prompt</h3>
-<p>Copy the prompt below into your note. Replace every part in [square brackets] with your own idea, using your answers from the checklist. Keep the other sections as they are: they set the boundaries and make Copilot ask you instead of guessing.</p>
+<p data-i18n="observable-outcomes">Avoid “Build a nice app that works.” Prefer observable outcomes. “Nice,” “simple,” and “user-friendly” are useful intentions, but they are not testable requirements on their own.</p>
+<h3 id="copy-ready-first-prompt" data-spy data-i18n="first-prompt">Copy-ready first prompt</h3>
+<p data-i18n="first-prompt-intro">Copy the prompt below into your note. Replace every part in [square brackets] with your own idea, using your answers from the checklist. Keep the other sections as they are: they set the boundaries and make Copilot ask you instead of guessing.</p>
 <figure class="prompt" data-prompt data-collapsible>
 <figcaption class="prompt-head">
-<span class="prompt-title">First prompt: fill in your idea</span>
-<span class="prompt-meta">Plan mode</span>
+<span class="prompt-title" data-i18n="prompt-1-title">First prompt: fill in your idea</span>
+<span class="prompt-meta" data-i18n="plan-mode">Plan mode</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: First prompt: fill in your idea" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-1"><code>You are my software-development coach. I am a beginner.
+<pre class="prompt-body" id="prompt-1"><code data-i18n="prompt-1">You are my software-development coach. I am a beginner.
 Help me plan a small project in plain language.
 
 MODE AND BOUNDARIES
@@ -403,23 +421,23 @@ Markdown in this conversation. Include:
 Do not implement or mark the plan approved.
 Ask me to review it and wait for explicit approval.
 Start with your first clarification question.</code></pre>
-<button type="button" class="prompt-toggle" data-prompt-toggle aria-expanded="true" aria-controls="prompt-1" data-lines="84" hidden><svg class="icon prompt-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-chevron"></use></svg><span data-toggle-label>Show less</span></button>
+<button type="button" class="prompt-toggle" data-prompt-toggle aria-expanded="true" aria-controls="prompt-1" hidden><svg class="icon prompt-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-chevron"></use></svg><span data-toggle-label>Show less</span></button>
 </figure>
-<h3 id="now-use-plan-mode" data-spy>Now use Plan mode</h3>
-<ol>
+<h3 id="now-use-plan-mode" data-spy data-i18n="now-plan">Now use Plan mode</h3>
+<ol data-i18n="plan-steps">
 <li>Confirm the correct project and <strong>Plan</strong> in the mode dropdown.</li>
 <li>Check that no [square brackets] are left in your prompt, then paste it and send it.</li>
 <li>Answer the questions. Ask for a simpler explanation if an option is unfamiliar.</li>
 <li>Read the proposed plan. Check that it matches your idea, stays small, and contains no unexplained technology or invented decisions.</li>
 <li>Ask for revisions before approving. A useful response is: “Keep accounts out of scope. Replace ‘easy to use’ with a check I can do myself. Ask me about the open question instead of deciding for me.”</li>
 </ol>
-<p>If Copilot starts guessing, say:</p>
+<p data-i18n="if-guessing-intro">If Copilot starts guessing, say:</p>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">If Copilot starts guessing</span>
+<span class="prompt-title" data-i18n="prompt-2-title">If Copilot starts guessing</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: If Copilot starts guessing" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-2"><code>Pause. That decision was not agreed.
+<pre class="prompt-body" id="prompt-2"><code data-i18n="prompt-2">Pause. That decision was not agreed.
 Explain the options in plain language, ask me to choose, and wait.
 Update the plan after my answer. Do not implement yet.</code></pre>
 </figure>
@@ -427,27 +445,27 @@ Update the plan after my answer. Do not implement yet.</code></pre>
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-2" data-checkpoint="step-2">
 <label class="checkpoint-label" for="checkpoint-step-2">
 <span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="checkpoint-text"><strong>Checkpoint:</strong> You can explain what will be built, what will not, how you will check it, and which decisions you made.</span>
+<span class="checkpoint-text" data-i18n="checkpoint-2"><strong>Checkpoint:</strong> You can explain what will be built, what will not, how you will check it, and which decisions you made.</span>
 </label>
 </div>
 </section>
 <section class="guide-section step" id="step-3" aria-labelledby="step-3-title" data-spy>
-<h2 id="step-3-title"><span class="step-num" aria-hidden="true">3</span><span class="visually-hidden">Step 3: </span>Turn the agreed plan into project documentation</h2>
-<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10–15 minutes</p>
-<p class="step-lead">A chat is a working conversation. The repository should hold the durable agreement.</p>
-<h3 id="why-user-stories-and-documentation-matter" data-spy>Why user stories and documentation matter</h3>
-<p>A <strong>user story</strong> describes value to a person, rather than just a technical task. It follows a simple pattern: “As a [kind of user], I want [capability], so that [benefit].” For example:</p>
+<h2 id="step-3-title" data-i18n="step-3-title"><span class="step-num" aria-hidden="true">3</span><span class="visually-hidden">Step 3: </span>Turn the agreed plan into project documentation</h2>
+<p class="step-time" data-i18n="time-10-15"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10–15 minutes</p>
+<p class="step-lead" data-i18n="step-3-lead">A chat is a working conversation. The repository should hold the durable agreement.</p>
+<h3 id="why-user-stories-and-documentation-matter" data-spy data-i18n="stories-matter">Why user stories and documentation matter</h3>
+<p data-i18n="story-intro">A <strong>user story</strong> describes value to a person, rather than just a technical task. It follows a simple pattern: “As a [kind of user], I want [capability], so that [benefit].” For example:</p>
 <blockquote class="example">
-<p>As a user, I want my entries to still be there when I come back, so that I can continue where I stopped.</p>
+<p data-i18n="story-example">As a user, I want my entries to still be there when I come back, so that I can continue where I stopped.</p>
 </blockquote>
-<p>An <strong>acceptance criterion</strong> makes that story checkable:</p>
+<p data-i18n="criteria-intro">An <strong>acceptance criterion</strong> makes that story checkable:</p>
 <blockquote class="example">
-<p>Given I have saved an entry, when I close the project and open it again, then the entry is still there.</p>
+<p data-i18n="criteria-example">Given I have saved an entry, when I close the project and open it again, then the entry is still there.</p>
 </blockquote>
-<p>“Save it in a file” is an implementation choice, not the user benefit. “Make saving reliable” is too vague to tell whether the story is finished.</p>
-<p>Clear documentation helps another person understand the project, helps you resume next week, gives Copilot reusable context, and prevents reviews from turning into arguments about what was meant. <strong>Update the documentation when an agreed requirement changes; do not quietly change the goal to match unfinished code.</strong></p>
+<p data-i18n="implementation-not-benefit">“Save it in a file” is an implementation choice, not the user benefit. “Make saving reliable” is too vague to tell whether the story is finished.</p>
+<p data-i18n="documentation-value">Clear documentation helps another person understand the project, helps you resume next week, gives Copilot reusable context, and prevents reviews from turning into arguments about what was meant. <strong>Update the documentation when an agreed requirement changes; do not quietly change the goal to match unfinished code.</strong></p>
 <div class="table-wrap">
-<table class="data-table" role="table">
+<table class="data-table" role="table" data-i18n="table-files">
 <thead role="rowgroup">
 <tr role="row"><th scope="col" role="columnheader">File in your project</th><th scope="col" role="columnheader">Purpose</th></tr>
 </thead>
@@ -459,21 +477,21 @@ Update the plan after my answer. Do not implement yet.</code></pre>
 </tbody>
 </table>
 </div>
-<p>Here, <code>docs\PLAN.md</code> means a file named <code>PLAN.md</code> inside the <code>docs</code> folder. These examples use Windows-style paths; on macOS or Linux, ask Copilot to use the equivalent paths for your operating system.</p>
-<p>Markdown is plain text with lightweight formatting: <code>#</code> creates a heading, <code>-</code> creates a bullet, and <code>- [ ]</code> creates a checkbox. GitHub renders <code>.md</code> files into readable pages.</p>
-<h3 id="save-the-plan-before-building" data-spy>Save the plan before building</h3>
-<p>First ask for the final Markdown in the conversation. Then switch to <strong>Interactive</strong> and send the documentation-only request below.</p>
+<p data-i18n="paths">Here, <code>docs\PLAN.md</code> means a file named <code>PLAN.md</code> inside the <code>docs</code> folder. These examples use Windows-style paths; on macOS or Linux, ask Copilot to use the equivalent paths for your operating system.</p>
+<p data-i18n="markdown">Markdown is plain text with lightweight formatting: <code>#</code> creates a heading, <code>-</code> creates a bullet, and <code>- [ ]</code> creates a checkbox. GitHub renders <code>.md</code> files into readable pages.</p>
+<h3 id="save-the-plan-before-building" data-spy data-i18n="save-plan">Save the plan before building</h3>
+<p data-i18n="before-docs">First ask for the final Markdown in the conversation. Then switch to <strong>Interactive</strong> and send the documentation-only request below.</p>
 <div class="callout callout--warning">
 <svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>
-<p><strong>Do not approve a full implementation just to save the plan.</strong> If the app is waiting on a plan-approval card, ask Copilot to make documentation-only the next step before approving it. An app-internal plan or a chat message is not a substitute for the file in your project.</p>
+<p data-i18n="docs-only-warning"><strong>Do not approve a full implementation just to save the plan.</strong> If the app is waiting on a plan-approval card, ask Copilot to make documentation-only the next step before approving it. An app-internal plan or a chat message is not a substitute for the file in your project.</p>
 </div>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">Documentation-only request</span>
-<span class="prompt-meta">Interactive mode</span>
+<span class="prompt-title" data-i18n="prompt-3-title">Documentation-only request</span>
+<span class="prompt-meta" data-i18n="interactive-mode">Interactive mode</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Documentation-only request" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-3"><code>I approve creating the documentation only, not project code.
+<pre class="prompt-body" id="prompt-3"><code data-i18n="prompt-3">I approve creating the documentation only, not project code.
 
 Save our agreed plan as docs\PLAN.md in this project.
 Include the user stories, acceptance criteria, decisions and reasons,
@@ -488,27 +506,27 @@ Show me the actual file paths and open the Markdown for me to read.
 Stop after these documentation changes.
 Do not install, implement, commit, or push anything.</code></pre>
 </figure>
-<p>Use the <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/templates/PLAN-TEMPLATE.md">reusable plan template</a> to check the structure. To see how specific a good plan can be, look at the <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/examples/PLAN-learning-tracker.md">example plan</a>. It describes someone else’s idea, a small Learning Tracker, so compare its level of detail, not its content. Your plan describes your own idea, and its decisions are yours.</p>
-<p>Read the saved files. Correct them if necessary. In a future session, explicitly ask Copilot to read <code>README.md</code> and <code>docs\PLAN.md</code>, or attach them with <code>@</code>; do not assume every project document is automatically included.</p>
+<p data-i18n="templates-intro">Use the <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/templates/PLAN-TEMPLATE.md">reusable plan template</a> to check the structure. To see how specific a good plan can be, look at the <a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/examples/PLAN-learning-tracker.md">example plan</a>. It describes someone else’s idea, a small Learning Tracker, so compare its level of detail, not its content. Your plan describes your own idea, and its decisions are yours.</p>
+<p data-i18n="read-docs">Read the saved files. Correct them if necessary. In a future session, explicitly ask Copilot to read <code>README.md</code> and <code>docs\PLAN.md</code>, or attach them with <code>@</code>; do not assume every project document is automatically included.</p>
 <div class="checkpoint">
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-3" data-checkpoint="step-3">
 <label class="checkpoint-label" for="checkpoint-step-3">
 <span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="checkpoint-text"><strong>Checkpoint:</strong> The plan exists as a readable <code>.md</code> file in your project, and you agree with its stories and acceptance criteria.</span>
+<span class="checkpoint-text" data-i18n="checkpoint-3"><strong>Checkpoint:</strong> The plan exists as a readable <code>.md</code> file in your project, and you agree with its stories and acceptance criteria.</span>
 </label>
 </div>
 </section>
 <section class="guide-section step" id="step-4" aria-labelledby="step-4-title" data-spy>
-<h2 id="step-4-title"><span class="step-num" aria-hidden="true">4</span><span class="visually-hidden">Step 4: </span>Implement one small, approved step at a time</h2>
-<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 25–30 minutes</p>
-<p class="step-lead">Stay in <strong>Interactive</strong> mode.</p>
+<h2 id="step-4-title" data-i18n="step-4-title"><span class="step-num" aria-hidden="true">4</span><span class="visually-hidden">Step 4: </span>Implement one small, approved step at a time</h2>
+<p class="step-time" data-i18n="time-25-30"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 25–30 minutes</p>
+<p class="step-lead" data-i18n="step-4-lead">Stay in <strong>Interactive</strong> mode.</p>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">Implement the setup and US-01</span>
-<span class="prompt-meta">Interactive mode</span>
+<span class="prompt-title" data-i18n="prompt-4-title">Implement the setup and US-01</span>
+<span class="prompt-meta" data-i18n="interactive-mode">Interactive mode</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Implement the setup and US-01" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-4"><code>Read README.md and docs\PLAN.md.
+<pre class="prompt-body" id="prompt-4"><code data-i18n="prompt-4">Read README.md and docs\PLAN.md.
 Check for unresolved decisions that block implementation; ask me first
 if you find any.
 
@@ -530,53 +548,53 @@ Do not mark a story complete just because code was generated.
 Stop for my feedback before starting the next story.
 Do not commit, push, deploy, or add extra features.</code></pre>
 </figure>
-<p>Run or open the project yourself. Try what US-01 promises, then try something it should reject or handle, such as empty input. Check that the behavior matches the plan.</p>
-<p>If it does not, report the <strong>steps, expected result, and actual result</strong>. Replace the brackets with what you saw:</p>
+<p data-i18n="try-story">Run or open the project yourself. Try what US-01 promises, then try something it should reject or handle, such as empty input. Check that the behavior matches the plan.</p>
+<p data-i18n="bug-report-intro">If it does not, report the <strong>steps, expected result, and actual result</strong>. Replace the brackets with what you saw:</p>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">Problem report: fill in what you saw</span>
+<span class="prompt-title" data-i18n="prompt-5-title">Problem report: fill in what you saw</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Problem report: fill in what you saw" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-5"><code>For US-01, I <span class="ph-fill">[what you did, step by step]</span>.
+<pre class="prompt-body" id="prompt-5"><code data-i18n="prompt-5">For US-01, I <span class="ph-fill">[what you did, step by step]</span>.
 Expected: <span class="ph-fill">[what the plan says should happen]</span>.
 Actual: <span class="ph-fill">[what happened instead]</span>.
 Please fix this within the agreed scope and add a regression test.
 Explain the change and rerun the relevant checks.</code></pre>
 </figure>
-<p>Once satisfied, approve the next story by ID, such as US-02, and repeat until every story in your plan is done. A change of direction goes back into the plan before it becomes code.</p>
-<p><strong>Do the final acceptance checks yourself as well:</strong></p>
-<ul>
+<p data-i18n="next-story">Once satisfied, approve the next story by ID, such as US-02, and repeat until every story in your plan is done. A change of direction goes back into the plan before it becomes code.</p>
+<p data-i18n="acceptance-intro"><strong>Do the final acceptance checks yourself as well:</strong></p>
+<ul data-i18n="acceptance-checks">
 <li>Try the normal path of every story in your plan.</li>
 <li>Try invalid or unusual input, such as empty, very long, or unexpected values, and check that the project responds clearly.</li>
 <li>If the project saves anything, close it and open it again, and check that the saved information is still there. For a web page, refresh the <strong>same local address</strong>, including the port.</li>
 <li>Try starting with no data at all, and any other edge cases in your plan.</li>
 <li>If the project has a screen, complete the main journey using only the keyboard. If it is a web page, also check a narrow, phone-sized window.</li>
 </ul>
-<p>Ask Copilot to help reproduce less familiar cases, such as a failed save. Record checks not performed as <strong>Not run</strong>, never as passing.</p>
+<p data-i18n="not-run">Ask Copilot to help reproduce less familiar cases, such as a failed save. Record checks not performed as <strong>Not run</strong>, never as passing.</p>
 <div class="checkpoint">
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-4" data-checkpoint="step-4">
 <label class="checkpoint-label" for="checkpoint-step-4">
 <span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="checkpoint-text"><strong>Checkpoint:</strong> All agreed stories behave as specified; the README contains working instructions; test results are recorded honestly.</span>
+<span class="checkpoint-text" data-i18n="checkpoint-4"><strong>Checkpoint:</strong> All agreed stories behave as specified; the README contains working instructions; test results are recorded honestly.</span>
 </label>
 </div>
 </section>
 <section class="guide-section step" id="step-5" aria-labelledby="step-5-title" data-spy>
-<h2 id="step-5-title"><span class="step-num" aria-hidden="true">5</span><span class="visually-hidden">Step 5: </span>Ask Copilot to review the code, then address the findings</h2>
-<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 15–20 minutes</p>
-<p class="step-lead">Implementation is not the final quality check. Review is a separate pass to look for mistakes, missing requirements, and avoidable complexity.</p>
+<h2 id="step-5-title" data-i18n="step-5-title"><span class="step-num" aria-hidden="true">5</span><span class="visually-hidden">Step 5: </span>Ask Copilot to review the code, then address the findings</h2>
+<p class="step-time" data-i18n="time-15-20"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 15–20 minutes</p>
+<p class="step-lead" data-i18n="step-5-lead">Implementation is not the final quality check. Review is a separate pass to look for mistakes, missing requirements, and avoidable complexity.</p>
 <figure class="screenshot screenshot--tall">
-<img src="assets/03-code-changes.png" alt="GitHub's screenshot of the Changes view, showing changed files and added and removed lines." width="1098" height="948" loading="lazy" decoding="async">
-<figcaption>Screenshot 3: <strong>Changes</strong> shows a diff. Green or <code>+</code> lines are additions; red or <code>-</code> lines are removals. This is an example project, not yours. You do not need to understand every line immediately: ask Copilot to explain the purpose of each changed file. <a class="screenshot-open" href="assets/03-code-changes.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+<img src="assets/03-code-changes.png" data-i18n-alt="image-3-alt" alt="GitHub's screenshot of the Changes view, showing changed files and added and removed lines." width="1098" height="948" loading="lazy" decoding="async">
+<figcaption data-i18n="caption-3">Screenshot 3: <strong>Changes</strong> shows a diff. Green or <code>+</code> lines are additions; red or <code>-</code> lines are removals. This is an example project, not yours. You do not need to understand every line immediately: ask Copilot to explain the purpose of each changed file. <a class="screenshot-open" href="assets/03-code-changes.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
 </figure>
-<p>Open <strong>Changes</strong> above the prompt box. If a plain folder does not yet provide a Git diff, ask Copilot to list and review the project files directly. Do not assume “no diff” means “nothing to review.”</p>
-<h3 id="copy-ready-review-prompt" data-spy>Copy-ready review prompt</h3>
+<p data-i18n="open-changes">Open <strong>Changes</strong> above the prompt box. If a plain folder does not yet provide a Git diff, ask Copilot to list and review the project files directly. Do not assume “no diff” means “nothing to review.”</p>
+<h3 id="copy-ready-review-prompt" data-spy data-i18n="review-prompt">Copy-ready review prompt</h3>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">Review-only pass</span>
+<span class="prompt-title" data-i18n="prompt-6-title">Review-only pass</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Review-only pass" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-6"><code>Perform a review-only pass of this project.
+<pre class="prompt-body" id="prompt-6"><code data-i18n="prompt-6">Perform a review-only pass of this project.
 Do not change project files or fix findings yet.
 
 Read README.md, docs\PLAN.md, and the current implementation and tests.
@@ -604,14 +622,14 @@ Separate confirmed problems from suggestions and uncertainty.
 State exactly what you did not inspect or test.
 Explain the results for a beginner and wait for my decision.</code></pre>
 </figure>
-<p>The app also supports <strong><code>/review</code></strong> for an active session’s changes. The full prompt above is useful for a first project because it explicitly includes new files and checks the agreed plan, not just the diff.</p>
-<p>Decide which findings to fix. For example, after replacing the IDs with the real ones:</p>
+<p data-i18n="slash-review">The app also supports <strong><code>/review</code></strong> for an active session’s changes. The full prompt above is useful for a first project because it explicitly includes new files and checks the agreed plan, not just the diff.</p>
+<p data-i18n="fix-findings-intro">Decide which findings to fix. For example, after replacing the IDs with the real ones:</p>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">Example: fix selected findings</span>
+<span class="prompt-title" data-i18n="prompt-7-title">Example: fix selected findings</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Example: fix selected findings" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-7"><code>Fix findings R1 and R2 only, staying within the approved plan.
+<pre class="prompt-body" id="prompt-7"><code data-i18n="prompt-7">Fix findings R1 and R2 only, staying within the approved plan.
 Add or update focused tests, rerun the affected checks, and review
 the fixes again. Report any remaining uncertainty.
 
@@ -620,21 +638,21 @@ Update docs\TEST-RESULTS.md with the actual results.
 Record deferred findings and the reason; do not hide them.
 Do not commit, push, or publish yet.</code></pre>
 </figure>
-<p>If there are no findings, still record the review scope, checks, and limitations. AI review is useful feedback, not proof that the project is safe or correct. Have a peer or facilitator inspect the result if you are unsure what a finding means. Fix exposed credentials before publishing; removing a secret from the latest file is not sufficient if it is already in Git history.</p>
+<p data-i18n="review-limits">If there are no findings, still record the review scope, checks, and limitations. AI review is useful feedback, not proof that the project is safe or correct. Have a peer or facilitator inspect the result if you are unsure what a finding means. Fix exposed credentials before publishing; removing a secret from the latest file is not sufficient if it is already in Git history.</p>
 <div class="checkpoint">
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-5" data-checkpoint="step-5">
 <label class="checkpoint-label" for="checkpoint-step-5">
 <span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="checkpoint-text"><strong>Checkpoint:</strong> Review is recorded, blocking findings are fixed and rechecked, and you know any remaining limitations.</span>
+<span class="checkpoint-text" data-i18n="checkpoint-5"><strong>Checkpoint:</strong> Review is recorded, blocking findings are fixed and rechecked, and you know any remaining limitations.</span>
 </label>
 </div>
 </section>
 <section class="guide-section step" id="step-6" aria-labelledby="step-6-title" data-spy>
-<h2 id="step-6-title"><span class="step-num" aria-hidden="true">6</span><span class="visually-hidden">Step 6: </span>Publish the reviewed project to your organization</h2>
-<p class="step-time"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10–15 minutes</p>
-<p class="step-lead">You are uploading source code and documentation, <strong>not deploying a public website</strong>.</p>
-<h3 id="create-the-empty-github-repository" data-spy>Create the empty GitHub repository</h3>
-<ol>
+<h2 id="step-6-title" data-i18n="step-6-title"><span class="step-num" aria-hidden="true">6</span><span class="visually-hidden">Step 6: </span>Publish the reviewed project to your organization</h2>
+<p class="step-time" data-i18n="time-10-15"><svg class="icon step-time-icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>Allow 10–15 minutes</p>
+<p class="step-lead" data-i18n="step-6-lead">You are uploading source code and documentation, <strong>not deploying a public website</strong>.</p>
+<h3 id="create-the-empty-github-repository" data-spy data-i18n="create-repo">Create the empty GitHub repository</h3>
+<ol data-i18n="create-repo-steps">
 <li>In your browser, sign in to GitHub with your personal account, the one invited to the organization.</li>
 <li>Open <a href="https://github.com/new" target="_blank" rel="noopener">Create a new repository<span class="visually-hidden"> (opens in a new tab)</span><svg class="icon icon--external" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a>.</li>
 <li>In <strong>Owner</strong>, select <strong><span class="ph">YOUR-ORG</span></strong>, not your personal username. If the organization is missing, you may not have accepted its invitation yet: look for the invitation email from GitHub. If it is still missing, stop and ask the facilitator about your membership or permissions.</li>
@@ -645,21 +663,21 @@ Do not commit, push, or publish yet.</code></pre>
 <li>On the empty repository’s <strong>Quick Setup</strong> page, choose <strong>HTTPS</strong> and copy its URL.</li>
 </ol>
 <figure class="screenshot">
-<img src="assets/github-repository-owner.png" alt="GitHub's new-repository form with the Owner selector highlighted." width="1528" height="304" loading="lazy" decoding="async">
-<figcaption>Screenshot 4: Open <strong>Owner</strong> and select your training organization rather than accepting a personal-account default. <a class="screenshot-open" href="assets/github-repository-owner.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+<img src="assets/github-repository-owner.png" data-i18n-alt="image-4-alt" alt="GitHub's new-repository form with the Owner selector highlighted." width="1528" height="304" loading="lazy" decoding="async">
+<figcaption data-i18n="caption-4">Screenshot 4: Open <strong>Owner</strong> and select your training organization rather than accepting a personal-account default. <a class="screenshot-open" href="assets/github-repository-owner.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
 </figure>
 <figure class="screenshot">
-<img src="assets/github-repository-url.png" alt="GitHub's Quick Setup panel, with the copy button next to the remote repository URL." width="2442" height="386" loading="lazy" decoding="async">
-<figcaption>Screenshot 5: Copy your own repository’s HTTPS URL. It will look like <code>https://github.com/<span class="ph">YOUR-ORG</span>/<span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span>.git</code>. <a class="screenshot-open" href="assets/github-repository-url.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
+<img src="assets/github-repository-url.png" data-i18n-alt="image-5-alt" alt="GitHub's Quick Setup panel, with the copy button next to the remote repository URL." width="2442" height="386" loading="lazy" decoding="async">
+<figcaption data-i18n="caption-5">Screenshot 5: Copy your own repository’s HTTPS URL. It will look like <code>https://github.com/<span class="ph">YOUR-ORG</span>/<span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span>.git</code>. <a class="screenshot-open" href="assets/github-repository-url.png" target="_blank" rel="noopener">Open full size<span class="visually-hidden"> (opens in a new tab)</span></a></figcaption>
 </figure>
-<h3 id="ask-copilot-to-prepare-the-upload-without-uploading-yet" data-spy>Ask Copilot to prepare the upload, without uploading yet</h3>
-<p>Return to the same project session. Replace the example URL in this prompt with the URL you just copied:</p>
+<h3 id="ask-copilot-to-prepare-the-upload-without-uploading-yet" data-spy data-i18n="prepare-upload">Ask Copilot to prepare the upload, without uploading yet</h3>
+<p data-i18n="upload-intro">Return to the same project session. Replace the example URL in this prompt with the URL you just copied:</p>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">Prepare the upload</span>
+<span class="prompt-title" data-i18n="prompt-8-title">Prepare the upload</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Prepare the upload" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-8"><code>Prepare to publish this project, but do not change files, initialize Git,
+<pre class="prompt-body" id="prompt-8"><code data-i18n="prompt-8">Prepare to publish this project, but do not change files, initialize Git,
 stage, commit, push, or change GitHub settings yet.
 
 Destination:
@@ -687,15 +705,15 @@ destination, or a branch-protection conflict, stop and explain.
 Do not overwrite, force-push, replace remotes, or bypass policies.
 Wait for my approval.</code></pre>
 </figure>
-<p>Read the proposed file list. It should include your source, tests, README, and project documentation, but not passwords, <code>.env</code> secrets, installed dependency folders, or unrelated files. An ignore rule does <strong>not</strong> remove files already tracked by Git.</p>
-<h3 id="approve-the-exact-destination-and-push" data-spy>Approve the exact destination and push</h3>
-<p>The following prompt is for a <strong>new, empty repository whose rules permit the initial push to <code>main</code></strong>. Only send it after reviewing the preparation above. Replace the URL and any details that do not match the agreed steps.</p>
+<p data-i18n="included-files">Read the proposed file list. It should include your source, tests, README, and project documentation, but not passwords, <code>.env</code> secrets, installed dependency folders, or unrelated files. An ignore rule does <strong>not</strong> remove files already tracked by Git.</p>
+<h3 id="approve-the-exact-destination-and-push" data-spy data-i18n="approve-push">Approve the exact destination and push</h3>
+<p data-i18n="approval-intro">The following prompt is for a <strong>new, empty repository whose rules permit the initial push to <code>main</code></strong>. Only send it after reviewing the preparation above. Replace the URL and any details that do not match the agreed steps.</p>
 <figure class="prompt" data-prompt>
 <figcaption class="prompt-head">
-<span class="prompt-title">Approve the destination and push</span>
+<span class="prompt-title" data-i18n="prompt-9-title">Approve the destination and push</span>
 <button type="button" class="prompt-copy" data-copy aria-label="Copy prompt: Approve the destination and push" hidden><svg class="icon prompt-copy-icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg><span data-copy-label>Copy</span></button>
 </figcaption>
-<pre class="prompt-body" id="prompt-9"><code>I have checked the file list and verified that this is the correct,
+<pre class="prompt-body" id="prompt-9"><code data-i18n="prompt-9">I have checked the file list and verified that this is the correct,
 empty Private repository:
 https://github.com/<span class="ph">YOUR-ORG</span>/<span class="ph">YOUR-PROJECT</span>-<span class="ph">YOUR-USERNAME</span>.git
 
@@ -716,33 +734,33 @@ Afterward, verify that GitHub has the same commit and expected files.
 Show the repository URL, branch, and commit ID.
 Tell me clearly if any operation failed or could not be verified.</code></pre>
 </figure>
-<p>Complete authentication in GitHub’s trusted sign-in flow yourself. Never paste a token or password into a prompt. App sign-in and Git’s push authentication may need separate authorization.</p>
+<p data-i18n="authentication">Complete authentication in GitHub’s trusted sign-in flow yourself. Never paste a token or password into a prompt. App sign-in and Git’s push authentication may need separate authorization.</p>
 <div class="callout callout--warning">
 <svg class="icon callout-icon" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>
-<p><strong>If a rule blocks the push:</strong> Do not force-push or disable the rule. Ask the facilitator to provide an approved initialized repository and use a feature branch plus a pull request. A completely empty repository may need an authorized initial commit before the PR route is possible.</p>
+<p data-i18n="push-blocked"><strong>If a rule blocks the push:</strong> Do not force-push or disable the rule. Ask the facilitator to provide an approved initialized repository and use a feature branch plus a pull request. A completely empty repository may need an authorized initial commit before the PR route is possible.</p>
 </div>
-<h3 id="confirm-it-really-arrived" data-spy>Confirm it really arrived</h3>
-<p>Open the repository in your browser and check:</p>
-<ul>
+<h3 id="confirm-it-really-arrived" data-spy data-i18n="verify-upload">Confirm it really arrived</h3>
+<p data-i18n="verify-intro">Open the repository in your browser and check:</p>
+<ul data-i18n="verify-checks">
 <li>The owner is <strong><span class="ph">YOUR-ORG</span></strong>, the repository name is correct, and visibility matches the agreed setting.</li>
 <li>The expected branch and newest commit are present.</li>
 <li>Source files, tests, <code>README.md</code>, <code>docs\PLAN.md</code>, <code>docs\TEST-RESULTS.md</code>, and <code>docs\REVIEW.md</code> are visible.</li>
 <li>The README renders and its instructions and document links make sense.</li>
 <li>No unwanted files were included. Ask a facilitator to inspect unexpected files before sharing further.</li>
 </ul>
-<p>For later changes, start a feature branch or isolated repository session and use <strong>Create PR</strong> when ready for review. Follow the organization’s required reviewers and checks; a push alone is not a review or merge.</p>
+<p data-i18n="later-changes">For later changes, start a feature branch or isolated repository session and use <strong>Create PR</strong> when ready for review. Follow the organization’s required reviewers and checks; a push alone is not a review or merge.</p>
 <div class="checkpoint">
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-6" data-checkpoint="step-6">
 <label class="checkpoint-label" for="checkpoint-step-6">
 <span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="checkpoint-text"><strong>Checkpoint:</strong> The repository exists in the organization and contains the reviewed work and its documentation.</span>
+<span class="checkpoint-text" data-i18n="checkpoint-6"><strong>Checkpoint:</strong> The repository exists in the organization and contains the reviewed work and its documentation.</span>
 </label>
 </div>
 </section>
 <section class="guide-section step" id="step-7" aria-labelledby="step-7-title" data-spy>
-<h2 id="step-7-title"><span class="step-num" aria-hidden="true">7</span><span class="visually-hidden">Step 7: </span>Show what you learned</h2>
-<p>Give a two-minute demonstration to a partner or facilitator:</p>
-<ol>
+<h2 id="step-7-title" data-i18n="step-7-title"><span class="step-num" aria-hidden="true">7</span><span class="visually-hidden">Step 7: </span>Show what you learned</h2>
+<p data-i18n="demo-intro">Give a two-minute demonstration to a partner or facilitator:</p>
+<ol data-i18n="demo-steps">
 <li>Explain the user problem and one thing deliberately left out of scope.</li>
 <li>Show a user story and demonstrate its acceptance criteria in your project.</li>
 <li>Show one question Copilot asked before a decision was made.</li>
@@ -753,12 +771,12 @@ Tell me clearly if any operation failed or could not be verified.</code></pre>
 <input type="checkbox" class="checkpoint-input" id="checkpoint-step-7" data-checkpoint="step-7">
 <label class="checkpoint-label" for="checkpoint-step-7">
 <span class="checkpoint-box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-<span class="checkpoint-text"><strong>Done means:</strong> The agreed behavior works, the evidence and limitations are documented, review findings are addressed, and the correct organization repository contains the project. “Copilot finished answering” is not the definition of done.</span>
+<span class="checkpoint-text" data-i18n="checkpoint-7"><strong>Done means:</strong> The agreed behavior works, the evidence and limitations are documented, review findings are addressed, and the correct organization repository contains the project. “Copilot finished answering” is not the definition of done.</span>
 </label>
 </div>
 </section>
 </article>
-<section class="guide-section sources" id="sources" aria-labelledby="sources-title" data-spy>
+<section class="guide-section sources" id="sources" aria-labelledby="sources-title" data-spy data-i18n="sources">
 <h2 id="sources-title">Sources and screenshot credits</h2>
 <p class="checked-date"><strong>Documentation checked:</strong> 23 September 2026.</p>
 <p>The learning activities, prompts, template, and worked example were written for this learning path. Product behavior and labels were checked against the official sources below. The local app was not inspected; screenshots are published GitHub examples, not a claim of a live walkthrough on the user’s computer.</p>
@@ -799,7 +817,7 @@ Tell me clearly if any operation failed or could not be verified.</code></pre>
 </div>
 <p>The three WebP app images were converted to PNG with transparency composited over white for reliable Markdown display. Their UI content was not rewritten or fabricated. The two GitHub Docs PNGs are unchanged.</p>
 </section>
-<footer class="page-footer">
+<footer class="page-footer" data-i18n="footer">
 <p class="footer-heading"><strong>Learning materials</strong></p>
 <ul class="footer-links">
 <li><a href="https://github.com/Tajaly/prompt-to-prototype-learning-path/blob/master/templates/PLAN-TEMPLATE.md">Plan template</a></li>

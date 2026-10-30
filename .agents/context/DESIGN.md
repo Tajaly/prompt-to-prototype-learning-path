@@ -119,7 +119,7 @@ components:
 
 This system is a calm documentation room for a live beginner workshop. It behaves like a trusted reference page beside the GitHub Copilot app: one readable column, a persistent step list, copy-ready prompt blocks, and checkpoints that visibly remember progress. The owner deliberately chose the category-standard documentation look over a themed direction, with Stripe Docs, GOV.UK step-by-step guidance, and MDN as the quality bar.
 
-The visual world is intentionally plain: white page, near-black ink, blue links, green completion, amber cautions and placeholders, system fonts, 1px hairlines, and 12px container corners. It refuses adventure metaphors, quest styling, decorative shadows, and marketing gloss. Light mode is the default use scene for a daytime workshop room; dark mode follows the operating system using the same semantic tokens.
+The visual world is intentionally plain: white page, near-black ink, blue links, green completion, amber cautions and placeholders, system fonts, 1px hairlines, and 12px container corners. It refuses adventure metaphors, quest styling, decorative shadows, and marketing gloss. Light mode is the default use scene for a daytime workshop room; the initial theme follows the operating system. A sun/moon button lets the learner override it, using the same semantic tokens and remembering the choice in this browser.
 
 **Key Characteristics:**
 - Single-column reading measure with a sticky progress sidebar on wide screens.
@@ -182,7 +182,7 @@ The palette is a restrained documentation palette: neutral paper and ink, one li
 
 ## Layout
 
-The page uses a two-column grid on wide screens: an 18rem sticky sidebar and a flexible content area. The top bar is sticky at 3.5rem high. Main content is centered in a 42rem reading measure and padded with `3.25rem clamp(1.5rem, 4vw, 4rem) 4rem`.
+The page uses a two-column grid on wide screens: an 18rem sticky sidebar and a flexible content area. The top bar is sticky at 3.5rem high, with theme and language controls beside the sources link. At 40rem and below, it becomes a 7rem two-row header: the full guide name sits above the preference and steps controls, leaving space for German labels. Main content is centered in a 42rem reading measure and padded with `3.25rem clamp(1.5rem, 4vw, 4rem) 4rem`.
 
 At widths below 63.99rem, the layout becomes a single column and the sidebar becomes a full-width mobile sheet under the top bar. At 40rem, the at-a-glance panel collapses from two columns to one. At 36rem, data tables become stacked label/value blocks and prompt text becomes denser. The minimum supported scene is a 375px viewport with no horizontal page scrolling.
 
@@ -213,6 +213,7 @@ Borders are usually 1px; completion checkbox boxes use a 2px stroke for legibili
 - **Copy button:** White background, near-black text, strong hairline border, 0.25rem by 0.75rem padding, 2.125rem minimum height.
 - **Copied state:** Green soft background, green text, green border. The label changes to "Copied" and then resets.
 - **Mobile steps button:** Same compact control language with a step icon and checkpoint count.
+- **Preferences:** A 44px-minimum sun/moon action button names the theme it will switch to in its accessible label and tooltip. A neighboring button offers the other language by its native name, "Deutsch" or "English", with a matching `lang` attribute. Both are keyboard-accessible and remember choices independently of progress.
 - **Hover / Focus:** Hover shifts the border or background; focus uses a 2px outline in the current focus blue.
 
 ### Cards / Containers
@@ -231,6 +232,7 @@ Borders are usually 1px; completion checkbox boxes use a 2px stroke for legibili
 - **Header:** Flex row with title, optional meta, and copy button.
 - **Body:** Monospace, pre-wrap, 0.875rem text, 1.6 line-height, and `overflow-wrap: anywhere`.
 - **Long prompt state:** Starts collapsed with a fade mask and a full-width toggle; copying always uses the full text.
+- **Language:** The whole guide and all nine prompts can switch between English and German without replacing interactive controls. English remains canonical; product labels and technical identifiers stay unchanged. Copy feedback, accessible labels, table labels, and actual prompt line counts follow the selected language.
 
 ### Checkpoints
 - **Style:** A clickable 12px-radius card with a hidden checkbox, 1.5rem square check box, and clear text label.
