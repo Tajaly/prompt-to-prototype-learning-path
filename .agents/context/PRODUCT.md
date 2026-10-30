@@ -42,7 +42,7 @@ The copy-ready prompts contain explicit boundaries, such as "do not commit, push
 
 - `README.md` remains the source of truth. The web page mirrors it, so any change to the guide must also be made to the page.
 - Prompts must be copied exactly as written.
-- The guide offers English/German and light/dark switches. German includes the complete guide and prompts; the original English remains canonical. Both preferences are saved locally and do not reset checkpoint progress.
+- The guide offers an English/German language switch and Light/Dark/Pixel theme choices. German includes the complete guide and prompts; the original English remains canonical. Both preferences are saved locally and do not reset checkpoint progress.
 - The repository is private and belongs to a personal account. GitHub Pages for a private repository requires a paid plan, and a published Pages site is public. Links from the site to repository files only work for visitors with repository access.
 - Undecided: the final public URL and whether the repository will become public.
 
@@ -53,6 +53,8 @@ The copy-ready prompts contain explicit boundaries, such as "do not commit, push
 - The screenshots are GitHub, Inc. imagery. Their credits must stay with the materials, as recorded in `SOURCES.md`.
 - **Standing visual preference (owner, 23 September 2026):** on the guide page, the owner chose the category standard over a themed direction. That means a calm, conventional documentation page executed at full craft, with no gimmicks. At the owner's request, Copilot picked the quality bar: Stripe Docs, GOV.UK step-by-step guidance, and MDN Web Docs.
 - **Avoid (owner):** anything that looks like an adventure guide, such as trail maps, quests, or expedition styling.
+- **Optional theme (owner, 30 October 2026):** a third Pixel theme with a light-blue background, colorful accents, and pixel-art elements. Light and Dark stay available as separate classic themes; the language switch remains independent.
+- **Pixel character direction:** a playful, simplified dog based on the supplied reference, without a carrot or toy. Avoid repeated character rows; use a few content-related cameos with varied scale and placement. These are optional decorations, not gamification or changes to the teaching material.
 
 ## Evidence on Hand
 

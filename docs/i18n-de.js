@@ -22,10 +22,13 @@
 
   window.guideGerman = {
     messages: {
-      lightMode: 'Zum hellen Modus wechseln',
-      darkMode: 'Zum dunklen Modus wechseln',
+      themeLegend: 'Farbschema',
+      lightChoice: 'Hell',
+      darkChoice: 'Dunkel',
+      pixelChoice: 'Pixel',
       lightEnabled: 'Heller Modus aktiviert.',
       darkEnabled: 'Dunkler Modus aktiviert.',
+      pixelEnabled: 'Pixel-Design aktiviert.',
       languageChanged: 'Der Leitfaden ist jetzt auf Deutsch.',
       preferencesProblem: 'Dieser Browser kann deine Design- oder Sprachwahl nicht speichern. Sie gilt für diesen Besuch, kann aber beim Neuladen zurückgesetzt werden.',
       translationProblem: 'Die deutsche Übersetzung konnte nicht geladen werden. Lade die Seite neu, um es erneut zu versuchen.',
@@ -48,6 +51,7 @@
       'page-description': 'Ein Lernpfad für den Einstieg mit der GitHub Copilot-App: beschreibe, plane, dokumentiere, entwickle, teste und prüfe dein eigenes kleines Projekt und lade es in deine GitHub-Organisation hoch.',
       'social-description': 'Ein Lernpfad für den Einstieg mit der GitHub Copilot-App. Etwa 90–120 Minuten von der schriftlichen Projektbeschreibung bis zum geprüften Projekt in deiner GitHub-Organisation.',
       'site-title': 'Von der Idee zu deinem ersten GitHub-Projekt',
+      'short-title': 'Lernpfad',
       'skip-content': 'Zum Inhalt springen',
       'sources-link': 'Quellen und Bildnachweise',
       'steps-label': 'Schritte',

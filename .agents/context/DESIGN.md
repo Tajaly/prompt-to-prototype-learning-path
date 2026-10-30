@@ -119,7 +119,7 @@ components:
 
 This system is a calm documentation room for a live beginner workshop. It behaves like a trusted reference page beside the GitHub Copilot app: one readable column, a persistent step list, copy-ready prompt blocks, and checkpoints that visibly remember progress. The owner deliberately chose the category-standard documentation look over a themed direction, with Stripe Docs, GOV.UK step-by-step guidance, and MDN as the quality bar.
 
-The visual world is intentionally plain: white page, near-black ink, blue links, green completion, amber cautions and placeholders, system fonts, 1px hairlines, and 12px container corners. It refuses adventure metaphors, quest styling, decorative shadows, and marketing gloss. Light mode is the default use scene for a daytime workshop room; the initial theme follows the operating system. A sun/moon button lets the learner override it, using the same semantic tokens and remembering the choice in this browser.
+The classic visual world is intentionally plain: white page, near-black ink, blue links, green completion, amber cautions and placeholders, system fonts, 1px hairlines, and 12px container corners. It refuses adventure metaphors, quest styling, decorative shadows, and marketing gloss. Light mode is the default use scene for a daytime workshop room; the initial theme follows the operating system. A Light/Dark/Pixel selector remembers the learner's choice. Pixel is an explicitly requested, opt-in variation, not a replacement for the two classic themes.
 
 **Key Characteristics:**
 - Single-column reading measure with a sticky progress sidebar on wide screens.
@@ -158,6 +158,18 @@ The palette is a restrained documentation palette: neutral paper and ink, one li
 
 **The Amber Is Instructional Rule.** Amber is for placeholders and cautions; it must tell the learner to pay attention or replace something.
 
+## Pixel theme (opt-in)
+
+The third theme, requested on 30 October 2026, uses a cool light-blue canvas (`#eaf6ff`), navy text (`#183451`), and blue actions (`#215ca8`). Most overview panels are quiet; a pale gold goal panel and the artwork carry the extra color. Green completion and amber caution meanings stay intact.
+
+The owner's refinement rejected repeated character strips and asked for natural, playful placements. A curious black-and-white dog with an empty muzzle sits beside the introduction, not in a mascot lineup. Its eye patch and floppy black ears preserve the reference's character without putting the photograph on the site. A second, sleeping pose appears only below the final checkpoint.
+
+Each supporting sprite appears once, where it belongs: dice beside idea selection, flowers growing from the documentation checkpoint, a rubber duck beside the code-review prompt, and a squirrel near the upload checks. Some sections intentionally have no illustration. Only the first implementation prompt has the little colored window controls. Never recreate a banner or a row of characters for each step.
+
+Sprites have transparent backgrounds and nearest-neighbor scaling, with no sound, continuous animation, or new game mechanics. Empty CSS pseudo-elements keep them out of screen-reader text and copied prompts. The intro uses a title-and-dog grid on wider screens; on mobile the title spans the full width and the smaller dog sits beside the subtitle. Completed step numbers retain their green state. Panels use 4px corners and controls use 2px corners. Text stays in the readable system stacks; character must not come at the expense of comprehension.
+
+All variant rules are scoped to `data-theme="pixel"` and screen media. Light, Dark, and the print handout do not receive the pixel artwork or decorative treatments. Keep this variation optional rather than applying it to the whole product.
+
 ## Typography
 
 **Display Font:** System display stack, starting with Apple system and Segoe UI Variable Display.  
@@ -182,7 +194,7 @@ The palette is a restrained documentation palette: neutral paper and ink, one li
 
 ## Layout
 
-The page uses a two-column grid on wide screens: an 18rem sticky sidebar and a flexible content area. The top bar is sticky at 3.5rem high, with theme and language controls beside the sources link. At 40rem and below, it becomes a 7rem two-row header: the full guide name sits above the preference and steps controls, leaving space for German labels. Main content is centered in a 42rem reading measure and padded with `3.25rem clamp(1.5rem, 4vw, 4rem) 4rem`.
+The page uses a two-column grid on wide screens: an 18rem sticky sidebar and a flexible content area. The top bar is sticky at 3.5rem high, with theme and language controls beside the sources link. Below the desktop breakpoint, the brand uses a compact "Learning path" / "Lernpfad" label. At 40rem and below, a 7.75rem two-row header places the brand and steps button above the theme group and language button, leaving space for German labels. Main content is centered in a 42rem reading measure and padded with `3.25rem clamp(1.5rem, 4vw, 4rem) 4rem`.
 
 At widths below 63.99rem, the layout becomes a single column and the sidebar becomes a full-width mobile sheet under the top bar. At 40rem, the at-a-glance panel collapses from two columns to one. At 36rem, data tables become stacked label/value blocks and prompt text becomes denser. The minimum supported scene is a 375px viewport with no horizontal page scrolling.
 
@@ -213,7 +225,7 @@ Borders are usually 1px; completion checkbox boxes use a 2px stroke for legibili
 - **Copy button:** White background, near-black text, strong hairline border, 0.25rem by 0.75rem padding, 2.125rem minimum height.
 - **Copied state:** Green soft background, green text, green border. The label changes to "Copied" and then resets.
 - **Mobile steps button:** Same compact control language with a step icon and checkpoint count.
-- **Preferences:** A 44px-minimum sun/moon action button names the theme it will switch to in its accessible label and tooltip. A neighboring button offers the other language by its native name, "Deutsch" or "English", with a matching `lang` attribute. Both are keyboard-accessible and remember choices independently of progress.
+- **Preferences:** A labeled native radio group offers Light, Dark, and Pixel (Hell, Dunkel, Pixel in German), with 45px-minimum targets, visible selection borders, and focus outlines. A separate button offers the other language by its native name, "Deutsch" or "English", with a matching `lang` attribute. Choices are remembered independently of progress.
 - **Hover / Focus:** Hover shifts the border or background; focus uses a 2px outline in the current focus blue.
 
 ### Cards / Containers
@@ -260,7 +272,7 @@ Borders are usually 1px; completion checkbox boxes use a 2px stroke for legibili
 
 ### Don't:
 - **Don't** introduce adventure, quest, trail, expedition, map, badge, or game styling.
-- **Don't** add decorative shadows, gradients, glassmorphism, hero art, marketing gloss, or animated flourish.
+- **Don't** add decorative shadows, gradients, glassmorphism, marketing gloss, or animated flourish. Decorative artwork is limited to the explicitly requested Pixel theme.
 - **Don't** use green for anything that is not complete or copied.
 - **Don't** use amber as brand color; it is only for cautions and placeholders.
 - **Don't** add external fonts, icon packages, analytics, or third-party visual dependencies.
