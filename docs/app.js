@@ -6,6 +6,7 @@
   const STORAGE_KEY = 'idea-to-first-github-project:checkpoints:v1';
   const THEME_KEY = 'idea-to-first-github-project:theme:v1';
   const LANGUAGE_KEY = 'idea-to-first-github-project:language:v1';
+  const THEMES = { light: '#ffffff', dark: '#101317', pixel: '#eaf6ff' };
   const doc = document;
   const root = doc.documentElement;
   const $ = (selector, root = doc) => root.querySelector(selector);
@@ -34,10 +35,13 @@
   })();
 
   const englishMessages = {
-    lightMode: 'Switch to light mode',
-    darkMode: 'Switch to dark mode',
+    themeLegend: 'Color theme',
+    lightChoice: 'Light',
+    darkChoice: 'Dark',
+    pixelChoice: 'Pixel',
     lightEnabled: 'Light mode on.',
     darkEnabled: 'Dark mode on.',
+    pixelEnabled: 'Pixel theme on.',
     languageChanged: 'The guide is now in English.',
     preferencesProblem: 'This browser cannot save your theme or language. Your choices work for this visit, but may reset when you reload.',
     translationProblem: 'The German translation could not be loaded. Reload the page to try again.',
@@ -145,34 +149,38 @@
   applyLanguage(loadPreference(LANGUAGE_KEY, ['en', 'de'], 'en'));
 
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
-  let themePreference = loadPreference(THEME_KEY, ['light', 'dark'], null);
-  const themeToggle = $('[data-theme-toggle]');
-  const themeIcon = $('[data-theme-icon]');
+  let themePreference = loadPreference(THEME_KEY, Object.keys(THEMES), null);
+  const themeOptions = $('[data-theme-options]');
+  const themeLegend = $('[data-theme-legend]');
+  const themeChoices = $$('[data-theme-choice]');
   const languageToggle = $('[data-language-toggle]');
 
   function renderTheme() {
     const theme = themePreference || (systemDark.matches ? 'dark' : 'light');
     root.dataset.theme = theme;
-    if (themeToggle) {
-      const label = t(theme === 'dark' ? 'lightMode' : 'darkMode');
-      themeToggle.setAttribute('aria-label', label);
-      themeToggle.title = label;
-    }
-    if (themeIcon) themeIcon.setAttribute('href', theme === 'dark' ? '#i-sun' : '#i-moon');
+    if (themeLegend) themeLegend.textContent = t('themeLegend');
+    themeChoices.forEach((choice) => {
+      choice.checked = choice.value === theme;
+      const label = $('[data-theme-label]', choice.closest('label'));
+      if (label) label.textContent = t(`${choice.value}Choice`);
+    });
     $$('meta[name="theme-color"]').forEach((meta) => {
-      meta.content = theme === 'dark' ? '#101317' : '#ffffff';
+      meta.content = THEMES[theme];
     });
   }
 
-  if (themeToggle) {
-    themeToggle.hidden = false;
-    themeToggle.addEventListener('click', () => {
-      themePreference = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      renderTheme();
-      announce(t(themePreference === 'dark' ? 'darkEnabled' : 'lightEnabled'));
+  if (themeOptions) themeOptions.hidden = false;
+  themeChoices.forEach((choice) => {
+    choice.addEventListener('change', () => {
+      if (!choice.checked) return;
+      keepReadingPosition(() => {
+        themePreference = choice.value;
+        renderTheme();
+      });
+      announce(t(`${themePreference}Enabled`));
       savePreference(THEME_KEY, themePreference);
     });
-  }
+  });
   systemDark.addEventListener('change', () => {
     if (!themePreference) renderTheme();
   });
@@ -480,6 +488,20 @@
     }
   }
 
+  function keepReadingPosition(update) {
+    const topbarBottom = $('.topbar').getBoundingClientRect().bottom;
+    const anchor = $$('[data-spy]').filter((element) => element.getBoundingClientRect().top <= topbarBottom + 24).pop();
+    const anchorId = anchor?.id;
+    const anchorTop = anchor?.getBoundingClientRect().top;
+    if (update() === false) return false;
+    if (anchorId) {
+      const newAnchor = doc.getElementById(anchorId);
+      if (newAnchor) window.scrollBy({ top: newAnchor.getBoundingClientRect().top - anchorTop, behavior: 'instant' });
+    }
+    requestUpdate();
+    return true;
+  }
+
   function renderLanguageControls() {
     if (languageToggle) {
       const isEnglish = language === 'en';
@@ -508,17 +530,10 @@
   if (languageToggle) {
     languageToggle.hidden = false;
     languageToggle.addEventListener('click', () => {
-      const topbarBottom = $('.topbar').getBoundingClientRect().bottom;
-      const anchor = $$('[data-spy]').filter((element) => element.getBoundingClientRect().top <= topbarBottom + 24).pop();
-      const anchorId = anchor?.id;
-      const anchorTop = anchor?.getBoundingClientRect().top;
-      if (!applyLanguage(language === 'en' ? 'de' : 'en')) return;
-      renderLanguageControls();
-      if (anchorId) {
-        const newAnchor = doc.getElementById(anchorId);
-        if (newAnchor) window.scrollBy({ top: newAnchor.getBoundingClientRect().top - anchorTop, behavior: 'instant' });
-      }
-      requestUpdate();
+      if (!keepReadingPosition(() => {
+        if (!applyLanguage(language === 'en' ? 'de' : 'en')) return false;
+        renderLanguageControls();
+      })) return;
       announce(t('languageChanged'));
       savePreference(LANGUAGE_KEY, language);
     });

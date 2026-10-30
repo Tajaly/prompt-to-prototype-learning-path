@@ -21,7 +21,7 @@ Visitors read each step, copy each prompt exactly, tick each checkpoint, and com
 - `README.md` is canonical, and the page mirrors it word for word.
 - Credits come from `SOURCES.md`.
 - The screenshots are copied to `docs/assets/`.
-- Nothing on the page is invented. It contains no claims, statistics, or testimonials.
+- The guide introduces no invented product claims, statistics, or testimonials. The Pixel theme's original artwork is decorative.
 
 ## Constraints
 
@@ -35,6 +35,10 @@ Visitors read each step, copy each prompt exactly, tick each checkpoint, and com
 The owner chose the category-standard documentation page on 23 September 2026. The quality bar is Stripe Docs, GOV.UK step-by-step guidance, and MDN.
 
 The layout is a sticky step list with times and progress, one readable column, prompt blocks with a copy button, and a tickable checkpoint at the end of each step.
+
+Light and Dark preserve the classic documentation style. The optional Pixel theme, requested on 30 October 2026, adds a light-blue canvas, pastel accents, and crisp pixel-art details without changing the content or reading structure. A Light/Dark/Pixel radio group is separate from the English/German switch.
+
+A relaxed, carrot-free dog welcomes the reader beside the introduction. Small cameos sit within relevant content rather than repeating at every step: dice by idea selection, flowers at the documentation checkpoint, a duck by review, and a squirrel by upload verification. A different dog pose rests at the finish. Keep some sections quiet; keep all artwork static, decorative, responsive, and separate from prompts and controls.
 
 Avoid anything that looks like an adventure guide.
 

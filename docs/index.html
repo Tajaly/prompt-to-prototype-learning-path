@@ -16,7 +16,7 @@
 document.documentElement.className = 'js';
 try {
   const theme = localStorage.getItem('idea-to-first-github-project:theme:v1');
-  if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+  if (['light', 'dark', 'pixel'].includes(theme)) document.documentElement.dataset.theme = theme;
 } catch {
   document.documentElement.dataset.preferencesUnavailable = 'true';
 }
@@ -29,6 +29,7 @@ try {
 <!--
 THESIS: A calm, canonical documentation page for a live workshop: one readable column, a sticky step list that shows progress, and prompts you can copy exactly. It refuses gimmicks, adventure metaphors, and marketing gloss.
 OWN-WORLD: White page, near-black ink, one link blue, green only for done, amber only for placeholders and cautions; system sans, monospace only inside prompts and code; 1px hairlines, 12px radii, no decorative shadows.
+THEMES: Light and Dark retain the documentation style. The optional Pixel theme adds a light-blue canvas, pastel accents, and original pixel artwork without changing the guide.
 STORY: A beginner sees what they will build, how long it takes, and what done means; follows seven steps; copies each prompt; ticks each checkpoint; returns later and continues where they stopped.
 FIRST VIEWPORT: Slim top bar with the guide name; left sidebar with progress and the seven steps with times; main column with the title, subtitle, a four-item at-a-glance panel, the intro, and the workflow line.
 FORM: Canon (category standard), chosen by the owner over rolled candidate 4; seed c844f2d1; quality bar Stripe Docs, GOV.UK step-by-step, MDN.
@@ -48,19 +49,33 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4.5 9V4.5H9"/><path d="M15 4.5h4.5V9"/><path d="M19.5 15v4.5H15"/><path d="M9 19.5H4.5V15"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5a8.5 8.5 0 1 0 9.5 9.5Z"/></symbol>
+  <symbol id="i-pixel" viewBox="0 0 24 24"><path d="M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 0h7v7h-7z" fill="currentColor" stroke="none"/></symbol>
 </svg>
 <a class="skip-link" href="#main" data-i18n="skip-content">Skip to content</a>
 <header class="topbar">
 <div class="topbar-inner">
 <a class="brand" href="#overview">
 <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8"/><path d="M9.5 16.5l4.25 4.25L22.5 11"/></svg>
-<span class="brand-name" data-i18n="site-title">From idea to your first GitHub project</span>
+<span class="brand-name brand-name--full" data-i18n="site-title">From idea to your first GitHub project</span>
+<span class="brand-name brand-name--compact" data-i18n="short-title">Learning path</span>
 </a>
 <div class="topbar-actions">
 <a class="topbar-link" href="#sources" data-i18n="sources-link">Sources and credits</a>
-<button type="button" class="preference-button theme-toggle" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode" hidden>
-<svg class="icon" aria-hidden="true" focusable="false"><use data-theme-icon href="#i-moon"></use></svg>
-</button>
+<fieldset class="theme-options" data-theme-options hidden>
+<legend class="visually-hidden" data-theme-legend>Color theme</legend>
+<label class="theme-option">
+<input class="theme-choice-input visually-hidden" type="radio" name="guide-theme" value="light" data-theme-choice>
+<span class="theme-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg><span data-theme-label>Light</span></span>
+</label>
+<label class="theme-option">
+<input class="theme-choice-input visually-hidden" type="radio" name="guide-theme" value="dark" data-theme-choice>
+<span class="theme-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg><span data-theme-label>Dark</span></span>
+</label>
+<label class="theme-option">
+<input class="theme-choice-input visually-hidden" type="radio" name="guide-theme" value="pixel" data-theme-choice>
+<span class="theme-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pixel"></use></svg><span data-theme-label>Pixel</span></span>
+</label>
+</fieldset>
 <button type="button" class="preference-button language-toggle" data-language-toggle lang="de" aria-label="Auf Deutsch lesen" title="Auf Deutsch lesen" hidden>Deutsch</button>
 <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="sidebar" hidden>
 <svg class="icon nav-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-steps"></use></svg><span class="nav-toggle-label" data-i18n="steps-label">Steps</span><span class="nav-toggle-count" data-progress-badge>0/7</span>
