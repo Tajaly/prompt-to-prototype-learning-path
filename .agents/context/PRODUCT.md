@@ -54,7 +54,7 @@ The copy-ready prompts contain explicit boundaries, such as "do not commit, push
 - **Standing visual preference (owner, 23 September 2026):** on the guide page, the owner chose the category standard over a themed direction. That means a calm, conventional documentation page executed at full craft, with no gimmicks. At the owner's request, Copilot picked the quality bar: Stripe Docs, GOV.UK step-by-step guidance, and MDN Web Docs.
 - **Avoid (owner):** anything that looks like an adventure guide, such as trail maps, quests, or expedition styling.
 - **Optional theme (owner, 30 October 2026):** a third Pixel theme with a light-blue background, colorful accents, and pixel-art elements. Light and Dark stay available as separate classic themes; the language switch remains independent.
-- **Pixel character direction:** a playful, simplified dog based on the supplied reference, without a carrot or toy. Avoid repeated character rows; use a few content-related cameos with varied scale and placement. These are optional decorations, not gamification or changes to the teaching material.
+- **Pixel character direction:** a playful, simplified dog based on the supplied reference, without a carrot or toy. **IT theme (owner, 30 October 2026):** the dog is a programmer with glasses, headphones, and a laptop, and the cameos are IT objects (lightbulb, Markdown file, code-review magnifier, cloud upload) instead of animals, flowers, or dice. Avoid repeated character rows; use a few content-related cameos with varied scale and placement. These are optional decorations, not gamification or changes to the teaching material.
 
 ## Evidence on Hand
 

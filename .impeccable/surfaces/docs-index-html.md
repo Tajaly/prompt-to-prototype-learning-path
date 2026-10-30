@@ -36,9 +36,9 @@ The owner chose the category-standard documentation page on 23 September 2026. T
 
 The layout is a sticky step list with times and progress, one readable column, prompt blocks with a copy button, and a tickable checkpoint at the end of each step.
 
-Light and Dark preserve the classic documentation style. The optional Pixel theme, requested on 30 October 2026, adds a light-blue canvas, pastel accents, and crisp pixel-art details without changing the content or reading structure. A Light/Dark/Pixel radio group is separate from the English/German switch.
+Light and Dark preserve the classic documentation style. The optional Pixel theme, requested on 30 October 2026, adds a light-blue canvas, pastel accents, and crisp, IT-themed pixel-art details without changing the content or reading structure. A Light/Dark/Pixel radio group is separate from the English/German switch.
 
-A relaxed, carrot-free dog welcomes the reader beside the introduction. Small cameos sit within relevant content rather than repeating at every step: dice by idea selection, flowers at the documentation checkpoint, a duck by review, and a squirrel by upload verification. A different dog pose rests at the finish. Keep some sections quiet; keep all artwork static, decorative, responsive, and separate from prompts and controls.
+A programmer dog with glasses, headphones, and a `</>` laptop welcomes the reader beside the introduction. Small IT cameos sit within relevant content rather than repeating at every step: a lightbulb by idea selection, a Markdown file at the documentation checkpoint, a magnifier over `</>` by review, and a cloud upload by push verification. At the finish, the dog naps beside a laptop showing a check mark. Keep some sections quiet; keep all artwork static, decorative, responsive, and separate from prompts and controls.
 
 Avoid anything that looks like an adventure guide.
 
