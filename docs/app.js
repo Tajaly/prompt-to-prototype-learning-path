@@ -1,10 +1,13 @@
 // Progressive enhancement for the guide page: step navigation, copy buttons,
-// collapsible long prompts, and checkpoint progress saved in this browser only.
+// collapsible prompts, language, theme, and progress saved in this browser only.
 (() => {
   'use strict';
 
   const STORAGE_KEY = 'idea-to-first-github-project:checkpoints:v1';
+  const THEME_KEY = 'idea-to-first-github-project:theme:v1';
+  const LANGUAGE_KEY = 'idea-to-first-github-project:language:v1';
   const doc = document;
+  const root = doc.documentElement;
   const $ = (selector, root = doc) => root.querySelector(selector);
   const $$ = (selector, root = doc) => Array.from(root.querySelectorAll(selector));
 
@@ -17,7 +20,7 @@
     }, 50);
   }
 
-  /* Storage: only checkpoint ids are stored, and only in this browser. */
+  /* Storage stays local; changing preferences never clears checkpoints. */
 
   const storage = (() => {
     try {
@@ -29,6 +32,151 @@
       return null;
     }
   })();
+
+  const englishMessages = {
+    lightMode: 'Switch to light mode',
+    darkMode: 'Switch to dark mode',
+    lightEnabled: 'Light mode on.',
+    darkEnabled: 'Dark mode on.',
+    languageChanged: 'The guide is now in English.',
+    preferencesProblem: 'This browser cannot save your theme or language. Your choices work for this visit, but may reset when you reload.',
+    translationProblem: 'The German translation could not be loaded. Reload the page to try again.',
+    progressTotal: ' of {total} checkpoints done',
+    continueStep: 'Continue with step {step}',
+    resetProgress: 'Reset progress',
+    resetConfirm: 'Clear all ticked checkpoints in this browser?',
+    progressCleared: 'Progress cleared.',
+    copyPrompt: 'Copy prompt: {title}',
+    copy: 'Copy',
+    copied: 'Copied',
+    promptCopied: 'Prompt copied to the clipboard.',
+    manualCopy: 'Press {key}+C',
+    copyBlocked: 'Copying was blocked. The prompt is selected; press {key} plus C to copy it.',
+    showLess: 'Show less',
+    showFull: 'Show the full prompt ({lines} lines)',
+  };
+  const german = window.guideGerman;
+  let language = 'en';
+  let preferencesProblem = !storage || root.dataset.preferencesUnavailable === 'true';
+  let translationProblem = false;
+  const preferencesNote = $('[data-preferences-note]');
+
+  function t(key, values = {}) {
+    const message = language === 'de' ? german.messages[key] : englishMessages[key];
+    return message.replace(/\{(\w+)\}/g, (match, name) => String(values[name] ?? match));
+  }
+
+  function renderPreferenceNotice() {
+    if (!preferencesNote) return;
+    preferencesNote.textContent = [
+      preferencesProblem && t('preferencesProblem'),
+      translationProblem && t('translationProblem'),
+    ].filter(Boolean).join(' ');
+    preferencesNote.hidden = !preferencesProblem && !translationProblem;
+  }
+
+  function showPreferenceProblem() {
+    preferencesProblem = true;
+    renderPreferenceNotice();
+    announce(t('preferencesProblem'));
+  }
+
+  function loadPreference(key, allowed, fallback) {
+    if (!storage) return fallback;
+    try {
+      const value = storage.getItem(key);
+      if (value === null) return fallback;
+      if (allowed.includes(value)) return value;
+      console.warn(`Ignoring an invalid saved guide preference: ${key}`);
+    } catch {
+      showPreferenceProblem();
+    }
+    return fallback;
+  }
+
+  function savePreference(key, value) {
+    try {
+      if (!storage) {
+        showPreferenceProblem();
+        return;
+      }
+      storage.setItem(key, value);
+    } catch {
+      showPreferenceProblem();
+    }
+  }
+
+  const localizedContent = $$('[data-i18n]').map((element) => ({
+    element,
+    key: element.dataset.i18n,
+    english: element.innerHTML,
+  }));
+  const localizedAttributes = ['aria-label', 'alt', 'content'].flatMap((attribute) =>
+    $$(`[data-i18n-${attribute}]`).map((element) => ({
+      element,
+      attribute,
+      key: element.getAttribute(`data-i18n-${attribute}`),
+      english: element.getAttribute(attribute),
+    })));
+  const germanAvailable = german
+    && [...localizedContent, ...localizedAttributes].every(({ key }) => typeof german.content?.[key] === 'string')
+    && Object.keys(englishMessages).every((key) => typeof german.messages?.[key] === 'string');
+
+  function applyLanguage(nextLanguage) {
+    if (nextLanguage === 'de' && !germanAvailable) {
+      translationProblem = true;
+      console.error('The guide German translation is missing or incomplete.');
+      renderPreferenceNotice();
+      announce(t('translationProblem'));
+      return false;
+    }
+    language = nextLanguage;
+    localizedContent.forEach(({ element, key, english }) => {
+      // Only bundled, author-owned markup is used here, never input or remote HTML.
+      element.innerHTML = language === 'de' ? german.content[key] : english;
+    });
+    localizedAttributes.forEach(({ element, attribute, key, english }) => {
+      element.setAttribute(attribute, language === 'de' ? german.content[key] : english);
+    });
+    root.lang = language;
+    return true;
+  }
+
+  applyLanguage(loadPreference(LANGUAGE_KEY, ['en', 'de'], 'en'));
+
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+  let themePreference = loadPreference(THEME_KEY, ['light', 'dark'], null);
+  const themeToggle = $('[data-theme-toggle]');
+  const themeIcon = $('[data-theme-icon]');
+  const languageToggle = $('[data-language-toggle]');
+
+  function renderTheme() {
+    const theme = themePreference || (systemDark.matches ? 'dark' : 'light');
+    root.dataset.theme = theme;
+    if (themeToggle) {
+      const label = t(theme === 'dark' ? 'lightMode' : 'darkMode');
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.title = label;
+    }
+    if (themeIcon) themeIcon.setAttribute('href', theme === 'dark' ? '#i-sun' : '#i-moon');
+    $$('meta[name="theme-color"]').forEach((meta) => {
+      meta.content = theme === 'dark' ? '#101317' : '#ffffff';
+    });
+  }
+
+  if (themeToggle) {
+    themeToggle.hidden = false;
+    themeToggle.addEventListener('click', () => {
+      themePreference = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      renderTheme();
+      announce(t(themePreference === 'dark' ? 'darkEnabled' : 'lightEnabled'));
+      savePreference(THEME_KEY, themePreference);
+    });
+  }
+  systemDark.addEventListener('change', () => {
+    if (!themePreference) renderTheme();
+  });
+  renderTheme();
 
   function loadDone(validIds) {
     if (!storage) return [];
@@ -58,14 +206,17 @@
   const done = new Set(loadDone(ids));
 
   const countEl = $('[data-progress-count]');
+  const totalEl = $('[data-progress-total]');
   const fillEl = $('[data-progress-fill]');
   const badgeEl = $('[data-progress-badge]');
   const continueEl = $('[data-progress-continue]');
   const resetEl = $('[data-progress-reset]');
   const hintEl = $('[data-progress-hint]');
   const storageNoteEl = $('[data-storage-note]');
+  let progressStorageProblem = false;
 
   function showStorageProblem() {
+    progressStorageProblem = true;
     if (storageNoteEl) storageNoteEl.hidden = false;
     if (hintEl) hintEl.hidden = true;
   }
@@ -75,6 +226,7 @@
     const count = done.size;
 
     if (countEl) countEl.textContent = String(count);
+    if (totalEl) totalEl.textContent = t('progressTotal', { total });
     if (fillEl) fillEl.style.transform = `scaleX(${total ? count / total : 0})`;
     if (badgeEl) badgeEl.textContent = `${count}/${total}`;
 
@@ -95,14 +247,17 @@
       if (count > 0 && nextId) {
         const stepNumber = nextId.replace('step-', '');
         continueEl.href = `#${nextId}`;
-        continueEl.textContent = `Continue with step ${stepNumber}`;
+        continueEl.textContent = t('continueStep', { step: stepNumber });
         continueEl.hidden = false;
       } else {
         continueEl.hidden = true;
       }
     }
-    if (resetEl) resetEl.hidden = count === 0;
-    if (hintEl && storage) hintEl.hidden = count > 0;
+    if (resetEl) {
+      resetEl.hidden = count === 0;
+      resetEl.textContent = t('resetProgress');
+    }
+    if (hintEl) hintEl.hidden = progressStorageProblem || count > 0;
   }
 
   inputs.forEach((input) => {
@@ -117,14 +272,14 @@
 
   if (resetEl) {
     resetEl.addEventListener('click', () => {
-      if (!window.confirm('Clear all ticked checkpoints in this browser?')) return;
+      if (!window.confirm(t('resetConfirm'))) return;
       done.clear();
       inputs.forEach((input) => {
         input.checked = false;
       });
-      saveDone([]);
+      if (!saveDone([])) showStorageProblem();
       renderProgress();
-      announce('Progress cleared.');
+      announce(t('progressCleared'));
     });
   }
 
@@ -186,33 +341,41 @@
       window.clearTimeout(resetTimer);
       if (ok) {
         button.classList.add('is-copied');
-        label.textContent = 'Copied';
-        announce('Prompt copied to the clipboard.');
+        label.textContent = t('copied');
+        announce(t('promptCopied'));
       } else {
         selectText(code);
-        label.textContent = `Press ${modifierKey}+C`;
-        announce(`Copying was blocked. The prompt is selected; press ${modifierKey} plus C to copy it.`);
+        label.textContent = t('manualCopy', { key: modifierKey });
+        announce(t('copyBlocked', { key: modifierKey }));
       }
       resetTimer = window.setTimeout(() => {
         button.classList.remove('is-copied');
-        label.textContent = 'Copy';
+        label.textContent = t('copy');
       }, 2400);
     });
   });
 
   /* Long prompts start collapsed; copying always takes the full text. */
 
+  function renderPromptToggle(figure) {
+    const toggle = $('[data-prompt-toggle]', figure);
+    const label = $('[data-toggle-label]', figure);
+    const code = $('pre code', figure);
+    if (!toggle || !label || !code) return;
+    label.textContent = toggle.getAttribute('aria-expanded') === 'true'
+      ? t('showLess')
+      : t('showFull', { lines: code.textContent.split('\n').length });
+  }
+
   $$('[data-collapsible]').forEach((figure) => {
     const toggle = $('[data-prompt-toggle]', figure);
     const body = $('.prompt-body', figure);
     const label = $('[data-toggle-label]', figure);
     if (!toggle || !body || !label) return;
-    const lines = toggle.dataset.lines;
-
     function setExpanded(expanded) {
       body.classList.toggle('is-collapsed', !expanded);
       toggle.setAttribute('aria-expanded', String(expanded));
-      label.textContent = expanded ? 'Show less' : `Show the full prompt (${lines} lines)`;
+      renderPromptToggle(figure);
     }
 
     toggle.hidden = false;
@@ -316,6 +479,51 @@
       window.requestAnimationFrame(updateActive);
     }
   }
+
+  function renderLanguageControls() {
+    if (languageToggle) {
+      const isEnglish = language === 'en';
+      languageToggle.textContent = isEnglish ? 'Deutsch' : 'English';
+      languageToggle.lang = isEnglish ? 'de' : 'en';
+      const label = isEnglish ? 'Auf Deutsch lesen' : 'Read in English';
+      languageToggle.setAttribute('aria-label', label);
+      languageToggle.title = label;
+    }
+    $$('[data-prompt]').forEach((figure) => {
+      const button = $('[data-copy]', figure);
+      const label = $('[data-copy-label]', figure);
+      const title = $('.prompt-title', figure);
+      if (button && title) {
+        button.setAttribute('aria-label', t('copyPrompt', { title: title.textContent }));
+        button.classList.remove('is-copied');
+      }
+      if (label) label.textContent = t('copy');
+      renderPromptToggle(figure);
+    });
+    renderProgress();
+    renderTheme();
+    renderPreferenceNotice();
+  }
+
+  if (languageToggle) {
+    languageToggle.hidden = false;
+    languageToggle.addEventListener('click', () => {
+      const topbarBottom = $('.topbar').getBoundingClientRect().bottom;
+      const anchor = $$('[data-spy]').filter((element) => element.getBoundingClientRect().top <= topbarBottom + 24).pop();
+      const anchorId = anchor?.id;
+      const anchorTop = anchor?.getBoundingClientRect().top;
+      if (!applyLanguage(language === 'en' ? 'de' : 'en')) return;
+      renderLanguageControls();
+      if (anchorId) {
+        const newAnchor = doc.getElementById(anchorId);
+        if (newAnchor) window.scrollBy({ top: newAnchor.getBoundingClientRect().top - anchorTop, behavior: 'instant' });
+      }
+      requestUpdate();
+      announce(t('languageChanged'));
+      savePreference(LANGUAGE_KEY, language);
+    });
+  }
+  renderLanguageControls();
 
   if (sections.length) {
     window.addEventListener('scroll', requestUpdate, { passive: true });
