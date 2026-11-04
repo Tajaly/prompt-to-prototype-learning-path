@@ -42,7 +42,7 @@ The copy-ready prompts contain explicit boundaries, such as "do not commit, push
 
 - `README.md` remains the source of truth. The web page mirrors it, so any change to the guide must also be made to the page.
 - Prompts must be copied exactly as written.
-- The guide offers an English/German language switch and Light/Dark/Pixel theme choices. German includes the complete guide and prompts; the original English remains canonical. Both preferences are saved locally and do not reset checkpoint progress.
+- The guide offers an English/German language switch and Light/Dark/Pixel theme choices. German includes the complete guide and prompts, with a German-only du/Sie address toggle (du by default); the original English remains canonical. All three preferences are saved locally and do not reset checkpoint progress.
 - The repository is private and belongs to a personal account. GitHub Pages for a private repository requires a paid plan, and a published Pages site is public. Links from the site to repository files only work for visitors with repository access.
 - Undecided: the final public URL and whether the repository will become public.
 
