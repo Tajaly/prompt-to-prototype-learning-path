@@ -61,22 +61,33 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </a>
 <div class="topbar-actions">
 <a class="topbar-link" href="#sources" data-i18n="sources-link">Sources and credits</a>
-<fieldset class="theme-options" data-theme-options hidden>
+<fieldset class="preference-options theme-options" data-theme-options hidden>
 <legend class="visually-hidden" data-theme-legend>Color theme</legend>
-<label class="theme-option">
-<input class="theme-choice-input visually-hidden" type="radio" name="guide-theme" value="light" data-theme-choice>
-<span class="theme-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg><span data-theme-label>Light</span></span>
+<label class="preference-option">
+<input class="preference-choice-input visually-hidden" type="radio" name="guide-theme" value="light" data-theme-choice>
+<span class="preference-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg><span data-theme-label>Light</span></span>
 </label>
-<label class="theme-option">
-<input class="theme-choice-input visually-hidden" type="radio" name="guide-theme" value="dark" data-theme-choice>
-<span class="theme-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg><span data-theme-label>Dark</span></span>
+<label class="preference-option">
+<input class="preference-choice-input visually-hidden" type="radio" name="guide-theme" value="dark" data-theme-choice>
+<span class="preference-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg><span data-theme-label>Dark</span></span>
 </label>
-<label class="theme-option">
-<input class="theme-choice-input visually-hidden" type="radio" name="guide-theme" value="pixel" data-theme-choice>
-<span class="theme-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pixel"></use></svg><span data-theme-label>Pixel</span></span>
+<label class="preference-option">
+<input class="preference-choice-input visually-hidden" type="radio" name="guide-theme" value="pixel" data-theme-choice>
+<span class="preference-choice-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pixel"></use></svg><span data-theme-label>Pixel</span></span>
 </label>
 </fieldset>
 <button type="button" class="preference-button language-toggle" data-language-toggle lang="de" aria-label="Auf Deutsch lesen" title="Auf Deutsch lesen" hidden>Deutsch</button>
+<fieldset class="preference-options address-options" data-address-options lang="de" hidden>
+<legend class="visually-hidden">Anrede im Leitfaden</legend>
+<label class="preference-option" title="Duzen (informell)">
+<input class="preference-choice-input visually-hidden" type="radio" name="guide-address" value="du" data-address-choice>
+<span class="preference-choice-label">du</span>
+</label>
+<label class="preference-option" title="Siezen (formell)">
+<input class="preference-choice-input visually-hidden" type="radio" name="guide-address" value="sie" data-address-choice>
+<span class="preference-choice-label">Sie</span>
+</label>
+</fieldset>
 <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="sidebar" hidden>
 <svg class="icon nav-toggle-icon" aria-hidden="true" focusable="false"><use href="#i-steps"></use></svg><span class="nav-toggle-label" data-i18n="steps-label">Steps</span><span class="nav-toggle-count" data-progress-badge>0/7</span>
 </button>

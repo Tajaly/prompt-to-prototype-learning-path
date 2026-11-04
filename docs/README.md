@@ -6,22 +6,23 @@ On the web page:
 
 - The whole guide is on one page, with a step list that follows you as you scroll.
 - The header offers **Light / Dark / Pixel** theme choices and a separate **Deutsch / English** language button. The theme follows the operating system until you choose one; an explicit choice takes precedence and is restored on your next visit.
+- In German, a separate **du / Sie** toggle chooses informal or formal address. **du** is the default; **Sie** uses formal wording throughout the guide, prompts, placeholders, navigation, metadata, and feedback. The toggle is hidden in English, but the German choice is remembered when switching back.
 - **Pixel** is a third theme with a light-blue background, a warm accent on the goal panel, crisp IT-themed pixel artwork, and square step markers. Light and Dark keep their original palettes. All artwork is local; the guide still uses readable system fonts.
 - A black-and-white programmer dog, with glasses, headphones, and a laptop with a `</>` sticker, sits beside the introduction. Small, individually placed IT details replace repeated character rows: a lightbulb by idea selection, a Markdown file on the documentation checkpoint, a magnifier over code beside the review prompt, and a cloud upload by the push checks. Below the final checkpoint, the dog naps beside a laptop that shows a check mark. Some sections deliberately stay quiet; there is no mascot strip at every step.
 - These are static decorations, not extra tasks or controls; they do not appear in Light, Dark, or print.
-- The theme choices form a native radio group: Tab into it, then use the arrow keys to select a theme. The labels become **Hell / Dunkel / Pixel** in German.
+- The theme and address choices each form a native radio group: Tab into a group, then use the arrow keys to select an option. The theme labels become **Hell / Dunkel / Pixel** in German.
 - German covers the complete guide, all nine prompts, navigation, accessible labels, table labels, and feedback messages. Product control names, technical identifiers, file paths, links, and the original screenshots are preserved. Linked repository documents and external references are not translated by this switch.
-- Every copy-ready prompt has a **Copy / Kopieren** button that copies the full prompt in the selected language. The first prompt is collapsed until you expand it, with the line count calculated from its current text.
+- Every copy-ready prompt has a **Copy / Kopieren** button that copies the full prompt in the selected language and German address style. The first prompt is collapsed until you expand it, with the line count calculated from its current text.
 - Each step ends with a checkpoint you can tick. Ticks are saved **only in the learner's own browser** (`localStorage`), and progress shows in the step list. Nothing is sent anywhere. The page uses no analytics, web fonts, or other external requests.
-- Theme and language choices are also saved only in this browser, separately from checkpoints. Switching theme or language keeps your progress, expanded prompt, and reading position; resetting progress does not clear your preferences. If storage is blocked or full, the page explains that changes may not survive a reload.
+- Theme, language, and German address choices are also saved only in this browser, separately from checkpoints. Switching any preference keeps your progress, expanded prompt, and reading position; resetting progress does not clear your preferences. If storage is blocked or full, the page explains that changes may not survive a reload.
 - Screenshot credits and sources appear at the end of the page, as `SOURCES.md` requires.
 
 | File | Purpose |
 |---|---|
 | `index.html` | The page content, mirrored from `README.md` and `SOURCES.md`. |
 | `styles.css` | Layout, Light/Dark/Pixel palettes, and a quiet print style for paper handouts. |
-| `app.js` | Theme and language switching, copy buttons, the collapsible prompt, checkpoint progress, and step navigation. |
-| `i18n-de.js` | Bundled German content and interface messages, keyed by the `data-i18n` markers in `index.html`. No translation service or network API is used. |
+| `app.js` | Theme, language, and German address switching, copy buttons, the collapsible prompt, checkpoint progress, and step navigation. |
+| `i18n-de.js` | Bundled German content and interface messages in authored `du` and `sie` catalogs, keyed by the `data-i18n` markers in `index.html`. No translation service or network API is used. |
 | `favicon.svg` | The browser tab icon. |
 | `assets/` | Copies of the repository screenshots. |
 | `assets/pixel-friends/` | Six transparent sprites: the coding and napping programmer dogs (52×64 and 84×34 pixels) and four 24×24 IT icons: a lightbulb, a Markdown file, a code-review magnifier, and a cloud upload. Each is placed once. The cartoon dog was generated from a supplied reference; the original photo is not included in the repository. |
@@ -62,7 +63,7 @@ Check these points before you publish:
 - If you change a prompt, keep the text inside the matching `<pre class="prompt-body"><code>` block word for word identical to the README. The **Copy** button copies exactly that text. Write `<`, `>`, and `&` as `&lt;`, `&gt;`, and `&amp;`.
 - If you replace or add a screenshot in `assets/`, copy it into `docs/assets/` too.
 - If you add or rename a step or subsection, update the step list in the sidebar of `index.html` as well.
-- Keep `i18n-de.js` in sync with changed guide text and prompts. Preserve section IDs, link destinations, technical identifiers, and placeholder highlighting in the German markup.
+- Keep both address styles in `i18n-de.js` in sync with changed guide text and prompts. Use `address(du, sie)` for text that changes, with correctly conjugated sentences rather than automatic pronoun replacement; neutral text is shared. Preserve section IDs, link destinations, technical identifiers, and placeholder highlighting in both variants.
 - Translation markers belong on static content, not containers holding controls or other translation markers. The script keeps the original English markup and translates content in place without replacing interactive controls.
 - Include translations for accessible attributes with `data-i18n-aria-label`, `data-i18n-alt`, and `data-i18n-content`. Keep English runtime messages in `app.js` and German runtime messages in `i18n-de.js` aligned; an incomplete catalog leaves the guide in English with a visible error rather than a mixed-language page.
 - Keep artwork decorative: apply it through empty CSS pseudo-elements in Pixel mode, without adding text to headings, prompts, or accessible labels. Use nearest-neighbor scaling and transparent backgrounds, and size each box at exactly twice the sprite's pixel dimensions so every art pixel stays a crisp square. Place an IT-themed illustration only where it relates to the content; do not add a repeated illustration strip when adding a step.
@@ -72,7 +73,8 @@ Check these points before you publish:
 Use the same local address and port when reloading:
 
 1. With no saved theme, confirm that the page follows your system theme. Select each of Light, Dark, and Pixel and reload; the manual choice should win over the system setting, including Pixel on a dark system.
-2. Switch to German and check the introduction, all seven steps, sources, image descriptions, and mobile table labels. Copy a collapsed prompt and confirm the full German text is copied. Switch back and confirm the original English text returns.
-3. Tick a checkpoint, expand the first prompt, and switch languages. The checkpoint and expanded state should remain. Reload to check saved language, theme, and checkpoints; reset progress and confirm the two preferences remain.
-4. Check both languages and all three themes at 375px and desktop widths, including the mobile steps sheet, keyboard focus, arrow-key theme selection, and print preview. Confirm that the introduction and small cameos fit without covering text or controls, and completed step numbers still turn green. Pixel artwork should not appear in Light, Dark, or print.
+2. Switch to German with no saved address choice and confirm **du** is selected. Check the introduction, all seven steps, sources, image descriptions, and mobile table labels. Select **Sie** and confirm titles, instructions, prompts, placeholders, and feedback use formal address. Copy a collapsed prompt in each style and confirm its full text is copied. Switch to English and confirm the original English text returns and the address toggle disappears; return to German and confirm **Sie** remains selected.
+3. Tick a checkpoint, expand the first prompt, and switch language and address style while partway through the guide. The checkpoint, expanded state, and reading position should remain. Reload to check saved language, address, theme, and checkpoints; reset progress and confirm all three preferences remain.
+4. Check English and both German styles in all three themes at 375px, tablet, and desktop widths, including the mobile steps sheet, keyboard focus, arrow-key selection in both radio groups, and print preview. Confirm that header controls and illustrations fit without covering text or each other, and completed step numbers still turn green. Pixel artwork should not appear in Light, Dark, or print.
 5. With browser storage unavailable, confirm that the preference controls still work for the current visit and that storage warnings appear. With JavaScript disabled, confirm the English guide and expanded prompts remain readable.
+6. With an invalid saved address value, confirm the guide uses **du** rather than breaking. With a missing or incomplete translation catalog, confirm that selecting it leaves the current content and radio selection intact and displays a translation error; an unavailable saved German variant leaves the readable English guide visible.

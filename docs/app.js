@@ -1,11 +1,12 @@
 // Progressive enhancement for the guide page: step navigation, copy buttons,
-// collapsible prompts, language, theme, and progress saved in this browser only.
+// collapsible prompts, language, German address, theme, and locally saved progress.
 (() => {
   'use strict';
 
   const STORAGE_KEY = 'idea-to-first-github-project:checkpoints:v1';
   const THEME_KEY = 'idea-to-first-github-project:theme:v1';
   const LANGUAGE_KEY = 'idea-to-first-github-project:language:v1';
+  const ADDRESS_KEY = 'idea-to-first-github-project:german-address:v1';
   const THEMES = { light: '#ffffff', dark: '#101317', pixel: '#eaf6ff' };
   const doc = document;
   const root = doc.documentElement;
@@ -43,7 +44,8 @@
     darkEnabled: 'Dark mode on.',
     pixelEnabled: 'Pixel theme on.',
     languageChanged: 'The guide is now in English.',
-    preferencesProblem: 'This browser cannot save your theme or language. Your choices work for this visit, but may reset when you reload.',
+    addressChanged: 'Form of address changed.',
+    preferencesProblem: 'This browser cannot save your theme, language, or form of address. Your choices work for this visit, but may reset when you reload.',
     translationProblem: 'The German translation could not be loaded. Reload the page to try again.',
     progressTotal: ' of {total} checkpoints done',
     continueStep: 'Continue with step {step}',
@@ -61,12 +63,13 @@
   };
   const german = window.guideGerman;
   let language = 'en';
+  let germanAddress = 'du';
   let preferencesProblem = !storage || root.dataset.preferencesUnavailable === 'true';
   let translationProblem = false;
   const preferencesNote = $('[data-preferences-note]');
 
   function t(key, values = {}) {
-    const message = language === 'de' ? german.messages[key] : englishMessages[key];
+    const message = language === 'de' ? german[germanAddress].messages[key] : englishMessages[key];
     return message.replace(/\{(\w+)\}/g, (match, name) => String(values[name] ?? match));
   }
 
@@ -122,12 +125,15 @@
       key: element.getAttribute(`data-i18n-${attribute}`),
       english: element.getAttribute(attribute),
     })));
-  const germanAvailable = german
-    && [...localizedContent, ...localizedAttributes].every(({ key }) => typeof german.content?.[key] === 'string')
-    && Object.keys(englishMessages).every((key) => typeof german.messages?.[key] === 'string');
+  function hasGermanTranslation(address) {
+    const catalog = german?.[address];
+    return catalog
+      && [...localizedContent, ...localizedAttributes].every(({ key }) => typeof catalog.content?.[key] === 'string')
+      && Object.keys(englishMessages).every((key) => typeof catalog.messages?.[key] === 'string');
+  }
 
-  function applyLanguage(nextLanguage) {
-    if (nextLanguage === 'de' && !germanAvailable) {
+  function applyLanguage(nextLanguage, nextAddress = germanAddress) {
+    if (nextLanguage === 'de' && !hasGermanTranslation(nextAddress)) {
       translationProblem = true;
       console.error('The guide German translation is missing or incomplete.');
       renderPreferenceNotice();
@@ -135,17 +141,21 @@
       return false;
     }
     language = nextLanguage;
+    germanAddress = nextAddress;
+    translationProblem = false;
+    const catalog = german?.[germanAddress];
     localizedContent.forEach(({ element, key, english }) => {
       // Only bundled, author-owned markup is used here, never input or remote HTML.
-      element.innerHTML = language === 'de' ? german.content[key] : english;
+      element.innerHTML = language === 'de' ? catalog.content[key] : english;
     });
     localizedAttributes.forEach(({ element, attribute, key, english }) => {
-      element.setAttribute(attribute, language === 'de' ? german.content[key] : english);
+      element.setAttribute(attribute, language === 'de' ? catalog.content[key] : english);
     });
     root.lang = language;
     return true;
   }
 
+  germanAddress = loadPreference(ADDRESS_KEY, ['du', 'sie'], 'du');
   applyLanguage(loadPreference(LANGUAGE_KEY, ['en', 'de'], 'en'));
 
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -154,6 +164,8 @@
   const themeLegend = $('[data-theme-legend]');
   const themeChoices = $$('[data-theme-choice]');
   const languageToggle = $('[data-language-toggle]');
+  const addressOptions = $('[data-address-options]');
+  const addressChoices = $$('[data-address-choice]');
 
   function renderTheme() {
     const theme = themePreference || (systemDark.matches ? 'dark' : 'light');
@@ -511,6 +523,10 @@
       languageToggle.setAttribute('aria-label', label);
       languageToggle.title = label;
     }
+    if (addressOptions) addressOptions.hidden = language !== 'de';
+    addressChoices.forEach((choice) => {
+      choice.checked = choice.value === germanAddress;
+    });
     $$('[data-prompt]').forEach((figure) => {
       const button = $('[data-copy]', figure);
       const label = $('[data-copy-label]', figure);
@@ -538,6 +554,20 @@
       savePreference(LANGUAGE_KEY, language);
     });
   }
+  addressChoices.forEach((choice) => {
+    choice.addEventListener('change', () => {
+      if (language !== 'de' || !choice.checked || choice.value === germanAddress) return;
+      if (!keepReadingPosition(() => {
+        if (!applyLanguage(language, choice.value)) return false;
+        renderLanguageControls();
+      })) {
+        renderLanguageControls();
+        return;
+      }
+      announce(t('addressChanged'));
+      savePreference(ADDRESS_KEY, germanAddress);
+    });
+  });
   renderLanguageControls();
 
   if (sections.length) {

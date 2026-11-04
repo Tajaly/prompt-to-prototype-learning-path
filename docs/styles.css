@@ -140,7 +140,11 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-padding-top: calc(var(--topbar-h) + 1.25rem);
+}
+
+/* Offset anchors, not the viewport: sticky controls must not scroll on focus. */
+[id] {
+  scroll-margin-top: calc(var(--topbar-h) + 1.25rem);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -357,7 +361,7 @@ button {
   background: var(--bg-subtle);
 }
 
-.theme-options {
+.preference-options {
   display: inline-flex;
   flex: none;
   align-items: center;
@@ -369,13 +373,13 @@ button {
   background: var(--bg-inset);
 }
 
-.theme-option {
+.preference-option {
   position: relative;
   display: flex;
   cursor: pointer;
 }
 
-.theme-choice-label {
+.preference-choice-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -391,22 +395,22 @@ button {
   white-space: nowrap;
 }
 
-.theme-choice-label .icon {
+.preference-choice-label .icon {
   width: 1rem;
   height: 1rem;
 }
 
-.theme-option:hover .theme-choice-label {
+.preference-option:hover .preference-choice-label {
   background: var(--bg-subtle);
 }
 
-.theme-choice-input:checked + .theme-choice-label {
+.preference-choice-input:checked + .preference-choice-label {
   border-color: var(--accent);
   background: var(--accent-soft);
   color: var(--accent);
 }
 
-.theme-choice-input:focus-visible + .theme-choice-label {
+.preference-choice-input:focus-visible + .preference-choice-label {
   outline: 2px solid var(--focus);
   outline-offset: 1px;
 }
@@ -1562,7 +1566,7 @@ code {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 48rem) {
   :root {
     --topbar-h: 7.75rem;
   }
@@ -1596,6 +1600,29 @@ code {
   .nav-toggle {
     grid-area: 1 / 2;
     justify-self: end;
+  }
+
+  :root[lang="de"] .topbar-inner {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+  }
+
+  :root[lang="de"] .language-toggle {
+    grid-area: 1 / 2;
+  }
+
+  :root[lang="de"] .nav-toggle {
+    grid-area: 1 / 3;
+  }
+
+  .address-options {
+    grid-area: 2 / 3;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 40rem) {
+  :root[lang="de"] .nav-toggle-icon {
+    display: none;
   }
 
   .glance {
@@ -1642,7 +1669,11 @@ code {
 }
 
 @media (max-width: 22rem) {
-  .theme-choice-label .icon {
+  .preference-choice-label .icon {
+    display: none;
+  }
+
+  :root[lang="de"] .brand-mark {
     display: none;
   }
 }
